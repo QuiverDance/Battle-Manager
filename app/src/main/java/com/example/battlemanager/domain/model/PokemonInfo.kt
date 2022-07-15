@@ -1,7 +1,7 @@
 package com.example.battlemanager.domain.model
 
 data class PokemonInfo(
-    val pokeDexId : Int,
+    val dexId : Int,
     val name : String,
     val imageUrl : String,
     val typeList : List<Int>,
