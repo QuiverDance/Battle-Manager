@@ -5,7 +5,8 @@ data class PokemonInfo(
     val name : String,
     val imageUrl : String,
     val typeList : List<Int>,
-    val validAbilityList : List<Int>,
-    val validGenderList : List<String>,
-    val weight : Float
+    val validAbilityList : List<String>,
+    val validGender : Int,
+    val weight : Float,
+    val baseStats: BaseStats
 )

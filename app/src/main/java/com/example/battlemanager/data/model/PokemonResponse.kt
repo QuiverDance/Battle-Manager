@@ -7,7 +7,8 @@ data class PokemonResponse(
     @SerializedName("name")val name : String,
     @SerializedName("imageUrl")val imageUrl : String,
     @SerializedName("typeList")val typeList : List<Int>,
-    @SerializedName("validAbilityList")val validAbilityList : List<Int>,
-    @SerializedName("validGenderList")val validGenderList : List<String>,
-    @SerializedName("weight")val weight : Float
+    @SerializedName("validAbilityList")val validAbilityList : List<String>,
+    @SerializedName("validGender")val validGender : Int,
+    @SerializedName("weight")val weight : Float,
+    @SerializedName("baseStats")val baseStats: BaseStats
 )

@@ -1,6 +1,7 @@
 package com.example.battlemanager.data.mapper
 
 import com.example.battlemanager.data.model.PokemonResponse
+import com.example.battlemanager.domain.model.BaseStats
 import com.example.battlemanager.domain.model.PokemonInfo
 
 object PokemonMapper {
@@ -11,8 +12,16 @@ object PokemonMapper {
             imageUrl = pokemonResponse.imageUrl,
             typeList = pokemonResponse.typeList,
             validAbilityList = pokemonResponse.validAbilityList,
-            validGenderList = pokemonResponse.validGenderList,
-            weight = pokemonResponse.weight
+            validGender = pokemonResponse.validGender,
+            weight = pokemonResponse.weight,
+            baseStats = BaseStats(
+                H = pokemonResponse.baseStats.H,
+                A = pokemonResponse.baseStats.A,
+                B = pokemonResponse.baseStats.B,
+                C = pokemonResponse.baseStats.C,
+                D = pokemonResponse.baseStats.D,
+                S = pokemonResponse.baseStats.S,
+            )
         )
     }
     fun mapperToPokemonResponse(pokemonInfo: PokemonInfo) : PokemonResponse{
@@ -22,8 +31,16 @@ object PokemonMapper {
             imageUrl = pokemonInfo.imageUrl,
             typeList = pokemonInfo.typeList,
             validAbilityList = pokemonInfo.validAbilityList,
-            validGenderList = pokemonInfo.validGenderList,
-            weight = pokemonInfo.weight
+            validGender = pokemonInfo.validGender,
+            weight = pokemonInfo.weight,
+            baseStats = com.example.battlemanager.data.model.BaseStats(
+                H = pokemonInfo.baseStats.H,
+                A = pokemonInfo.baseStats.A,
+                B = pokemonInfo.baseStats.B,
+                C = pokemonInfo.baseStats.C,
+                D = pokemonInfo.baseStats.D,
+                S = pokemonInfo.baseStats.S,
+            )
         )
     }
 
