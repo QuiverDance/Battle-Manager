@@ -5,6 +5,8 @@ data class MoveInfo(
     val name : String,
     val power : Int,
     val type : String,
+    val category : String,
     val accuracy : Int,
     val description : String,
+    val isEffect : Boolean
 )
