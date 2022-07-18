@@ -1,4 +1,4 @@
-package com.example.battlemanager.data.model
+package com.example.battlemanager.domain.model
 
 data class EffortValues (
     val H : Int,
