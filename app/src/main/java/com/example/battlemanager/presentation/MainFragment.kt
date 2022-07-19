@@ -36,4 +36,8 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
             })
         }
     }
+
+    fun setSpinner(){
+
+    }
 }
