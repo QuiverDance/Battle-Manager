@@ -16,6 +16,6 @@ class Pokemon(private val pokemonInfo: PokemonInfo) {
     private var statusAbnormality = StatusAbnormality.None
     
     fun attack(other : Pokemon){
-        // TODO: 나중에 구현 
+        // TODO: 나중에 구현
     }
 }
