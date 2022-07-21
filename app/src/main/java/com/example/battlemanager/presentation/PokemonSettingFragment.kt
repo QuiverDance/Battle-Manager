@@ -13,7 +13,7 @@ class PokemonSettingFragment : BaseFragment<FragmentPokemonSettingBinding>() {
         super.initDataBinding()
         setSpinner()
     }
-    fun setSpinner(){
+    private fun setSpinner(){
         val genderAdapter = ArrayAdapter<String>(requireContext(), androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, arrayOf("남", "여"))
         genderAdapter.setDropDownViewResource(androidx.appcompat.R.layout.support_simple_spinner_dropdown_item)
         binding.genderSpinner.adapter = genderAdapter
