@@ -4,7 +4,7 @@ import com.example.battlemanager.domain.model.FilterItem
 import com.example.battlemanager.domain.model.PokemonInfo
 import com.example.battlemanager.domain.repository.PokemonRepository
 
-class GetPokemonNameListUseCase(private val repository: PokemonRepository) {
+class GetPokemonNameListUseCase() {
     suspend fun invoke() : List<FilterItem>{
         val pokemons = listOf(
             FilterItem(1, "", "1.이상해씨"), FilterItem(2, "", "2.이상해풀"), FilterItem(3, "", "3.이상해꽃"),

@@ -5,7 +5,7 @@ import com.example.battlemanager.domain.model.FilterItem
 import com.example.battlemanager.domain.model.PokemonInfo
 import com.example.battlemanager.domain.repository.PokemonRepository
 
-class GetPokemonInfoUseCase(private val repository: PokemonRepository) {
+class GetPokemonInfoUseCase() {
     suspend fun invoke(id : Int) : PokemonInfo{
         val pokemons = listOf(
             PokemonInfo(1, 1, "이상해씨", "", listOf("풀", "독"), listOf("심록"), 3, 5f, BaseStats(50, 50, 50, 50, 50, 50)),
@@ -19,6 +19,6 @@ class GetPokemonInfoUseCase(private val repository: PokemonRepository) {
             PokemonInfo(9, 9, "거북왕", "", listOf("물"), listOf("급류"), 3, 5f, BaseStats(50, 50, 50, 50, 50, 50)),
         )
         //return repository.getPokemonInfo(id)
-        return pokemons[id]
+        return pokemons[id-1]
     }
 }
