@@ -7,6 +7,7 @@ import com.example.battlemanager.domain.model.PokemonInfo
 object PokemonMapper {
     fun mapperToPokemonInfo(pokemonResponse: PokemonResponse) : PokemonInfo{
         return PokemonInfo(
+            id = pokemonResponse.id,
             dexId = pokemonResponse.dexId,
             name = pokemonResponse.name,
             imageUrl = pokemonResponse.imageUrl,
@@ -26,6 +27,7 @@ object PokemonMapper {
     }
     fun mapperToPokemonResponse(pokemonInfo: PokemonInfo) : PokemonResponse{
         return PokemonResponse(
+            id = pokemonInfo.id,
             dexId = pokemonInfo.dexId,
             name = pokemonInfo.name,
             imageUrl = pokemonInfo.imageUrl,
