@@ -45,7 +45,8 @@
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/horizontal_margin">
+                        android:layout_marginStart="@dimen/horizontal_margin"
+                        android:layout_weight="1">
                         <ImageView
                             android:id="@+id/pokemonInfo_1_img"
                             android:layout_width="30dp"
@@ -78,21 +79,21 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="6dp"
-                            android:text="타입1"
+                            android:text=""
                             app:layout_constraintStart_toEndOf="@id/pokemon_1_img"
                             app:layout_constraintBottom_toBottomOf="@id/pokemon_1_img"/>
                         <TextView
                             android:id="@+id/pokemon_1_type_2_text"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="타입2"
+                            android:text=""
                             app:layout_constraintBottom_toBottomOf="@id/pokemon_1_type_1_text"
                             app:layout_constraintStart_toEndOf="@id/pokemon_1_type_1_text"/>
                         <TextView
                             android:id="@+id/pokemon_1_name_text"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@{viewModel.pokemon1.itemName}"
+                            android:text="@{viewModel.pokemon1.name}"
                             android:layout_marginStart="10dp"
                             android:layout_marginTop="8dp"
                             android:layout_marginBottom="10dp"
@@ -101,13 +102,13 @@
                             app:layout_constraintBottom_toBottomOf="parent"/>
                     </androidx.constraintlayout.widget.ConstraintLayout>
                     <View
-                        android:layout_width="0dp"
-                        android:layout_height="0dp"
-                        android:layout_weight="1"/>
+                        android:layout_width="30dp"
+                        android:layout_height="0dp" />
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="@dimen/horizontal_margin">
+                        android:layout_marginEnd="@dimen/horizontal_margin"
+                        android:layout_weight="1">
                         <ImageView
                             android:id="@+id/pokemonInfo_2_img"
                             android:layout_width="30dp"
@@ -123,6 +124,7 @@
                             android:layout_height="30dp"
                             android:background="@color/grad_8"
                             android:layout_marginEnd="6dp"
+                            android:onClick="@{()->viewModel.startPokemon2()}"
                             app:layout_constraintTop_toTopOf="@id/pokemonInfo_2_img"
                             app:layout_constraintEnd_toEndOf="parent"/>
                         <ImageView
@@ -139,21 +141,21 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="6dp"
-                            android:text="타입1"
+                            android:text=""
                             app:layout_constraintStart_toEndOf="@id/pokemon_2_img"
                             app:layout_constraintBottom_toBottomOf="@id/pokemon_2_img"/>
                         <TextView
                             android:id="@+id/pokemon_2_type_2_text"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="타입2"
+                            android:text=""
                             app:layout_constraintBottom_toBottomOf="@id/pokemon_2_type_1_text"
                             app:layout_constraintStart_toEndOf="@id/pokemon_2_type_1_text"/>
                         <TextView
                             android:id="@+id/pokemon_2_name_text"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="포켓몬1"
+                            android:text="@{viewModel.pokemon2.name}"
                             android:layout_marginStart="10dp"
                             android:layout_marginTop="8dp"
                             android:layout_marginBottom="10dp"
