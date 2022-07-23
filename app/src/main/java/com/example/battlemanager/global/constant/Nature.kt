@@ -27,6 +27,6 @@ class Nature {
         const val DOCILE = 22
         const val QUIRKY = 23
         const val SERIOUS = 24
-        const val NONE = 25
+        const val NULL = -1
     }
 }
