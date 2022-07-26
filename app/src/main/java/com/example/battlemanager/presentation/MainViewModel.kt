@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.battlemanager.domain.model.FilterItem
+import com.example.battlemanager.domain.model.Pokemon
 import com.example.battlemanager.domain.model.PokemonInfo
 import com.example.battlemanager.domain.usecase.pokemon.GetPokemonInfoUseCase
 import com.example.battlemanager.domain.usecase.pokemon.GetPokemonNameListUseCase
@@ -13,42 +14,16 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class MainViewModel(
-    private val getPokemonInfoUseCase: GetPokemonInfoUseCase = GetPokemonInfoUseCase(),
-    private val getPokemonNameListUseCase: GetPokemonNameListUseCase = GetPokemonNameListUseCase()
-) : ViewModel() {
+class MainViewModel : ViewModel() {
 
-    private val _pokemon1 = MutableLiveData<PokemonInfo>(null)
-    val pokemon1: LiveData<PokemonInfo> get() =_pokemon1
-    fun getPokemon1(id : Int){
-        viewModelScope.launch {
-            val pokemon = withContext(Dispatchers.IO){
-                getPokemonInfoUseCase.invoke(id)
-            }
-            _pokemon1.value = pokemon
-        }
-    }
-    private val _pokemon2 = MutableLiveData<PokemonInfo>(null)
-    val pokemon2: LiveData<PokemonInfo> get() =_pokemon2
-    fun getPokemon2(id : Int){
-        viewModelScope.launch {
-            val pokemon = withContext(Dispatchers.IO){
-                getPokemonInfoUseCase.invoke(id)
-            }
-            _pokemon2.value = pokemon
-        }
-    }
+    private val _pokemon1 = MutableLiveData<Pokemon>(Pokemon())
+    private val _pokemon2 = MutableLiveData<Pokemon>(Pokemon())
+    val pokemon1: LiveData<Pokemon> get() =_pokemon1
+    val pokemon2: LiveData<Pokemon> get() =_pokemon2
 
-    private val _pokemonNameList = MutableLiveData<List<FilterItem>>(null)
-    val pokemonNameList : LiveData<List<FilterItem>> get() = _pokemonNameList
-
-    fun getPokemonNameList(){
-        viewModelScope.launch {
-            val nameList = withContext(Dispatchers.IO){
-                getPokemonNameListUseCase.invoke()
-            }
-            _pokemonNameList.value = nameList
-        }
+    fun setPokemon(pokemon: Pokemon, target: Int){
+        if(target == 1) _pokemon1.postValue(pokemon)
+        else _pokemon2.postValue(pokemon)
     }
 
     val startPokemon1 = SingleLiveEvent<Any>()
