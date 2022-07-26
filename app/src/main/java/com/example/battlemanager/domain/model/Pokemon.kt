@@ -9,11 +9,11 @@ class Pokemon(private val pokemonInfo: PokemonInfo) {
     private lateinit var ability : Item
     private lateinit var item : Item
     private val moves = mutableListOf<Move>()
-    private var nature = Nature.NONE
+    private var nature = Nature.NULL
     private var effortValues = EffortValues(0, 0, 0, 0,0, 0)
     private var individualValues = IndividualValues(IndividualValue.L,IndividualValue.L,IndividualValue.L,IndividualValue.L,IndividualValue.L,IndividualValue.L)
     private var rankStates = RankStates(0, 0, 0, 0, 0, 0, 0, 0)
-    private var statusAbnormality = StatusAbnormality.None
+    private var statusAbnormality = StatusAbnormality.NULL
     
     fun attack(other : Pokemon){
         // TODO: 나중에 구현
