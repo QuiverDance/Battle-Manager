@@ -6,18 +6,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".presentation.MainActivity">
-        <androidx.fragment.app.FragmentContainerView
-            android:id="@+id/fragment_container_view"
-            android:name="com.example.battlemanager.presentation.MainFragment"
-            android:tag="AFragment"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
 
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/fragmentContainerView"
             android:name="androidx.navigation.fragment.NavHostFragment"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             app:defaultNavHost="true"
             app:navGraph="@navigation/main_nav"
             app:layout_constraintBottom_toBottomOf="parent"/>
