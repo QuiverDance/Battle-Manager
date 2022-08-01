@@ -3,7 +3,9 @@ package com.example.battlemanager.presentation
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.SeekBar
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.example.battlemanager.R
 import com.example.battlemanager.databinding.FragmentPokemonSettingBinding
 import com.example.battlemanager.domain.model.FilterItem
@@ -31,6 +33,9 @@ class PokemonSettingFragment: BaseFragment<FragmentPokemonSettingBinding>() {
         viewModel.startSetSpinner.observe(this){
             setSpinner()
         }
+        viewModel.startComplete.observe(this){
+            findNavController().navigateUp()
+        }
     }
     private fun setSpinner(){
         val genderList = GenderUtil.getGenderList(viewModel.pokemonInfo.value!!.validGender)
@@ -48,12 +53,13 @@ class PokemonSettingFragment: BaseFragment<FragmentPokemonSettingBinding>() {
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
-                viewModel.setGender(Gender.NULL)
+                viewModel.setGender(GenderUtil.getGenderId(genderList[0]))
             }
 
         }
 
-        val abilityAdapter = ArrayAdapter(requireContext(), androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, viewModel.pokemonInfo.value!!.validAbilityList)
+        val abilityList = viewModel.pokemonInfo.value!!.validAbilityList
+        val abilityAdapter = ArrayAdapter(requireContext(), androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, abilityList)
         abilityAdapter.setDropDownViewResource(androidx.appcompat.R.layout.support_simple_spinner_dropdown_item)
         binding.abilitySpinner.adapter = abilityAdapter
         binding.abilitySpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
@@ -63,13 +69,30 @@ class PokemonSettingFragment: BaseFragment<FragmentPokemonSettingBinding>() {
                 position: Int,
                 id: Long
             ) {
+                viewModel.setAbility(abilityList[position])
                 return
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
-
+                viewModel.setAbility(abilityList[0])
             }
 
         }
+    }
+    fun setSeekBar(){
+        //레벨, H종족값, 노력치, 개체값에 의해 최대 값 변경
+
+//        binding.hpSeekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener{
+//            override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
+//            }
+//
+//            override fun onStartTrackingTouch(seekBar: SeekBar?) {
+//            }
+//
+//            override fun onStopTrackingTouch(seekBar: SeekBar?) {
+//
+//            }
+//
+//        })
     }
 }

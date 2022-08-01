@@ -16,8 +16,8 @@ import kotlinx.coroutines.withContext
 
 class MainViewModel : ViewModel() {
 
-    private val _pokemon1 = MutableLiveData<Pokemon>(Pokemon())
-    private val _pokemon2 = MutableLiveData<Pokemon>(Pokemon())
+    private val _pokemon1 = MutableLiveData<Pokemon>()
+    private val _pokemon2 = MutableLiveData<Pokemon>()
     val pokemon1: LiveData<Pokemon> get() =_pokemon1
     val pokemon2: LiveData<Pokemon> get() =_pokemon2
 

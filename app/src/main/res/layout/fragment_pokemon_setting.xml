@@ -72,12 +72,16 @@
             android:layout_marginStart="@dimen/horizontal_margin"
             app:layout_constraintTop_toBottomOf="@id/profile_line"
             app:layout_constraintStart_toStartOf="parent"/>
-        <ProgressBar
-            android:id="@+id/hp_progressBar"
+        <SeekBar
+            android:id="@+id/hp_seekBar"
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:layout_marginHorizontal="@dimen/horizontal_margin"
             style="?android:attr/progressBarStyleHorizontal"
+            android:thumb="@drawable/seekbar_thumb"
+            android:progressDrawable="@drawable/seekbar_progress"
+            android:splitTrack="false"
+            android:progress="@={viewModel.hp}"
             app:layout_constraintTop_toBottomOf="@id/hp_text" />
         <LinearLayout
             android:id="@+id/layout_1"
@@ -86,22 +90,19 @@
             android:orientation="horizontal"
             android:layout_marginTop="6dp"
             android:layout_marginHorizontal="@dimen/horizontal_margin"
-            app:layout_constraintTop_toBottomOf="@id/hp_progressBar">
+            app:layout_constraintTop_toBottomOf="@id/hp_seekBar">
             <TextView
                 android:id="@+id/level_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="레벨"
                 android:textSize="18sp"
-                android:layout_gravity="center"
-                app:layout_constraintTop_toBottomOf="@id/hp_progressBar"
-                app:layout_constraintStart_toStartOf="parent"/>
+                android:layout_gravity="center" />
             <EditText
                 android:layout_width="28dp"
                 android:layout_height="28dp"
                 android:inputType="number"
-                app:layout_constraintTop_toTopOf="@id/level_text"
-                app:layout_constraintStart_toEndOf="@id/level_text"/>
+                android:text="@={viewModel.level}" />
             <View
                 android:layout_width="0dp"
                 android:layout_height="0dp"
@@ -113,16 +114,12 @@
                 android:text="성별"
                 android:textSize="18sp"
                 android:layout_gravity="center"
-                android:layout_marginStart="@dimen/horizontal_margin"
-                app:layout_constraintTop_toBottomOf="@id/hp_progressBar"
-                app:layout_constraintStart_toStartOf="parent"/>
+                android:layout_marginStart="@dimen/horizontal_margin" />
             <Spinner
                 android:id="@+id/gender_spinner"
                 android:layout_width="wrap_content"
                 android:layout_height="28dp"
-                android:layout_marginStart="6dp"
-                app:layout_constraintTop_toTopOf="@id/gender_text"
-                app:layout_constraintStart_toEndOf="@id/gender_text"/>
+                android:layout_marginStart="6dp" />
             <View
                 android:layout_width="0dp"
                 android:layout_height="0dp"
@@ -193,7 +190,8 @@
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="number"/>
+                android:inputType="number"
+                android:text="@={viewModel.ivH}"/>
             <View
                 android:layout_width="0dp"
                 android:layout_height="0dp"
@@ -207,7 +205,8 @@
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="number"/>
+                android:inputType="number"
+                android:text="@={viewModel.ivA}"/>
             <View
                 android:layout_width="0dp"
                 android:layout_height="0dp"
@@ -221,7 +220,8 @@
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="number"/>
+                android:inputType="number"
+                android:text="@={viewModel.ivB}"/>
             <View
                 android:layout_width="0dp"
                 android:layout_height="0dp"
@@ -235,7 +235,8 @@
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="number"/>
+                android:inputType="number"
+                android:text="@={viewModel.ivC}"/>
             <View
                 android:layout_width="0dp"
                 android:layout_height="0dp"
@@ -249,7 +250,8 @@
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="number"/>
+                android:inputType="number"
+                android:text="@={viewModel.ivD}"/>
             <View
                 android:layout_width="0dp"
                 android:layout_height="0dp"
@@ -263,7 +265,8 @@
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="number"/>
+                android:inputType="number"
+                android:text="@={viewModel.ivS}"/>
         </LinearLayout>
         <TextView
             android:id="@+id/effort_value_text"
@@ -292,7 +295,8 @@
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="number"/>
+                android:inputType="number"
+                android:text="@={viewModel.evH}"/>
             <View
                 android:layout_width="0dp"
                 android:layout_height="0dp"
@@ -306,7 +310,8 @@
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="number"/>
+                android:inputType="number"
+                android:text="@={viewModel.evA}"/>
             <View
                 android:layout_width="0dp"
                 android:layout_height="0dp"
@@ -320,7 +325,8 @@
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="number"/>
+                android:inputType="number"
+                android:text="@={viewModel.evB}"/>
             <View
                 android:layout_width="0dp"
                 android:layout_height="0dp"
@@ -334,7 +340,8 @@
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="number"/>
+                android:inputType="number"
+                android:text="@={viewModel.evC}"/>
             <View
                 android:layout_width="0dp"
                 android:layout_height="0dp"
@@ -348,7 +355,8 @@
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="number"/>
+                android:inputType="number"
+                android:text="@={viewModel.evD}"/>
             <View
                 android:layout_width="0dp"
                 android:layout_height="0dp"
@@ -362,7 +370,8 @@
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="number"/>
+                android:inputType="number"
+                android:text="@={viewModel.evS}"/>
         </LinearLayout>
         <TextView
             android:id="@+id/nature_text"
@@ -418,7 +427,8 @@
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="number"/>
+                android:inputType="number"
+                android:text="@={viewModel.rankA}"/>
             <View
                 android:layout_width="0dp"
                 android:layout_height="0dp"
@@ -432,7 +442,8 @@
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="number"/>
+                android:inputType="number"
+                android:text="@={viewModel.rankB}"/>
             <View
                 android:layout_width="0dp"
                 android:layout_height="0dp"
@@ -446,7 +457,8 @@
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="number"/>
+                android:inputType="number"
+                android:text="@={viewModel.rankC}"/>
             <View
                 android:layout_width="0dp"
                 android:layout_height="0dp"
@@ -460,7 +472,8 @@
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="number"/>
+                android:inputType="number"
+                android:text="@={viewModel.rankD}"/>
             <View
                 android:layout_width="0dp"
                 android:layout_height="0dp"
@@ -474,7 +487,8 @@
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="number"/>
+                android:inputType="number"
+                android:text="@={viewModel.rankS}"/>
         </LinearLayout>
         <LinearLayout
             android:id="@+id/layout_6"
@@ -492,7 +506,8 @@
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="number"/>
+                android:inputType="number"
+                android:text="@={viewModel.rankAcc}"/>
             <View
                 android:layout_width="0dp"
                 android:layout_height="0dp"
@@ -506,7 +521,8 @@
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="number"/>
+                android:inputType="number"
+                android:text="@={viewModel.rankEva}"/>
             <View
                 android:layout_width="0dp"
                 android:layout_height="0dp"
@@ -520,7 +536,8 @@
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="number"/>
+                android:inputType="number"
+                android:text="@={viewModel.rankCri}"/>
             <View
                 android:layout_width="0dp"
                 android:layout_height="0dp"
@@ -585,6 +602,7 @@
         <androidx.appcompat.widget.AppCompatButton
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="@{()->viewModel.onComplete()}"
             android:text="완료"
             android:textSize="20sp"
             android:layout_marginHorizontal="@dimen/horizontal_margin"

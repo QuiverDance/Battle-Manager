@@ -3,6 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/ADMIN/AndroidStudioProjects/BattleManager/app/src/main/res/drawable/seekbar_progress_background.xml" value="0.177" />
+        <entry key="..\:/Users/ADMIN/AndroidStudioProjects/BattleManager/app/src/main/res/drawable/seekbar_thumb.xml" value="0.177" />
+        <entry key="..\:/Users/ADMIN/AndroidStudioProjects/BattleManager/app/src/main/res/drawable/seekbar_thumb_.xml" value="0.177" />
         <entry key="..\:/Users/ADMIN/AndroidStudioProjects/BattleManager/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/ADMIN/AndroidStudioProjects/BattleManager/app/src/main/res/layout/dialog_search.xml" value="0.33" />
         <entry key="..\:/Users/ADMIN/AndroidStudioProjects/BattleManager/app/src/main/res/layout/fragment_main.xml" value="0.25" />
