@@ -77,6 +77,10 @@ class PokemonSettingViewModel(
     val ability: LiveData<String> get() =_ability
     fun setAbility(value : String) = _ability.postValue(value)
 
+    private val _statusAbnormality = MutableLiveData<String>()
+    val statusAbnormality: LiveData<String> get() =_statusAbnormality
+    fun setStatusAbnormality(value : String) = _statusAbnormality.postValue(value)
+
     val startSelectPokemon = SingleLiveEvent<Any>()
     fun onSelectPokemon() = startSelectPokemon.call()
 

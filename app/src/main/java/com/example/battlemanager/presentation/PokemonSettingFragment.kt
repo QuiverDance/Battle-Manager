@@ -14,6 +14,7 @@ import com.example.battlemanager.domain.model.PokemonInfo
 import com.example.battlemanager.global.base.BaseFragment
 import com.example.battlemanager.global.constant.Gender
 import com.example.battlemanager.global.util.GenderUtil
+import com.example.battlemanager.global.util.StatusAbnormalityUtil
 
 class PokemonSettingFragment: BaseFragment<FragmentPokemonSettingBinding>() {
     override val layoutResourceId = R.layout.fragment_pokemon_setting
@@ -75,6 +76,26 @@ class PokemonSettingFragment: BaseFragment<FragmentPokemonSettingBinding>() {
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
                 viewModel.setAbility(abilityList[0])
+            }
+
+        }
+
+        val statusAbnormalityList = StatusAbnormalityUtil.getStatusAbnormalityList()
+        val statusAbnormalityAdapter = ArrayAdapter(requireContext(), androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, abilityList)
+        abilityAdapter.setDropDownViewResource(androidx.appcompat.R.layout.support_simple_spinner_dropdown_item)
+        binding.statusAbnormalitySpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+                viewModel.setStatusAbnormality(statusAbnormalityList[position])
+                return
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+                viewModel.setStatusAbnormality(statusAbnormalityList[0])
             }
 
         }
