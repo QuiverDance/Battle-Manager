@@ -4,7 +4,7 @@ import com.example.battlemanager.global.constant.IndividualValue
 import com.example.battlemanager.global.constant.Nature
 import com.example.battlemanager.global.constant.StatusAbnormality
 
-class Pokemon(private val pokemonInfo: PokemonInfo) {
+class Pokemon(val pokemonInfo: PokemonInfo) {
     private var level = 50
     private lateinit var ability : Item
     private lateinit var item : Item
@@ -13,7 +13,7 @@ class Pokemon(private val pokemonInfo: PokemonInfo) {
     private var effortValues = EffortValues(0, 0, 0, 0,0, 0)
     private var individualValues = IndividualValues(IndividualValue.L,IndividualValue.L,IndividualValue.L,IndividualValue.L,IndividualValue.L,IndividualValue.L)
     private var rankStates = RankStates(0, 0, 0, 0, 0, 0, 0, 0)
-    private var statusAbnormality = StatusAbnormality.NULL
+    private var statusAbnormality = StatusAbnormality.NONE
     
     fun attack(other : Pokemon){
         // TODO: 나중에 구현
