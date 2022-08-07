@@ -46,6 +46,7 @@ class PokemonSettingViewModel(
 
     val level = MutableLiveData<String>("50")
     val hp = MutableLiveData<Int>(0)
+    val hp_text = MutableLiveData<String>("0")
     val ivH = MutableLiveData<String>("0")
     val ivA = MutableLiveData<String>("0")
     val ivB = MutableLiveData<String>("0")

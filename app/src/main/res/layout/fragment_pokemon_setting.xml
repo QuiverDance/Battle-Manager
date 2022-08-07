@@ -72,14 +72,14 @@
             android:layout_marginStart="@dimen/horizontal_margin"
             app:layout_constraintTop_toBottomOf="@id/profile_line"
             app:layout_constraintStart_toStartOf="parent"/>
-        <EditText
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="@id/hp_text"
             app:layout_constraintStart_toEndOf="@id/hp_text"
             android:layout_marginStart="10dp"
-            android:inputType="number"
-            android:text="@={viewModel.hp_text}"/>
+            android:text="@={viewModel.hp_text}"
+            android:textSize="18sp"/>
         <SeekBar
             android:id="@+id/hp_seekBar"
             android:layout_width="match_parent"
