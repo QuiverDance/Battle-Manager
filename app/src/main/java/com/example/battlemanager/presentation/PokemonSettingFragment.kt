@@ -7,6 +7,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.battlemanager.R
 import com.example.battlemanager.databinding.FragmentPokemonSettingBinding
+import com.example.battlemanager.domain.model.Pokemon
 import com.example.battlemanager.global.base.BaseFragment
 import com.example.battlemanager.global.util.GenderUtil
 import com.example.battlemanager.global.util.StatUtil
@@ -16,6 +17,12 @@ class PokemonSettingFragment : BaseFragment<FragmentPokemonSettingBinding>() {
     override val layoutResourceId = R.layout.fragment_pokemon_setting
     val viewModel: PokemonSettingViewModel by viewModels()
 
+    var position = -1
+    override fun initState() {
+        super.initState()
+        val pos = arguments?.getInt("pos") ?: -1
+        position = pos
+    }
     override fun initDataBinding() {
         super.initDataBinding()
         binding.viewModel = viewModel
@@ -32,6 +39,8 @@ class PokemonSettingFragment : BaseFragment<FragmentPokemonSettingBinding>() {
             setHp()
         }
         viewModel.startComplete.observe(this) {
+            if(position != -1)
+                PokemonMemory.setPokemon(position, viewModel.makePokemon())
             findNavController().navigateUp()
         }
     }

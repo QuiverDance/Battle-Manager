@@ -1,21 +1,19 @@
 package com.example.battlemanager.domain.model
 
-import com.example.battlemanager.global.constant.IndividualValue
-import com.example.battlemanager.global.constant.Nature
-import com.example.battlemanager.global.constant.StatusAbnormality
+class Pokemon(
+    val pokemonInfo: PokemonInfo,
+    val level: Int,
+    val ability: Ability,
+    val item: Item,
+    val moves: List<Move>,
+    val nature: Int,
+    val effortValues: EffortValues,
+    val individualValues: IndividualValues,
+    val rankStates: RankStates,
+    val statusAbnormality: Int
+) {
 
-class Pokemon(val pokemonInfo: PokemonInfo) {
-    private var level = 50
-    private lateinit var ability : Item
-    private lateinit var item : Item
-    private val moves = mutableListOf<Move>()
-    private var nature = Nature.NULL
-    private var effortValues = EffortValues(0, 0, 0, 0,0, 0)
-    private var individualValues = IndividualValues(IndividualValue.L,IndividualValue.L,IndividualValue.L,IndividualValue.L,IndividualValue.L,IndividualValue.L)
-    private var rankStates = RankStates(0, 0, 0, 0, 0, 0, 0, 0)
-    private var statusAbnormality = StatusAbnormality.NONE
-    
-    fun attack(other : Pokemon){
+    fun attack(other: Pokemon) {
         // TODO: 나중에 구현
     }
 }

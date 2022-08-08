@@ -1,5 +1,6 @@
 package com.example.battlemanager.presentation
 
+import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.battlemanager.R
@@ -24,13 +25,15 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
 //                viewModel.getPokemonInfo(it.id, 1)
 //            }
 //            pokemon1Dialog.show(childFragmentManager, "pokemon")
-            findNavController().navigate(R.id.action_mainFragment_to_pokemonSettingFragment)
+            val bundle = bundleOf("pos" to 1)
+            findNavController().navigate(R.id.action_mainFragment_to_pokemonSettingFragment, bundle)
         }
         viewModel.startPokemon2.observe(this){
 //            val pokemon1Dialog = FilterDialogFragment(viewModel.pokemonNameList.value!!) {
 //                viewModel.getPokemonInfo(it.id, 2)
 //            }
-            findNavController().navigate(R.id.action_mainFragment_to_pokemonSettingFragment)
+            val bundle = bundleOf("pos" to 2)
+            findNavController().navigate(R.id.action_mainFragment_to_pokemonSettingFragment, bundle)
         }
     }
 

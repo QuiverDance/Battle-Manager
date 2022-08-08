@@ -4,14 +4,13 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.battlemanager.domain.model.Ability
-import com.example.battlemanager.domain.model.FilterItem
-import com.example.battlemanager.domain.model.Pokemon
-import com.example.battlemanager.domain.model.PokemonInfo
+import com.example.battlemanager.domain.model.*
 import com.example.battlemanager.domain.usecase.pokemon.GetPokemonInfoUseCase
 import com.example.battlemanager.domain.usecase.pokemon.GetPokemonNameListUseCase
+import com.example.battlemanager.global.constant.Nature
 import com.example.battlemanager.global.util.GenderUtil
 import com.example.battlemanager.global.util.SingleLiveEvent
+import com.example.battlemanager.global.util.StatusAbnormalityUtil
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -92,4 +91,23 @@ class PokemonSettingViewModel(
 
     val startComplete = SingleLiveEvent<Any>()
     fun onComplete() = startComplete.call()
+
+    fun makePokemon() : Pokemon{
+        return Pokemon(
+            pokemonInfo.value!!,
+            level.value!!.toInt(),
+            Ability(AbilityInfo(0, ability.value!!, "")),
+            Item(ItemInfo(0, "아이템", "", false)),
+            listOf(Move(MoveInfo(0, "기술1", 100, "불꽃", "특수", 100, "", false)),
+                Move(MoveInfo(0, "기술2", 120, "풀", "물리", 100, "", false)),
+                Move(MoveInfo(0, "기술3", 110, "물", "물리", 100, "", false)),
+                Move(MoveInfo(0, "기술4", 80, "전기", "특수", 100, "", false))),
+            Nature.NULL,
+            EffortValues(evH.value!!.toInt(), evA.value!!.toInt(), evB.value!!.toInt(), evC.value!!.toInt(), evD.value!!.toInt(), evS.value!!.toInt()),
+            IndividualValues(ivH.value!!.toInt(), ivA.value!!.toInt(), ivB.value!!.toInt(), ivC.value!!.toInt(), ivD.value!!.toInt(), ivS.value!!.toInt()),
+            RankStates(rankA.value!!.toInt(), rankB.value!!.toInt(), rankC.value!!.toInt(), rankD.value!!.toInt(), rankS.value!!.toInt(),
+                rankAcc.value!!.toInt(), rankEva.value!!.toInt(), rankCri.value!!.toInt()),
+            StatusAbnormalityUtil.getStatusAbnormalityId(statusAbnormality.value!!)
+        )
+    }
 }
