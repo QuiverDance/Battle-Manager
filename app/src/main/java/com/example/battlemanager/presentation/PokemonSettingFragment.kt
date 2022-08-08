@@ -23,7 +23,7 @@ class PokemonSettingFragment : BaseFragment<FragmentPokemonSettingBinding>() {
 
         viewModel.startSelectPokemon.observe(this) {
             val pokemon1Dialog = FilterDialogFragment(viewModel.pokemonNameList.value!!) {
-                viewModel.getPokemonInfo(it.id, 1)
+                viewModel.getPokemonInfo(it.id)
             }
             pokemon1Dialog.show(childFragmentManager, "pokemon")
         }

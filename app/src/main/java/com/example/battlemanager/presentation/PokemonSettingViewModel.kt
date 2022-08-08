@@ -23,7 +23,7 @@ class PokemonSettingViewModel(
 
     private val _pokemonInfo = MutableLiveData<PokemonInfo>()
     val pokemonInfo: LiveData<PokemonInfo> get() = _pokemonInfo
-    fun getPokemonInfo(id : Int, target : Int){
+    fun getPokemonInfo(id : Int){
         viewModelScope.launch {
             val pokemonInfo = withContext(Dispatchers.IO){
                 getPokemonInfoUseCase.invoke(id)
