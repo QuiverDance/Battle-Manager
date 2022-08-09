@@ -7,7 +7,6 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.battlemanager.R
 import com.example.battlemanager.databinding.FragmentPokemonSettingBinding
-import com.example.battlemanager.domain.model.Pokemon
 import com.example.battlemanager.global.base.BaseFragment
 import com.example.battlemanager.global.util.GenderUtil
 import com.example.battlemanager.global.util.NatureUtil
@@ -159,10 +158,10 @@ class PokemonSettingFragment : BaseFragment<FragmentPokemonSettingBinding>() {
         )
         binding.hpSeekBar.max = initHp
         viewModel.hp.value = initHp
-        viewModel.hp_text.value = initHp.toString()
+        viewModel.hpText.value = initHp.toString()
 
         viewModel.hp.observe(this) {
-            viewModel.hp_text.value = it.toString()
+            viewModel.hpText.value = it.toString()
         }
 
         viewModel.level.observe(this) {

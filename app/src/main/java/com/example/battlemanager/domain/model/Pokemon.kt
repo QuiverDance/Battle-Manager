@@ -10,7 +10,8 @@ class Pokemon(
     val effortValues: EffortValues,
     val individualValues: IndividualValues,
     val rankStates: RankStates,
-    val statusAbnormality: Int
+    val statusAbnormality: Int,
+    val hp: Int
 ) {
 
     fun attack(other: Pokemon) {

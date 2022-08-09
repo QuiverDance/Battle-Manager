@@ -105,7 +105,7 @@
             app:layout_constraintBottom_toBottomOf="@id/hp_text"
             app:layout_constraintStart_toEndOf="@id/hp_text"
             android:layout_marginStart="10dp"
-            android:text="@={viewModel.hp_text}"
+            android:text="@={viewModel.hpText}"
             android:textSize="18sp"/>
         <SeekBar
             android:id="@+id/hp_seekBar"
