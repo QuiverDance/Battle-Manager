@@ -34,4 +34,8 @@ class MainViewModel : ViewModel() {
     fun startPokemon2() {
         startPokemon2.call()
     }
+    val startResult = SingleLiveEvent<Any>()
+    fun onStartResult(){
+        startResult.call()
+    }
 }
