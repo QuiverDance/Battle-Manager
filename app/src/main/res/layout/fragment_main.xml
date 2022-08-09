@@ -79,14 +79,14 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="6dp"
-                            android:text=""
+                            android:text="@{viewModel.pokemon1.pokemonInfo.type1}"
                             app:layout_constraintStart_toEndOf="@id/pokemon_1_img"
                             app:layout_constraintBottom_toBottomOf="@id/pokemon_1_img"/>
                         <TextView
                             android:id="@+id/pokemon_1_type_2_text"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text=""
+                            android:text="@{viewModel.pokemon1.pokemonInfo.type2}"
                             app:layout_constraintBottom_toBottomOf="@id/pokemon_1_type_1_text"
                             app:layout_constraintStart_toEndOf="@id/pokemon_1_type_1_text"/>
                         <TextView
@@ -141,14 +141,14 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="6dp"
-                            android:text=""
+                            android:text="@{viewModel.pokemon2.pokemonInfo.type1}"
                             app:layout_constraintStart_toEndOf="@id/pokemon_2_img"
                             app:layout_constraintBottom_toBottomOf="@id/pokemon_2_img"/>
                         <TextView
                             android:id="@+id/pokemon_2_type_2_text"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text=""
+                            android:text="@{viewModel.pokemon2.pokemonInfo.type2}"
                             app:layout_constraintBottom_toBottomOf="@id/pokemon_2_type_1_text"
                             app:layout_constraintStart_toEndOf="@id/pokemon_2_type_1_text"/>
                         <TextView
