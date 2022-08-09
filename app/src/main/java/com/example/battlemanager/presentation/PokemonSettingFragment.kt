@@ -103,6 +103,7 @@ class PokemonSettingFragment : BaseFragment<FragmentPokemonSettingBinding>() {
             statusAbnormalityList
         )
         statusAbnormalityAdapter.setDropDownViewResource(androidx.appcompat.R.layout.support_simple_spinner_dropdown_item)
+        binding.statusAbnormalitySpinner.adapter = statusAbnormalityAdapter
         binding.statusAbnormalitySpinner.onItemSelectedListener =
             object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(
@@ -128,6 +129,7 @@ class PokemonSettingFragment : BaseFragment<FragmentPokemonSettingBinding>() {
             natureList
         )
         natureAdapter.setDropDownViewResource(androidx.appcompat.R.layout.support_simple_spinner_dropdown_item)
+        binding.natureSpinner.adapter = natureAdapter
         binding.natureSpinner.onItemSelectedListener =
             object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(
@@ -141,7 +143,7 @@ class PokemonSettingFragment : BaseFragment<FragmentPokemonSettingBinding>() {
                 }
 
                 override fun onNothingSelected(parent: AdapterView<*>?) {
-                    viewModel.setNature(natureList[25])
+                    viewModel.setNature(natureList[0])
                 }
 
             }
