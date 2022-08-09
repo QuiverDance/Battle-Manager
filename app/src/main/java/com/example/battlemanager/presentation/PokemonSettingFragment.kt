@@ -147,7 +147,7 @@ class PokemonSettingFragment : BaseFragment<FragmentPokemonSettingBinding>() {
             }
     }
 
-    fun setHp() {
+    private fun setHp() {
         //레벨, H종족값, 노력치, 개체값에 의해 최대 값 변경
         val initHp = StatUtil.getHp(
             viewModel.pokemonInfo.value!!.name,
