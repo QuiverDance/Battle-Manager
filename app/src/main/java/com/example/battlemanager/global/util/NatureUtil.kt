@@ -1,8 +1,11 @@
 package com.example.battlemanager.global.util
 
+import com.example.battlemanager.global.constant.Gender
 import java.lang.Exception
 
 object NatureUtil {
+    private val natureList = listOf("외로움을 타는", "고집스런", "개구쟁이같은", "용감한", "대담한", "장난꾸러기같은", "촐랑거리는", "무사태평한", "조심스러운", "의젓한", "덜렁거리는",
+        "냉정한", "차분한", "얌전한", "신중한", "건방진", "겁쟁이같은", "성급한", "명랑한", "천진난만한", "수줍음을 타는", "노력하는", "온순한", "변덕스러운", "성실한", "선택안함")
     private val natureTable = listOf(
         //              공     방    특공    특방     스
         listOf<Float>(  1.1f,  0.9f,    1f,    1f,    1f), //외로움을 타는
@@ -33,37 +36,21 @@ object NatureUtil {
         listOf<Float>(    1f,    1f,    1f,    1f,    1f), //None
     )
     fun natureToString(nature : Int) : String{
-        return when(nature){
-            0 -> "외로움을 타는"
-            1 -> "고집스런"
-            2 -> "개구쟁이같은"
-            3 -> "용감한"
-            4 -> "대담한"
-            5 -> "장난꾸러기같은"
-            6 -> "촐랑거리는"
-            7 -> "무사태평한"
-            8 -> "조심스러운"
-            9 -> "의젓한"
-            10 -> "덜렁거리는"
-            11 -> "냉정한"
-            12 -> "차분한"
-            13 -> "얌전한"
-            14 -> "신중한"
-            15 -> "건방진"
-            16 -> "겁쟁이같은"
-            17 -> "성급한"
-            18 -> "명랑한"
-            19 -> "천진난만한"
-            20 -> "수줍음을 타는"
-            21 -> "노력하는"
-            22 -> "온순한"
-            23 -> "변덕스러운"
-            24 -> "성실한"
-            25 -> "선택안함"
-            else -> throw Exception("It is not exist")
-        }
+        return natureList[nature]
     }
     fun getNatureCorrection(nature : Int) : List<Float>{
         return natureTable[nature]
+    }
+    fun getNatureList() : List<String>{
+        return natureList
+    }
+    fun getNatureId(str: String) : Int{
+        var idx = 0
+        for(value in natureList){
+            if(value == str)
+                break
+            idx += 1
+        }
+        return idx
     }
 }

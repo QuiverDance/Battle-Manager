@@ -10,6 +10,7 @@ import com.example.battlemanager.databinding.FragmentPokemonSettingBinding
 import com.example.battlemanager.domain.model.Pokemon
 import com.example.battlemanager.global.base.BaseFragment
 import com.example.battlemanager.global.util.GenderUtil
+import com.example.battlemanager.global.util.NatureUtil
 import com.example.battlemanager.global.util.StatUtil
 import com.example.battlemanager.global.util.StatusAbnormalityUtil
 
@@ -100,7 +101,7 @@ class PokemonSettingFragment : BaseFragment<FragmentPokemonSettingBinding>() {
         val statusAbnormalityAdapter = ArrayAdapter(
             requireContext(),
             androidx.appcompat.R.layout.support_simple_spinner_dropdown_item,
-            abilityList
+            statusAbnormalityList
         )
         statusAbnormalityAdapter.setDropDownViewResource(androidx.appcompat.R.layout.support_simple_spinner_dropdown_item)
         binding.statusAbnormalitySpinner.onItemSelectedListener =
@@ -117,6 +118,31 @@ class PokemonSettingFragment : BaseFragment<FragmentPokemonSettingBinding>() {
 
                 override fun onNothingSelected(parent: AdapterView<*>?) {
                     viewModel.setStatusAbnormality(statusAbnormalityList[0])
+                }
+
+            }
+
+        val natureList = NatureUtil.getNatureList()
+        val natureAdapter = ArrayAdapter(
+            requireContext(),
+            androidx.appcompat.R.layout.support_simple_spinner_dropdown_item,
+            natureList
+        )
+        natureAdapter.setDropDownViewResource(androidx.appcompat.R.layout.support_simple_spinner_dropdown_item)
+        binding.natureSpinner.onItemSelectedListener =
+            object : AdapterView.OnItemSelectedListener {
+                override fun onItemSelected(
+                    parent: AdapterView<*>?,
+                    view: View?,
+                    position: Int,
+                    id: Long
+                ) {
+                    viewModel.setNature(natureList[position])
+                    return
+                }
+
+                override fun onNothingSelected(parent: AdapterView<*>?) {
+                    viewModel.setNature(natureList[25])
                 }
 
             }
