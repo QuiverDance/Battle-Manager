@@ -5,6 +5,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.battlemanager.R
 import com.example.battlemanager.databinding.FragmentMainBinding
+import com.example.battlemanager.domain.model.Pokemon
 import com.example.battlemanager.global.base.BaseFragment
 import com.google.android.material.tabs.TabLayout
 
@@ -14,6 +15,12 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
 
     override fun initState() {
         super.initState()
+        if(PokemonMemory.getIsValid(1)){
+            viewModel.setPokemon(PokemonMemory.getPokemon(1), 1)
+        }
+        if(PokemonMemory.getIsValid(2)){
+            viewModel.setPokemon(PokemonMemory.getPokemon(2), 2)
+        }
     }
 
     override fun initDataBinding() {
