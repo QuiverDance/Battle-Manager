@@ -43,7 +43,8 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
             findNavController().navigate(R.id.action_mainFragment_to_pokemonSettingFragment, bundle)
         }
         viewModel.startResult.observe(this){
-            findNavController().navigate(R.id.action_mainFragment_to_ResultFragment)
+            if(PokemonMemory.getIsValid(1) && PokemonMemory.getIsValid(2))
+                findNavController().navigate(R.id.action_mainFragment_to_ResultFragment)
         }
     }
 
