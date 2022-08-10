@@ -154,7 +154,7 @@ class PokemonSettingFragment : BaseFragment<FragmentPokemonSettingBinding>() {
         val initHp = StatUtil.getHp(
             viewModel.pokemonInfo.value!!.name,
             50,
-            viewModel.pokemonInfo.value!!.baseStats,
+            viewModel.pokemonInfo.value!!.baseStats.H,
             0,
             0
         )
@@ -171,7 +171,7 @@ class PokemonSettingFragment : BaseFragment<FragmentPokemonSettingBinding>() {
                 val maxHp = StatUtil.getHp(
                     viewModel.pokemonInfo.value!!.name,
                     it.toInt(),
-                    viewModel.pokemonInfo.value!!.baseStats,
+                    viewModel.pokemonInfo.value!!.baseStats.H,
                     viewModel.ivH.value!!.toInt(),
                     viewModel.evH.value!!.toInt()
                 )
@@ -181,7 +181,7 @@ class PokemonSettingFragment : BaseFragment<FragmentPokemonSettingBinding>() {
         viewModel.pokemonInfo.observe(this) {
             val maxHp = StatUtil.getHp(
                 it.name, viewModel.level.value!!.toInt(),
-                it.baseStats,
+                it.baseStats.H,
                 viewModel.ivH.value!!.toInt(),
                 viewModel.evH.value!!.toInt()
             )
@@ -192,7 +192,7 @@ class PokemonSettingFragment : BaseFragment<FragmentPokemonSettingBinding>() {
                 val maxHp = StatUtil.getHp(
                     viewModel.pokemonInfo.value!!.name,
                     viewModel.level.value!!.toInt(),
-                    viewModel.pokemonInfo.value!!.baseStats,
+                    viewModel.pokemonInfo.value!!.baseStats.H,
                     it.toInt(),
                     viewModel.evH.value!!.toInt()
                 )
@@ -204,7 +204,7 @@ class PokemonSettingFragment : BaseFragment<FragmentPokemonSettingBinding>() {
                 val maxHp = StatUtil.getHp(
                     viewModel.pokemonInfo.value!!.name,
                     viewModel.level.value!!.toInt(),
-                    viewModel.pokemonInfo.value!!.baseStats,
+                    viewModel.pokemonInfo.value!!.baseStats.H,
                     viewModel.ivH.value!!.toInt(),
                     it.toInt()
                 )
