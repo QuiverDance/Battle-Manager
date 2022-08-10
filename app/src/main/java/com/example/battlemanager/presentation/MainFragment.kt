@@ -11,7 +11,7 @@ import com.google.android.material.tabs.TabLayout
 
 class MainFragment : BaseFragment<FragmentMainBinding>() {
     override val layoutResourceId = R.layout.fragment_main
-    private val viewModel: MainViewModel by viewModels()
+    private val viewModel: MainViewModel by viewModels({ requireParentFragment() })
 
     override fun initState() {
         super.initState()
@@ -41,6 +41,9 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
 //            }
             val bundle = bundleOf("pos" to 2)
             findNavController().navigate(R.id.action_mainFragment_to_pokemonSettingFragment, bundle)
+        }
+        viewModel.startResult.observe(this){
+            findNavController().navigate(R.id.action_mainFragment_to_ResultFragment)
         }
     }
 
