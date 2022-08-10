@@ -13,14 +13,14 @@
             app:destination="@id/pokemonSettingFragment" />
         <action
             android:id="@+id/action_mainFragment_to_ResultFragment"
-            app:destination="@id/ResultFragment" />
+            app:destination="@id/BattleResultFragment" />
     </fragment>
     <fragment
         android:id="@+id/pokemonSettingFragment"
         android:name="com.example.battlemanager.presentation.PokemonSettingFragment"
         android:label="PokemonSettingFragment" />
     <fragment
-        android:id="@+id/ResultFragment"
-        android:name="com.example.battlemanager.presentation.ResultFragment"
-        android:label="ResultFragment" />
+        android:id="@+id/BattleResultFragment"
+        android:name="com.example.battlemanager.presentation.BattleResultFragment"
+        android:label="BattleResultFragment" />
 </navigation>
