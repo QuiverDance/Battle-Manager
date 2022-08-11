@@ -3,9 +3,9 @@ package com.example.battlemanager.domain.model
 class Pokemon(
     val pokemonInfo: PokemonInfo,
     val level: Int,
-    val ability: Ability,
-    val item: Item,
-    val moves: List<Move>,
+    val ability: AbilityInfo,
+    val item: ItemInfo,
+    val moves: List<MoveInfo>,
     val nature: Int,
     val effortValues: EffortValues,
     val individualValues: IndividualValues,
