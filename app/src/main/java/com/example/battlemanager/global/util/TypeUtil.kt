@@ -38,4 +38,7 @@ object TypeUtil {
     fun getTypeCorrelation(type1 : Int, type2 : Int) : Float{
         return typeTable[type1][type2]
     }
+    fun getTypeCorrelation(type1 : String, type2 : String) : Float{
+        return typeTable[typeToInt(type1)][typeToInt(type2)]
+    }
 }
