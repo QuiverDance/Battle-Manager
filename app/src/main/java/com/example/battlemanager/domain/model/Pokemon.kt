@@ -13,9 +13,15 @@ class Pokemon(
     val statusAbnormality: Int,
     val hp: Int
 ) {
-    var maxHp : Int = 0
+    var maxHp: Int = 0
 
     fun attack(other: Pokemon) {
         // TODO: 나중에 구현
+    }
+
+    override fun toString(): String {
+        return "level: $level 특성: ${ability.name} 아이템: ${item.name} 성격: $nature\n" +
+                effortValues.toString() + "\n" + individualValues.toString() + "\n" + rankStates.toString() + "\n" +
+                " 상태이상: $statusAbnormality Hp: $hp"
     }
 }

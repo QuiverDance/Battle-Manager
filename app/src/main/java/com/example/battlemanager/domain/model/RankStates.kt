@@ -9,4 +9,8 @@ data class RankStates(
     val accuracy : Int,
     val evasionRate : Int,
     val criticalRate : Int
-)
+){
+    override fun toString(): String {
+        return "A : $attack B: $defense C: $specialAttack D: $special_defense S: $speed ACC: $speed EVA: $evasionRate CRI: $criticalRate"
+    }
+}
