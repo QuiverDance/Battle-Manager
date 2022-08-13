@@ -13,6 +13,7 @@ class Pokemon(
     val statusAbnormality: Int,
     val hp: Int
 ) {
+    var maxHp : Int = 0
 
     fun attack(other: Pokemon) {
         // TODO: 나중에 구현
