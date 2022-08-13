@@ -9,7 +9,7 @@ object DamageUtil {
     /*
     도우미, 충전, 흙놀이, 물놀이 미반영
      */
-    fun getPower(
+    fun getDamage(
         myPokemon: Pokemon,
         opponentPokemon: Pokemon,
         move: MoveInfo,
