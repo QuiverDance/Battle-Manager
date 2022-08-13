@@ -34,7 +34,7 @@ object RealStatUtil {
         item: ItemInfo
     ): Int {
         return floor(
-            StatUtil.getA(level, baseB, ivB, evB, nature) * RankUtil.getBaseStatRankChange(
+            StatUtil.getC(level, baseB, ivB, evB, nature) * RankUtil.getBaseStatRankChange(
                 rank.specialAttack
             ) * AbilityUtil.getSpecialAttackCorrelation(ability) * ItemUtil.getSpecialAttackCorrelation(
                 item
@@ -53,7 +53,7 @@ object RealStatUtil {
         item: ItemInfo
     ): Int {
         return floor(
-            StatUtil.getA(level, baseC, ivC, evC, nature) * RankUtil.getBaseStatRankChange(
+            StatUtil.getB(level, baseC, ivC, evC, nature) * RankUtil.getBaseStatRankChange(
                 rank.defense
             ) * AbilityUtil.getDefenseCorrelation(ability) * ItemUtil.getDefenseCorrelation(item)
         ).toInt()
@@ -73,7 +73,7 @@ object RealStatUtil {
         type2: String
     ): Int {
         return floor(
-            StatUtil.getA(level, baseD, ivD, evD, nature) * RankUtil.getBaseStatRankChange(
+            StatUtil.getD(level, baseD, ivD, evD, nature) * RankUtil.getBaseStatRankChange(
                 rank.special_defense
             ) * AbilityUtil.getSpecialDefenseCorrelation(ability) * ItemUtil.getSpecialDefenseCorrelation(
                 item
@@ -92,7 +92,7 @@ object RealStatUtil {
         item: ItemInfo
     ): Int {
         return floor(
-            StatUtil.getA(level, baseS, ivS, evS, nature) * RankUtil.getBaseStatRankChange(
+            StatUtil.getS(level, baseS, ivS, evS, nature) * RankUtil.getBaseStatRankChange(
                 rank.speed
             ) * AbilityUtil.getSpeedCorrelation(ability) * ItemUtil.getSpeedCorrelation(item)
         ).toInt()

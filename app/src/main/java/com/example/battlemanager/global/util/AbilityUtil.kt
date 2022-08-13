@@ -15,12 +15,12 @@ object AbilityUtil {
     }
     fun getDefenseCorrelation(abilityInfo: AbilityInfo) : Float{
         return when(abilityInfo.name){
-            else -> 0.0625f
+            else -> 1f
         }
     }
     fun getSpecialDefenseCorrelation(abilityInfo: AbilityInfo) : Float{
         return when(abilityInfo.name){
-            else -> 0.0625f
+            else -> 1f
         }
     }
     fun getSpeedCorrelation(abilityInfo: AbilityInfo) : Float{
