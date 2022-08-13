@@ -27,10 +27,6 @@ object DamageUtil {
         val randomNumber = getRandomNumber(randType)
         val typeCorrelation = getTypeCorrelation(move, myPokemon)
 
-        Log.d("내 포켓몬", myPokemon.toString())
-        Log.d("상대 포켓몬", opponentPokemon.toString())
-        Log.d("공격 실수치", attackRealStat.toString())
-        Log.d("방어 실수치", defenseRealStat.toString())
         return floor(
             floor(
                 (floor(
