@@ -25,7 +25,7 @@
                 android:id="@+id/move_1_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="기술1"
+                android:text="@{viewModel.pokemon1.moves.get(0).name}"
                 android:textSize="16sp"
                 android:layout_marginTop="20dp"
                 app:layout_constraintTop_toTopOf="parent"
@@ -50,7 +50,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="최소 데미지 : "
+                    android:text="최소 데미지(일반) : "
                     android:textSize="16sp" />
                 <ProgressBar
                     android:id="@+id/move_1_min_hp_progressbar"
@@ -71,10 +71,52 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="최대 데미지 : "
+                    android:text="최대 데미지(일반) : "
                     android:textSize="16sp" />
                 <ProgressBar
                     android:id="@+id/move_1_max_hp_progressbar"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    style="?android:attr/progressBarStyleHorizontal"/>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/move_1_critical_min_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="4dp"
+                app:layout_constraintTop_toBottomOf="@id/move_1_max_layout"
+                app:layout_constraintStart_toStartOf="parent">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="최소 데미지(급소) : "
+                    android:textSize="16sp" />
+                <ProgressBar
+                    android:id="@+id/move_1_critical_min_hp_progressbar"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    style="?android:attr/progressBarStyleHorizontal"/>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/move_1_critical_max_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="4dp"
+                app:layout_constraintTop_toBottomOf="@id/move_1_critical_min_layout"
+                app:layout_constraintStart_toStartOf="parent">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="최대 데미지(급소) : "
+                    android:textSize="16sp" />
+                <ProgressBar
+                    android:id="@+id/move_1_critical_max_hp_progressbar"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -95,7 +137,7 @@
                 android:id="@+id/move_2_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="기술2"
+                android:text="@{viewModel.pokemon1.moves.get(1).name}"
                 android:textSize="16sp"
                 android:layout_marginTop="20dp"
                 app:layout_constraintTop_toTopOf="parent"
@@ -120,7 +162,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="최소 데미지 : "
+                    android:text="최소 데미지(일반) : "
                     android:textSize="16sp" />
                 <ProgressBar
                     android:id="@+id/move_2_min_hp_progressbar"
@@ -141,10 +183,52 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="최대 데미지 : "
+                    android:text="최대 데미지(일반) : "
                     android:textSize="16sp" />
                 <ProgressBar
                     android:id="@+id/move_2_max_hp_progressbar"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    style="?android:attr/progressBarStyleHorizontal"/>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/move_2_critical_min_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="4dp"
+                app:layout_constraintTop_toBottomOf="@id/move_2_max_layout"
+                app:layout_constraintStart_toStartOf="parent">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="최소 데미지(급소) : "
+                    android:textSize="16sp" />
+                <ProgressBar
+                    android:id="@+id/move_2_critical_min_hp_progressbar"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    style="?android:attr/progressBarStyleHorizontal"/>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/move_2_critical_max_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="4dp"
+                app:layout_constraintTop_toBottomOf="@id/move_2_critical_min_layout"
+                app:layout_constraintStart_toStartOf="parent">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="최대 데미지(급소) : "
+                    android:textSize="16sp" />
+                <ProgressBar
+                    android:id="@+id/move_2_critical_max_hp_progressbar"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -165,7 +249,7 @@
                 android:id="@+id/move_3_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="기술3"
+                android:text="@{viewModel.pokemon1.moves.get(2).name}"
                 android:textSize="16sp"
                 android:layout_marginTop="20dp"
                 app:layout_constraintTop_toTopOf="parent"
@@ -190,7 +274,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="최소 데미지 : "
+                    android:text="최소 데미지(일반) : "
                     android:textSize="16sp" />
                 <ProgressBar
                     android:id="@+id/move_3_min_hp_progressbar"
@@ -211,10 +295,52 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="최대 데미지 : "
+                    android:text="최대 데미지(일반) : "
                     android:textSize="16sp" />
                 <ProgressBar
                     android:id="@+id/move_3_max_hp_progressbar"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    style="?android:attr/progressBarStyleHorizontal"/>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/move_3_critical_min_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="4dp"
+                app:layout_constraintTop_toBottomOf="@id/move_3_max_layout"
+                app:layout_constraintStart_toStartOf="parent">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="최소 데미지(급소) : "
+                    android:textSize="16sp" />
+                <ProgressBar
+                    android:id="@+id/move_3_critical_min_hp_progressbar"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    style="?android:attr/progressBarStyleHorizontal"/>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/move_3_critical_max_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="4dp"
+                app:layout_constraintTop_toBottomOf="@id/move_3_critical_min_layout"
+                app:layout_constraintStart_toStartOf="parent">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="최대 데미지(급소) : "
+                    android:textSize="16sp" />
+                <ProgressBar
+                    android:id="@+id/move_3_critical_max_hp_progressbar"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -235,7 +361,7 @@
                 android:id="@+id/move_4_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="기술4"
+                android:text="@{viewModel.pokemon1.moves.get(3).name}"
                 android:textSize="16sp"
                 android:layout_marginTop="20dp"
                 app:layout_constraintTop_toTopOf="parent"
@@ -260,7 +386,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="최소 데미지 : "
+                    android:text="최소 데미지(일반) : "
                     android:textSize="16sp" />
                 <ProgressBar
                     android:id="@+id/move_4_min_hp_progressbar"
@@ -281,10 +407,52 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="최대 데미지 : "
+                    android:text="최대 데미지(일반) : "
                     android:textSize="16sp" />
                 <ProgressBar
                     android:id="@+id/move_4_max_hp_progressbar"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    style="?android:attr/progressBarStyleHorizontal"/>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/move_4_critical_min_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="4dp"
+                app:layout_constraintTop_toBottomOf="@id/move_4_max_layout"
+                app:layout_constraintStart_toStartOf="parent">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="최소 데미지(급소) : "
+                    android:textSize="16sp" />
+                <ProgressBar
+                    android:id="@+id/move_4_critical_min_hp_progressbar"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    style="?android:attr/progressBarStyleHorizontal"/>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/move_4_critical_max_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="4dp"
+                app:layout_constraintTop_toBottomOf="@id/move_4_critical_min_layout"
+                app:layout_constraintStart_toStartOf="parent">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="최대 데미지(급소) : "
+                    android:textSize="16sp" />
+                <ProgressBar
+                    android:id="@+id/move_4_critical_max_hp_progressbar"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
