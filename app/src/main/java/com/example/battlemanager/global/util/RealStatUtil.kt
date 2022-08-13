@@ -25,25 +25,6 @@ object RealStatUtil {
 
     fun getSpecialAttack(
         level: Int,
-        baseB: Int,
-        ivB: Int,
-        evB: Int,
-        nature: Int,
-        rank: RankStates,
-        ability: AbilityInfo,
-        item: ItemInfo
-    ): Int {
-        return floor(
-            StatUtil.getC(level, baseB, ivB, evB, nature) * RankUtil.getBaseStatRankChange(
-                rank.specialAttack
-            ) * AbilityUtil.getSpecialAttackCorrelation(ability) * ItemUtil.getSpecialAttackCorrelation(
-                item
-            )
-        ).toInt()
-    }
-    /* 방, 특방에서 자폭 보정 제외*/
-    fun getDefense(
-        level: Int,
         baseC: Int,
         ivC: Int,
         evC: Int,
@@ -53,7 +34,26 @@ object RealStatUtil {
         item: ItemInfo
     ): Int {
         return floor(
-            StatUtil.getB(level, baseC, ivC, evC, nature) * RankUtil.getBaseStatRankChange(
+            StatUtil.getC(level, baseC, ivC, evC, nature) * RankUtil.getBaseStatRankChange(
+                rank.specialAttack
+            ) * AbilityUtil.getSpecialAttackCorrelation(ability) * ItemUtil.getSpecialAttackCorrelation(
+                item
+            )
+        ).toInt()
+    }
+    /* 방, 특방에서 자폭 보정 제외*/
+    fun getDefense(
+        level: Int,
+        baseB: Int,
+        ivB: Int,
+        evB: Int,
+        nature: Int,
+        rank: RankStates,
+        ability: AbilityInfo,
+        item: ItemInfo
+    ): Int {
+        return floor(
+            StatUtil.getB(level, baseB, ivB, evB, nature) * RankUtil.getBaseStatRankChange(
                 rank.defense
             ) * AbilityUtil.getDefenseCorrelation(ability) * ItemUtil.getDefenseCorrelation(item)
         ).toInt()
