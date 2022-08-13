@@ -50,7 +50,7 @@ class BattleResultFragment : BaseFragment<FragmentBattleResultBinding>() {
             randType
         )
         val result = viewModel.pokemon2.value!!.hp - damage
-        val progress = ceil(result.toDouble() / viewModel.pokemon2.value!!.maxHp).toInt()*100
+        val progress = ceil(result.toDouble() / viewModel.pokemon2.value!!.maxHp * 100).toInt()
 
         if(result < 0) progressBar.progress = 0
         else progressBar.progress = progress
