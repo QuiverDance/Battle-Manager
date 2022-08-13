@@ -21,7 +21,7 @@ class Pokemon(
 
     override fun toString(): String {
         return "level: $level 특성: ${ability.name} 아이템: ${item.name} 성격: $nature\n" +
-                effortValues.toString() + "\n" + individualValues.toString() + "\n" + rankStates.toString() + "\n" +
+                "노력치: " + effortValues.toString() + "\n" + "개체값: " + individualValues.toString() + "\n" + "랭크업: " + rankStates.toString() + "\n" +
                 " 상태이상: $statusAbnormality Hp: $hp"
     }
 }
