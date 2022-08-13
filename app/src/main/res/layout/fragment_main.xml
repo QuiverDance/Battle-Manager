@@ -240,7 +240,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/horizontal_margin"
-            android:onClick="@{()->viewModel.startResult}"
+            android:onClick="@{()->viewModel.onStartResult}"
             app:layout_constraintBottom_toBottomOf="parent"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
