@@ -17,13 +17,13 @@ object ItemUtil {
 
     fun getDefenseCorrelation(itemInfo: ItemInfo): Float {
         return when (itemInfo.name) {
-            else -> 0.0625f
+            else -> 1f
         }
     }
 
     fun getSpecialDefenseCorrelation(itemInfo: ItemInfo): Float {
         return when (itemInfo.name) {
-            else -> 0.0625f
+            else -> 1f
         }
     }
 
