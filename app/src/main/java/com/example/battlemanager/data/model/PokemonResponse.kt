@@ -6,11 +6,18 @@ data class PokemonResponse(
     @SerializedName("id") val id : Int,
     @SerializedName("dexId") val dexId : Int,
     @SerializedName("name")val name : String,
-    @SerializedName("imageUrl")val imageUrl : String,
+    @SerializedName("imgUrl")val imgUrl : String,
     @SerializedName("type1")val type1 : String,
     @SerializedName("type2")val type2 : String,
-    @SerializedName("validAbilityList")val validAbilityList : List<String>,
-    @SerializedName("validGender")val validGender : Int,
+    @SerializedName("ability1")val ability1 : String,
+    @SerializedName("ability2")val ability2 : String,
+    @SerializedName("ability3")val ability3 : String,
+    @SerializedName("genderType")val genderType : Int,
     @SerializedName("weight")val weight : Float,
-    @SerializedName("baseStats")val baseStats: BaseStats
+    @SerializedName("h")val h: Int,
+    @SerializedName("a")val a: Int,
+    @SerializedName("b")val b: Int,
+    @SerializedName("c")val c: Int,
+    @SerializedName("d")val d: Int,
+    @SerializedName("s")val s: Int
 )
