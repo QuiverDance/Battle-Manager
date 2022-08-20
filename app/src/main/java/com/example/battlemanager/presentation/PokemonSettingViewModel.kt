@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.battlemanager.domain.model.*
 import com.example.battlemanager.domain.usecase.pokemon.GetPokemonInfoUseCase
-import com.example.battlemanager.domain.usecase.pokemon.GetPokemonNameListUseCase
+import com.example.battlemanager.domain.usecase.pokemon.GetPokemonFilterListUseCase
 import com.example.battlemanager.global.constant.Nature
 import com.example.battlemanager.global.util.GenderUtil
 import com.example.battlemanager.global.util.SingleLiveEvent
@@ -14,18 +14,20 @@ import com.example.battlemanager.global.util.StatusAbnormalityUtil
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import javax.inject.Inject
 
-class PokemonSettingViewModel(
-    private val getPokemonInfoUseCase: GetPokemonInfoUseCase = GetPokemonInfoUseCase(),
-    private val getPokemonNameListUseCase: GetPokemonNameListUseCase = GetPokemonNameListUseCase()
-) : ViewModel() {
+class PokemonSettingViewModel : ViewModel() {
+    @Inject
+    lateinit var getPokemonInfoUseCase: GetPokemonInfoUseCase
+    @Inject
+    lateinit var getPokemonNameListUseCase: GetPokemonFilterListUseCase
 
     private val _pokemonInfo = MutableLiveData<PokemonInfo>()
     val pokemonInfo: LiveData<PokemonInfo> get() = _pokemonInfo
-    fun getPokemonInfo(id : Int){
+    fun getPokemonInfo(name : String){
         viewModelScope.launch {
             val pokemonInfo = withContext(Dispatchers.IO){
-                getPokemonInfoUseCase.invoke(id)
+                getPokemonInfoUseCase.invoke(name)
             }
             _pokemonInfo.value = pokemonInfo
             startSetSpinner.call()

@@ -12,7 +12,9 @@ import com.example.battlemanager.global.util.GenderUtil
 import com.example.battlemanager.global.util.NatureUtil
 import com.example.battlemanager.global.util.StatUtil
 import com.example.battlemanager.global.util.StatusAbnormalityUtil
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class PokemonSettingFragment : BaseFragment<FragmentPokemonSettingBinding>() {
     override val layoutResourceId = R.layout.fragment_pokemon_setting
     val viewModel: PokemonSettingViewModel by viewModels()
@@ -30,7 +32,7 @@ class PokemonSettingFragment : BaseFragment<FragmentPokemonSettingBinding>() {
 
         viewModel.startSelectPokemon.observe(this) {
             val pokemon1Dialog = FilterDialogFragment(viewModel.pokemonNameList.value!!) {
-                viewModel.getPokemonInfo(it.id)
+                viewModel.getPokemonInfo(it.itemName)
             }
             pokemon1Dialog.show(childFragmentManager, "pokemon")
         }
