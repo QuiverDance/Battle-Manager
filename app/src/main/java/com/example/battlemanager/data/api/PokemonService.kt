@@ -5,12 +5,12 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface PokemonService {
-    @GET("/pokemon")
-    suspend fun getPokemon(@Query("dexId") dexId : Int): PokemonResponse
+    @GET("/pokemon/one")
+    suspend fun getPokemonForName(@Query("name") name: String): PokemonResponse
 
-    @GET("/pokemons")
+    @GET("/pokemon/all")
     suspend fun getPokemons(): List<PokemonResponse>
 
-    @GET("/pokemons/name")
-    suspend fun getPokemonsName(): List<String>
+    @GET("/pokemon/all/name")
+    suspend fun getPokemonNameList(): List<String>
 }
