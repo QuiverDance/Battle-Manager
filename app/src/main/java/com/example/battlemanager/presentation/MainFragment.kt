@@ -10,7 +10,6 @@ import com.example.battlemanager.global.base.BaseFragment
 import com.google.android.material.tabs.TabLayout
 import dagger.hilt.android.AndroidEntryPoint
 
-@AndroidEntryPoint
 class MainFragment : BaseFragment<FragmentMainBinding>() {
     override val layoutResourceId = R.layout.fragment_main
     private val viewModel: MainViewModel by viewModels({ requireParentFragment() })
