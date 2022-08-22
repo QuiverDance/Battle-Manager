@@ -5,8 +5,7 @@ import com.example.battlemanager.data.model.PokemonResponse
 import com.example.battlemanager.retrofit.RetrofitServiceFactory
 import javax.inject.Inject
 
-class PokemonRemoteDataSourceImpl @Inject constructor() : PokemonRemoteDataSource {
-    private val service = RetrofitServiceFactory.createService<PokemonService>()
+class PokemonRemoteDataSourceImpl @Inject constructor(private val service : PokemonService) : PokemonRemoteDataSource {
 
     override suspend fun getPokemonForName(name: String) : PokemonResponse{
         return service.getPokemonForName(name)
