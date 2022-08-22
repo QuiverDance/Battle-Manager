@@ -1,12 +1,13 @@
 package com.example.battlemanager.domain.usecase.pokemon
 
+import com.example.battlemanager.data.repository.PokemonRepositoryImpl
 import com.example.battlemanager.domain.model.BaseStats
 import com.example.battlemanager.domain.model.FilterItem
 import com.example.battlemanager.domain.model.PokemonInfo
 import com.example.battlemanager.domain.repository.PokemonRepository
 import javax.inject.Inject
 
-class GetPokemonInfoUseCase @Inject constructor(private val pokemonRepository: PokemonRepository) {
+class GetPokemonInfoUseCase @Inject constructor(private val pokemonRepository: PokemonRepositoryImpl) {
     suspend fun invoke(name : String) : PokemonInfo{
 //        val pokemons = listOf(
 //            PokemonInfo(1, 1, "이상해씨", "", "풀", "독", listOf("심록"), 3, 5f, BaseStats(45, 49, 49, 65, 65, 45)),
