@@ -5,28 +5,29 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.battlemanager.domain.model.*
-import com.example.battlemanager.domain.usecase.pokemon.GetPokemonInfoUseCase
 import com.example.battlemanager.domain.usecase.pokemon.GetPokemonFilterListUseCase
+import com.example.battlemanager.domain.usecase.pokemon.GetPokemonInfoUseCase
 import com.example.battlemanager.global.constant.Nature
 import com.example.battlemanager.global.util.GenderUtil
 import com.example.battlemanager.global.util.SingleLiveEvent
 import com.example.battlemanager.global.util.StatusAbnormalityUtil
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
-class PokemonSettingViewModel : ViewModel() {
-    @Inject
-    lateinit var getPokemonInfoUseCase: GetPokemonInfoUseCase
-    @Inject
-    lateinit var getPokemonNameListUseCase: GetPokemonFilterListUseCase
+@HiltViewModel
+class PokemonSettingViewModel @Inject constructor(
+    private val getPokemonInfoUseCase: GetPokemonInfoUseCase,
+    private val getPokemonNameListUseCase: GetPokemonFilterListUseCase
+) : ViewModel() {
 
     private val _pokemonInfo = MutableLiveData<PokemonInfo>()
     val pokemonInfo: LiveData<PokemonInfo> get() = _pokemonInfo
-    fun getPokemonInfo(name : String){
+    fun getPokemonInfo(name: String) {
         viewModelScope.launch {
-            val pokemonInfo = withContext(Dispatchers.IO){
+            val pokemonInfo = withContext(Dispatchers.IO) {
                 getPokemonInfoUseCase.invoke(name)
             }
             _pokemonInfo.value = pokemonInfo
@@ -35,10 +36,10 @@ class PokemonSettingViewModel : ViewModel() {
     }
 
     private val _pokemonNameList = MutableLiveData<List<FilterItem>>(null)
-    val pokemonNameList : LiveData<List<FilterItem>> get() = _pokemonNameList
-    fun getPokemonNameList(){
+    val pokemonNameList: LiveData<List<FilterItem>> get() = _pokemonNameList
+    fun getPokemonNameList() {
         viewModelScope.launch {
-            val nameList = withContext(Dispatchers.IO){
+            val nameList = withContext(Dispatchers.IO) {
                 getPokemonNameListUseCase.invoke()
             }
             _pokemonNameList.value = nameList
@@ -72,20 +73,20 @@ class PokemonSettingViewModel : ViewModel() {
     val rankCri = MutableLiveData<String>("0")
 
     private val _gender = MutableLiveData<String>()
-    val gender: LiveData<String> get() =_gender
-    fun setGender(id : Int) = _gender.postValue(GenderUtil.genderToString(id))
+    val gender: LiveData<String> get() = _gender
+    fun setGender(id: Int) = _gender.postValue(GenderUtil.genderToString(id))
 
     private val _ability = MutableLiveData<String>()
-    val ability: LiveData<String> get() =_ability
-    fun setAbility(value : String) = _ability.postValue(value)
+    val ability: LiveData<String> get() = _ability
+    fun setAbility(value: String) = _ability.postValue(value)
 
     private val _statusAbnormality = MutableLiveData<String>()
     val statusAbnormality: LiveData<String> get() = _statusAbnormality
-    fun setStatusAbnormality(value : String) = _statusAbnormality.postValue(value)
+    fun setStatusAbnormality(value: String) = _statusAbnormality.postValue(value)
 
     private val _nature = MutableLiveData<String>()
     val nature: LiveData<String> get() = _nature
-    fun setNature(value : String) = _nature.postValue(value)
+    fun setNature(value: String) = _nature.postValue(value)
 
     val startSelectPokemon = SingleLiveEvent<Any>()
     fun onSelectPokemon() = startSelectPokemon.call()
@@ -98,21 +99,45 @@ class PokemonSettingViewModel : ViewModel() {
     val startComplete = SingleLiveEvent<Any>()
     fun onComplete() = startComplete.call()
 
-    fun makePokemon() : Pokemon{
+    fun makePokemon(): Pokemon {
         return Pokemon(
             pokemonInfo.value!!,
             level.value!!.toInt(),
             AbilityInfo(0, ability.value!!, ""),
             ItemInfo(0, "아이템", "", false),
-            listOf(MoveInfo(0, "기술1", 100, "불꽃", "특수", 100, "", false),
+            listOf(
+                MoveInfo(0, "기술1", 100, "불꽃", "특수", 100, "", false),
                 MoveInfo(0, "기술2", 120, "풀", "물리", 100, "", false),
                 MoveInfo(0, "기술3", 110, "물", "물리", 100, "", false),
-                MoveInfo(0, "기술4", 80, "전기", "특수", 100, "", false)),
+                MoveInfo(0, "기술4", 80, "전기", "특수", 100, "", false)
+            ),
             Nature.NULL,
-            EffortValues(evH.value!!.toInt(), evA.value!!.toInt(), evB.value!!.toInt(), evC.value!!.toInt(), evD.value!!.toInt(), evS.value!!.toInt()),
-            IndividualValues(ivH.value!!.toInt(), ivA.value!!.toInt(), ivB.value!!.toInt(), ivC.value!!.toInt(), ivD.value!!.toInt(), ivS.value!!.toInt()),
-            RankStates(rankA.value!!.toInt(), rankB.value!!.toInt(), rankC.value!!.toInt(), rankD.value!!.toInt(), rankS.value!!.toInt(),
-                rankAcc.value!!.toInt(), rankEva.value!!.toInt(), rankCri.value!!.toInt()),
+            EffortValues(
+                evH.value!!.toInt(),
+                evA.value!!.toInt(),
+                evB.value!!.toInt(),
+                evC.value!!.toInt(),
+                evD.value!!.toInt(),
+                evS.value!!.toInt()
+            ),
+            IndividualValues(
+                ivH.value!!.toInt(),
+                ivA.value!!.toInt(),
+                ivB.value!!.toInt(),
+                ivC.value!!.toInt(),
+                ivD.value!!.toInt(),
+                ivS.value!!.toInt()
+            ),
+            RankStates(
+                rankA.value!!.toInt(),
+                rankB.value!!.toInt(),
+                rankC.value!!.toInt(),
+                rankD.value!!.toInt(),
+                rankS.value!!.toInt(),
+                rankAcc.value!!.toInt(),
+                rankEva.value!!.toInt(),
+                rankCri.value!!.toInt()
+            ),
             StatusAbnormalityUtil.getStatusAbnormalityId(statusAbnormality.value!!),
             hp.value!!
         )
