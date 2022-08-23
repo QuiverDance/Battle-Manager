@@ -2,20 +2,19 @@ package com.example.battlemanager.data.datasource
 
 import com.example.battlemanager.data.api.PokemonService
 import com.example.battlemanager.data.model.PokemonResponse
-import com.example.battlemanager.retrofit.RetrofitServiceFactory
 import javax.inject.Inject
 
 class PokemonRemoteDataSourceImpl @Inject constructor(private val service : PokemonService) : PokemonRemoteDataSource {
 
-    override suspend fun getPokemonForName(name: String) : PokemonResponse{
-        return service.getPokemonForName(name)
+    override fun getPokemonForName(name: String) : PokemonResponse{
+        return service.getPokemonForName(name).execute().body()!!
     }
 
-    override suspend fun getPokemons(): List<PokemonResponse> {
-        return service.getPokemons()
+    override fun getPokemons(): List<PokemonResponse> {
+        return service.getPokemons().execute().body()!!
     }
 
-    override suspend fun getPokemonNameList(): List<String> {
-        return service.getPokemonNameList()
+    override fun getPokemonNameList(): List<String> {
+        return service.getPokemonNameList().execute().body()!!
     }
 }

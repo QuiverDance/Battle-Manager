@@ -8,17 +8,17 @@ import com.example.battlemanager.domain.repository.PokemonRepository
 import javax.inject.Inject
 
 class PokemonRepositoryImpl @Inject constructor(private val dataSource: PokemonRemoteDataSourceImpl) : PokemonRepository {
-    override suspend fun getPokemonInfoForName(name: String): PokemonInfo {
+    override fun getPokemonInfoForName(name: String): PokemonInfo {
         return PokemonMapper.mapperToPokemonInfo(dataSource.getPokemonForName(name))
     }
 
-    override suspend fun getPokemonInfoList(): List<PokemonInfo> {
+    override fun getPokemonInfoList(): List<PokemonInfo> {
         return dataSource.getPokemons().map {
             PokemonMapper.mapperToPokemonInfo(it)
         }
     }
 
-    override suspend fun getPokemonNameList(): List<String> {
+    override fun getPokemonNameList(): List<String> {
         return dataSource.getPokemonNameList()
     }
 }
