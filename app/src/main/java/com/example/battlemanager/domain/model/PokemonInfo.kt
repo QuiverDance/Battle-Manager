@@ -1,7 +1,7 @@
 package com.example.battlemanager.domain.model
 
 data class PokemonInfo(
-    val id : Int,
+    val id : Long,
     val dexId : Int,
     val name : String,
     val imageUrl : String,
@@ -9,7 +9,7 @@ data class PokemonInfo(
     val type2: String,
     val validAbilityList : List<String>,
     val validGender : Int,
-    val weight : Float,
+    val weight : Double,
     val baseStats: BaseStats
 ){
     override fun toString(): String {
