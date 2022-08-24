@@ -32,7 +32,7 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
 //            val pokemon1Dialog = FilterDialogFragment(viewModel.pokemonNameList.value!!) {
 //                viewModel.getPokemonInfo(it.id, 1)
 //            }
-//            pokemon1Dialog.show(childFragmentManager, "pokemon")
+//            pokemon1Dialog.show(childFragmentManager, "pokemons")
             val bundle = bundleOf("pos" to 1)
             findNavController().navigate(R.id.action_mainFragment_to_pokemonSettingFragment, bundle)
         }
