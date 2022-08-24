@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.example.battlemanager.presentation.MainFragment"
+        android:name="com.example.battlemanager.presentation.main.MainFragment"
         android:label="MainFragment" >
         <action
             android:id="@+id/action_mainFragment_to_pokemonSettingFragment"
@@ -17,10 +17,10 @@
     </fragment>
     <fragment
         android:id="@+id/pokemonSettingFragment"
-        android:name="com.example.battlemanager.presentation.PokemonSettingFragment"
+        android:name="com.example.battlemanager.presentation.pokemonSetting.PokemonSettingFragment"
         android:label="PokemonSettingFragment" />
     <fragment
         android:id="@+id/BattleResultFragment"
-        android:name="com.example.battlemanager.presentation.BattleResultFragment"
+        android:name="com.example.battlemanager.presentation.battleResult.BattleResultFragment"
         android:label="BattleResultFragment" />
 </navigation>

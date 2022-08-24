@@ -2,11 +2,10 @@ package com.example.battlemanager.presentation
 
 import android.view.View
 import android.widget.SearchView
-import android.widget.Toast
 import com.example.battlemanager.R
 import com.example.battlemanager.databinding.DialogSearchBinding
 import com.example.battlemanager.domain.model.FilterItem
-import com.example.battlemanager.global.base.BaseDialogFragment
+import com.example.battlemanager.presentation.global.base.BaseDialogFragment
 
 class FilterDialogFragment(val items: List<FilterItem>, val selectedItem: (FilterItem) -> Unit) : BaseDialogFragment<DialogSearchBinding>() {
     override val layoutResourceId = R.layout.dialog_search
