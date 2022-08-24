@@ -6,12 +6,12 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface PokemonService {
-    @GET("pokemons/one")
+    @GET("pokemon/one")
     fun getPokemonForName(@Query("name") name: String): Call<PokemonResponse>
 
-    @GET("pokemons/all")
+    @GET("pokemon/all")
     fun getPokemons(): Call<List<PokemonResponse>>
 
-    @GET("pokemons/all/name")
+    @GET("pokemon/all/name")
     fun getPokemonNameList(): Call<List<String>>
 }

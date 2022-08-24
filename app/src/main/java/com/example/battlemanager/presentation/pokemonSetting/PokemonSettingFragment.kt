@@ -36,7 +36,7 @@ class PokemonSettingFragment : BaseFragment<FragmentPokemonSettingBinding>() {
             val pokemon1Dialog = FilterDialogFragment(viewModel.pokemonNameList.value!!) {
                 viewModel.getPokemonInfo(it.itemName)
             }
-            pokemon1Dialog.show(childFragmentManager, "pokemons")
+            pokemon1Dialog.show(childFragmentManager, "pokemon")
         }
         viewModel.startSetSpinner.observe(this) {
             setSpinner()
