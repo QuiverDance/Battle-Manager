@@ -106,10 +106,10 @@ class PokemonSettingViewModel @Inject constructor(
             AbilityInfo(0, ability.value!!, ""),
             ItemInfo(0, "아이템", "", false),
             listOf(
-                MoveInfo(0, "기술1", 100, "불꽃", "특수", 100, "", false),
-                MoveInfo(0, "기술2", 120, "풀", "물리", 100, "", false),
-                MoveInfo(0, "기술3", 110, "물", "물리", 100, "", false),
-                MoveInfo(0, "기술4", 80, "전기", "특수", 100, "", false)
+                MoveInfo(0, "기술1", 100, "불꽃", "특수", 100),
+                MoveInfo(0, "기술2", 120, "풀", "물리", 100),
+                MoveInfo(0, "기술3", 110, "물", "물리", 100),
+                MoveInfo(0, "기술4", 80, "전기", "특수", 100)
             ),
             Nature.NULL,
             EffortValues(
