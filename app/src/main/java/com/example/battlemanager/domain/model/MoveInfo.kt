@@ -1,7 +1,7 @@
 package com.example.battlemanager.domain.model
 
 data class MoveInfo(
-    val id : Int,
+    val id : Long,
     val name : String,
     val power : Int,
     val type : String,

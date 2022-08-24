@@ -1,6 +1,5 @@
 package com.example.battlemanager.data.repository
 
-import com.example.battlemanager.data.datasource.PokemonRemoteDataSource
 import com.example.battlemanager.data.datasource.PokemonRemoteDataSourceImpl
 import com.example.battlemanager.data.mapper.PokemonMapper
 import com.example.battlemanager.domain.model.PokemonInfo

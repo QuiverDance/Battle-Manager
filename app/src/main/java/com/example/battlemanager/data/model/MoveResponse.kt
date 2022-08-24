@@ -2,7 +2,7 @@ package com.example.battlemanager.data.model
 
 import com.google.gson.annotations.SerializedName
 data class MoveResponse(
-    @SerializedName("id")val id : Int,
+    @SerializedName("id")val id : Long,
     @SerializedName("name")val name : String,
     @SerializedName("type")val type : String,
     @SerializedName("category")val category : String,

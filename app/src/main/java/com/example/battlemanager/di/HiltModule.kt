@@ -1,5 +1,6 @@
 package com.example.battlemanager.di
 
+import com.example.battlemanager.data.api.MoveService
 import com.example.battlemanager.data.api.PokemonService
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
@@ -46,5 +47,11 @@ object HiltModule {
     @Singleton
     fun providePokemonService(retrofit: Retrofit): PokemonService {
         return retrofit.create(PokemonService::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun provideMoveService(retrofit: Retrofit): MoveService {
+        return retrofit.create(MoveService::class.java)
     }
 }
