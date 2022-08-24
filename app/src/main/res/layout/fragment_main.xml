@@ -73,7 +73,7 @@
                     android:layout_height="80dp"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="6dp"
-                    android:background="@color/grad_8"
+                    app:urlInAssets="@{viewModel.pokemon1.pokemonInfo.imageUrl}"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/pokemonInfo_1_img" />
 
@@ -143,7 +143,7 @@
                     android:layout_height="80dp"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="6dp"
-                    android:background="@color/grad_8"
+                    app:urlInAssets="@{viewModel.pokemon2.pokemonInfo.imageUrl}"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/pokemonInfo_2_img" />
 

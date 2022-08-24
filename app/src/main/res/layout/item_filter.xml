@@ -23,7 +23,7 @@
                 android:id="@+id/item_img"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:background="@color/grad_8"
+                app:urlInAssets="@{item.itemImage}"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"/>
             <TextView
