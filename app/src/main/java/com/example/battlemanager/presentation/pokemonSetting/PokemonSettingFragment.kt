@@ -30,9 +30,11 @@ class PokemonSettingFragment : BaseFragment<FragmentPokemonSettingBinding>() {
     override fun initDataBinding() {
         super.initDataBinding()
         binding.viewModel = viewModel
-        viewModel.getPokemonNameList()
 
         viewModel.startSelectPokemon.observe(this) {
+            viewModel.getPokemonNameList()
+        }
+        viewModel.endGetPokemonList.observe(this){
             val pokemon1Dialog = FilterDialogFragment(viewModel.pokemonNameList.value!!) {
                 viewModel.getPokemonInfo(it.itemName)
             }

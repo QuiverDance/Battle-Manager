@@ -37,12 +37,14 @@ class PokemonSettingViewModel @Inject constructor(
 
     private val _pokemonNameList = MutableLiveData<List<FilterItem>>(null)
     val pokemonNameList: LiveData<List<FilterItem>> get() = _pokemonNameList
+    val endGetPokemonList = SingleLiveEvent<Any>()
     fun getPokemonNameList() {
         viewModelScope.launch {
             val nameList = withContext(Dispatchers.IO) {
                 getPokemonNameListUseCase.invoke()
             }
             _pokemonNameList.value = nameList
+            endGetPokemonList.call()
         }
     }
 
