@@ -32,13 +32,13 @@ class PokemonSettingFragment : BaseFragment<FragmentPokemonSettingBinding>() {
         binding.viewModel = viewModel
 
         viewModel.startSelectPokemon.observe(this) {
-            viewModel.getPokemonNameList()
+            viewModel.getPokemonFilterList()
         }
         viewModel.endGetPokemonList.observe(this){
-            val pokemon1Dialog = FilterDialogFragment(viewModel.pokemonNameList.value!!) {
+            val pokemonDialog = FilterDialogFragment(viewModel.pokemonFilterList.value!!) {
                 viewModel.getPokemonInfo(it.itemName)
             }
-            pokemon1Dialog.show(childFragmentManager, "pokemon")
+            pokemonDialog.show(childFragmentManager, "pokemon")
         }
         viewModel.startSetSpinner.observe(this) {
             setSpinner()
@@ -48,6 +48,15 @@ class PokemonSettingFragment : BaseFragment<FragmentPokemonSettingBinding>() {
             if(position != -1)
                 PokemonMemory.setPokemon(position, viewModel.makePokemon())
             findNavController().navigateUp()
+        }
+        viewModel.selectedMove.observe(this){
+            viewModel.getMoveFilterList()
+        }
+        viewModel.endGetMoveList.observe(this){
+            val moveDialog = FilterDialogFragment(viewModel.moveFilterList.value!!) {
+                viewModel.setMoveInfo(it.itemName, viewModel.selectedMove.value!!)
+            }
+            moveDialog.show(childFragmentManager, "move")
         }
     }
 

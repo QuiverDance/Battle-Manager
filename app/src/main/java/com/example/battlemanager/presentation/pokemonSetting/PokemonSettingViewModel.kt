@@ -5,6 +5,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.battlemanager.domain.model.*
+import com.example.battlemanager.domain.usecase.move.GetMoveFilterListUseCase
+import com.example.battlemanager.domain.usecase.move.GetMoveInfoUseCase
 import com.example.battlemanager.domain.usecase.pokemon.GetPokemonFilterListUseCase
 import com.example.battlemanager.domain.usecase.pokemon.GetPokemonInfoUseCase
 import com.example.battlemanager.presentation.global.constant.Nature
@@ -20,7 +22,9 @@ import javax.inject.Inject
 @HiltViewModel
 class PokemonSettingViewModel @Inject constructor(
     private val getPokemonInfoUseCase: GetPokemonInfoUseCase,
-    private val getPokemonNameListUseCase: GetPokemonFilterListUseCase
+    private val getPokemonFilterListUseCase: GetPokemonFilterListUseCase,
+    private val getMoveInfoUseCase: GetMoveInfoUseCase,
+    private val getMoveFilterListUseCase: GetMoveFilterListUseCase
 ) : ViewModel() {
 
     private val _pokemonInfo = MutableLiveData<PokemonInfo>()
@@ -35,16 +39,37 @@ class PokemonSettingViewModel @Inject constructor(
         }
     }
 
-    private val _pokemonNameList = MutableLiveData<List<FilterItem>>(null)
-    val pokemonNameList: LiveData<List<FilterItem>> get() = _pokemonNameList
+    private val _pokemonFilterList = MutableLiveData<List<FilterItem>>(null)
+    val pokemonFilterList: LiveData<List<FilterItem>> get() = _pokemonFilterList
     val endGetPokemonList = SingleLiveEvent<Any>()
-    fun getPokemonNameList() {
-        viewModelScope.launch {
-            val nameList = withContext(Dispatchers.IO) {
-                getPokemonNameListUseCase.invoke()
-            }
-            _pokemonNameList.value = nameList
+    fun getPokemonFilterList() {
+        if(_pokemonFilterList.value != null){
             endGetPokemonList.call()
+            return
+        }
+        viewModelScope.launch {
+            val filterList = withContext(Dispatchers.IO) {
+                getPokemonFilterListUseCase.invoke()
+            }
+            _pokemonFilterList.value = filterList
+            endGetPokemonList.call()
+        }
+    }
+
+    private val _moveFilterList = MutableLiveData<List<FilterItem>>(null)
+    val moveFilterList: LiveData<List<FilterItem>> get() = _moveFilterList
+    val endGetMoveList = SingleLiveEvent<Any>()
+    fun getMoveFilterList() {
+        if(_moveFilterList.value != null){
+            endGetMoveList.call()
+            return
+        }
+        viewModelScope.launch {
+            val filterList = withContext(Dispatchers.IO) {
+                getMoveFilterListUseCase.invoke()
+            }
+            _moveFilterList.value = filterList
+            endGetMoveList.call()
         }
     }
 
@@ -90,16 +115,15 @@ class PokemonSettingViewModel @Inject constructor(
     val nature: LiveData<String> get() = _nature
     fun setNature(value: String) = _nature.postValue(value)
 
-    val startSelectPokemon = SingleLiveEvent<Any>()
-    fun onSelectPokemon() = startSelectPokemon.call()
-
-    val startSetSpinner = SingleLiveEvent<Any>()
-    fun onSetSpinner() {
-        startSetSpinner.call()
+    private val moveList = MutableList<MoveInfo>(4){MoveInfo(0, "미설정", 0, "없음", "없음", 0)}
+    fun setMoveInfo(name: String, pos: Int){
+        viewModelScope.launch {
+            val moveInfo = withContext(Dispatchers.IO) {
+                getMoveInfoUseCase.invoke(name)
+            }
+            moveList[pos] = moveInfo
+        }
     }
-
-    val startComplete = SingleLiveEvent<Any>()
-    fun onComplete() = startComplete.call()
 
     fun makePokemon(): Pokemon {
         return Pokemon(
@@ -107,12 +131,7 @@ class PokemonSettingViewModel @Inject constructor(
             level.value!!.toInt(),
             AbilityInfo(0, ability.value!!, ""),
             ItemInfo(0, "아이템", "", false),
-            listOf(
-                MoveInfo(0, "기술1", 100, "불꽃", "특수", 100),
-                MoveInfo(0, "기술2", 120, "풀", "물리", 100),
-                MoveInfo(0, "기술3", 110, "물", "물리", 100),
-                MoveInfo(0, "기술4", 80, "전기", "특수", 100)
-            ),
+            moveList,
             Nature.NULL,
             EffortValues(
                 evH.value!!.toInt(),
@@ -144,4 +163,19 @@ class PokemonSettingViewModel @Inject constructor(
             hp.value!!
         )
     }
+
+    val startSelectPokemon = SingleLiveEvent<Any>()
+    fun onSelectPokemon() = startSelectPokemon.call()
+
+    val startSetSpinner = SingleLiveEvent<Any>()
+    fun onSetSpinner() = startSetSpinner.call()
+
+    val selectedMove = MutableLiveData(-1)
+    fun onSetMove1() {selectedMove.value = 0}
+    fun onSetMove2() {selectedMove.value = 1}
+    fun onSetMove3() {selectedMove.value = 2}
+    fun onSetMove4() {selectedMove.value = 3}
+
+    val startComplete = SingleLiveEvent<Any>()
+    fun onComplete() = startComplete.call()
 }
