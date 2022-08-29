@@ -586,25 +586,25 @@
             android:layout_marginTop="6dp"
             android:layout_marginHorizontal="@dimen/horizontal_margin"
             app:layout_constraintTop_toBottomOf="@id/layout_6">
-            <TextView
+            <include
+                layout="@layout/layout_move"
+                app:move="@{viewModel.moveList.get(0)}"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="기술1"
-                android:textSize="18sp"
                 android:layout_gravity="center"
-                android:gravity="center"
-                android:layout_weight="1"/>
+                android:layout_weight="1"
+                android:onClick="@{()->viewModel.onSetMove1()}"/>
             <View
                 android:layout_width="10dp"
                 android:layout_height="30dp" />
-            <TextView
+            <include
+                layout="@layout/layout_move"
+                app:move="@{viewModel.moveList.get(1)}"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="기술2"
-                android:textSize="18sp"
                 android:layout_gravity="center"
-                android:gravity="center"
-                android:layout_weight="1"/>
+                android:layout_weight="1"
+                android:onClick="@{()->viewModel.onSetMove2()}"/>
         </LinearLayout>
         <LinearLayout
             android:id="@+id/layout_8"
@@ -614,25 +614,25 @@
             android:layout_marginTop="6dp"
             android:layout_marginHorizontal="@dimen/horizontal_margin"
             app:layout_constraintTop_toBottomOf="@id/layout_7">
-            <TextView
+            <include
+                layout="@layout/layout_move"
+                app:move="@{viewModel.moveList.get(2)}"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="기술3"
-                android:textSize="18sp"
                 android:layout_gravity="center"
-                android:gravity="center"
-                android:layout_weight="1"/>
+                android:layout_weight="1"
+                android:onClick="@{()->viewModel.onSetMove3()}"/>
             <View
                 android:layout_width="10dp"
                 android:layout_height="30dp" />
-            <TextView
+            <include
+                layout="@layout/layout_move"
+                app:move="@{viewModel.moveList.get(3)}"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="기술4"
-                android:textSize="18sp"
                 android:layout_gravity="center"
-                android:gravity="center"
-                android:layout_weight="1"/>
+                android:layout_weight="1"
+                android:onClick="@{()->viewModel.onSetMove4()}"/>
         </LinearLayout>
         <androidx.appcompat.widget.AppCompatButton
             android:layout_width="match_parent"

@@ -115,13 +115,14 @@ class PokemonSettingViewModel @Inject constructor(
     val nature: LiveData<String> get() = _nature
     fun setNature(value: String) = _nature.postValue(value)
 
-    private val moveList = MutableList<MoveInfo>(4){MoveInfo(0, "미설정", 0, "없음", "없음", 0)}
+    private val _moveList = MutableList<MoveInfo>(4){MoveInfo(0, "미설정", 0, "없음", "없음", 0)}
+    val moveList : List<MoveInfo> get() = _moveList
     fun setMoveInfo(name: String, pos: Int){
         viewModelScope.launch {
             val moveInfo = withContext(Dispatchers.IO) {
                 getMoveInfoUseCase.invoke(name)
             }
-            moveList[pos] = moveInfo
+            _moveList[pos] = moveInfo
         }
     }
 
