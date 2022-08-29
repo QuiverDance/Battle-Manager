@@ -35,7 +35,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="6dp"
+            android:background="@drawable/background_radius_5"
             android:text="@{viewModel.pokemonInfo.type1}"
+            app:typeBackground="@{viewModel.pokemonInfo.type1}"
             app:layout_constraintTop_toBottomOf="@id/pokemon_name_text"
             app:layout_constraintStart_toEndOf="@id/pokemon_img"
             app:layout_constraintBottom_toBottomOf="@id/pokemon_img"/>
@@ -43,7 +45,9 @@
             android:id="@+id/pokemon_type_2_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@drawable/background_radius_5"
             android:text="@{viewModel.pokemonInfo.type2}"
+            app:typeBackground="@{viewModel.pokemonInfo.type2}"
             app:layout_constraintTop_toTopOf="@id/pokemon_type_1_text"
             app:layout_constraintStart_toEndOf="@id/pokemon_type_1_text"/>
         <ImageView
