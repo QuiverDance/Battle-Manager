@@ -13,7 +13,7 @@ class GetMoveFilterListUseCase @Inject constructor(private val moveRepository: M
         }
         val filterList = mutableListOf<FilterItem>()
         for (move in moveList) {
-            filterList.add(FilterItem(move.id.toInt(), "", move.name))
+            filterList.add(FilterItem(move.id.toInt(), "", move.name, move.type))
         }
         return filterList
     }

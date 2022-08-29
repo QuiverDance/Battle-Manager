@@ -14,7 +14,7 @@ class GetPokemonFilterListUseCase @Inject constructor(private val pokemonReposit
         }
         val filterList = mutableListOf<FilterItem>()
         for (pokemon in pokemonList) {
-            filterList.add(FilterItem(pokemon.id.toInt(), pokemon.imageUrl, pokemon.name))
+            filterList.add(FilterItem(pokemon.id.toInt(), pokemon.imageUrl, pokemon.name, pokemon.type1))
         }
         return filterList
     }
