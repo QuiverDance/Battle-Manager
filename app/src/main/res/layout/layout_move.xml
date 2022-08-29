@@ -13,9 +13,10 @@
         xmlns:app="http://schemas.android.com/apk/res-auto">
         <TextView
             android:id="@+id/item_text"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text='@{move.name == "미설정" ? "기술선택" : move.name}'
+            android:textColor='@{move.name == "미설정" ? @color/grad_8 : @color/white}'
             android:textSize="18sp"
             android:gravity="center"
             android:layout_marginStart="10dp"

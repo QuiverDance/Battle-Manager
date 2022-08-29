@@ -36,6 +36,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="6dp"
             android:gravity="center"
+            android:textColor="@color/white"
             android:text="@{viewModel.pokemonInfo.type1}"
             app:typeBackground="@{viewModel.pokemonInfo.type1}"
             app:layout_constraintTop_toBottomOf="@id/pokemon_name_text"
@@ -46,6 +47,7 @@
             android:layout_width="46dp"
             android:layout_height="wrap_content"
             android:gravity="center"
+            android:textColor="@color/white"
             android:text="@{viewModel.pokemonInfo.type2}"
             app:typeBackground="@{viewModel.pokemonInfo.type2}"
             app:layout_constraintTop_toTopOf="@id/pokemon_type_1_text"
@@ -591,7 +593,6 @@
                 app:move="@{viewModel.moveList.get(0)}"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
                 android:layout_weight="1"
                 android:onClick="@{()->viewModel.onSetMove1()}"/>
             <View
@@ -602,7 +603,6 @@
                 app:move="@{viewModel.moveList.get(1)}"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
                 android:layout_weight="1"
                 android:onClick="@{()->viewModel.onSetMove2()}"/>
         </LinearLayout>
@@ -619,7 +619,6 @@
                 app:move="@{viewModel.moveList.get(2)}"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
                 android:layout_weight="1"
                 android:onClick="@{()->viewModel.onSetMove3()}"/>
             <View
@@ -630,7 +629,6 @@
                 app:move="@{viewModel.moveList.get(3)}"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
                 android:layout_weight="1"
                 android:onClick="@{()->viewModel.onSetMove4()}"/>
         </LinearLayout>
