@@ -62,7 +62,7 @@ object TypeUtil {
             "악" -> R.drawable.background_dark
             "강철" -> R.drawable.background_steel
             "페어리" -> R.drawable.background_fairy
-            else -> R.color.white
+            else -> R.drawable.background_radius_5
         }
     }
 }
