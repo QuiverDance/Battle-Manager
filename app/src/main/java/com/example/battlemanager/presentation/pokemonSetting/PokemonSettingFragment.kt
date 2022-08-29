@@ -50,7 +50,8 @@ class PokemonSettingFragment : BaseFragment<FragmentPokemonSettingBinding>() {
             findNavController().navigateUp()
         }
         viewModel.selectedMove.observe(this){
-            viewModel.getMoveFilterList()
+            if(viewModel.selectedMove.value!! >= 0)
+                viewModel.getMoveFilterList()
         }
         viewModel.endGetMoveList.observe(this){
             val moveDialog = FilterDialogFragment(viewModel.moveFilterList.value!!) {
