@@ -42,26 +42,26 @@ object TypeUtil {
         return if(type1 == "" || type2 == "") 1f
         else typeTable[typeToInt(type1)][typeToInt(type2)]
     }
-    fun getTypeColor(type : String) : Int{
+    fun getTypeBackground(type : String) : Int{
         return when(type){
-            "노말" -> R.color.normal
-            "불꽃" -> R.color.fire
-            "물" -> R.color.water
-            "풀" -> R.color.grass
-            "전기" -> R.color.electric
-            "얼음" -> R.color.ice
-            "격투" -> R.color.fighting
-            "독" -> R.color.poison
-            "땅" -> R.color.ground
-            "비행" -> R.color.flying
-            "에스퍼" -> R.color.psychic
-            "벌레" -> R.color.bug
-            "바위" -> R.color.rock
-            "고스트" -> R.color.ghost
-            "드래곤" -> R.color.dragon
-            "악" -> R.color.dark
-            "강철" -> R.color.steel
-            "페어리" -> R.color.fairy
+            "노말" -> R.drawable.background_normal
+            "불꽃" -> R.drawable.background_fire
+            "물" -> R.drawable.background_water
+            "풀" -> R.drawable.background_grass
+            "전기" -> R.drawable.background_electric
+            "얼음" -> R.drawable.background_ice
+            "격투" -> R.drawable.background_fighting
+            "독" -> R.drawable.background_poison
+            "땅" -> R.drawable.background_ground
+            "비행" -> R.drawable.background_flying
+            "에스퍼" -> R.drawable.background_psychic
+            "벌레" -> R.drawable.background_bug
+            "바위" -> R.drawable.background_rock
+            "고스트" -> R.drawable.background_ghost
+            "드래곤" -> R.drawable.background_dragon
+            "악" -> R.drawable.background_dark
+            "강철" -> R.drawable.background_steel
+            "페어리" -> R.drawable.background_fairy
             else -> R.color.white
         }
     }
