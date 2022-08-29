@@ -44,7 +44,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/horizontal_margin"
+                android:layout_marginStart="10dp"
                 android:layout_weight="1">
 
                 <ImageView
@@ -69,8 +69,8 @@
 
                 <ImageView
                     android:id="@+id/pokemon_1_img"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
+                    android:layout_width="76dp"
+                    android:layout_height="76dp"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="6dp"
                     app:urlInAssets="@{viewModel.pokemon1.pokemonInfo.imageUrl}"
@@ -79,10 +79,10 @@
 
                 <TextView
                     android:id="@+id/pokemon_1_type_1_text"
-                    android:layout_width="wrap_content"
+                    android:layout_width="46dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="6dp"
-                    android:background="@drawable/background_radius_5"
+                    android:gravity="center"
                     android:text="@{viewModel.pokemon1.pokemonInfo.type1}"
                     app:typeBackground="@{viewModel.pokemon1.pokemonInfo.type1}"
                     app:layout_constraintBottom_toBottomOf="@id/pokemon_1_img"
@@ -90,9 +90,9 @@
 
                 <TextView
                     android:id="@+id/pokemon_1_type_2_text"
-                    android:layout_width="wrap_content"
+                    android:layout_width="46dp"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/background_radius_5"
+                    android:gravity="center"
                     android:text="@{viewModel.pokemon1.pokemonInfo.type2}"
                     app:typeBackground="@{viewModel.pokemon1.pokemonInfo.type2}"
                     app:layout_constraintBottom_toBottomOf="@id/pokemon_1_type_1_text"
@@ -112,13 +112,13 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <View
-                android:layout_width="30dp"
+                android:layout_width="16dp"
                 android:layout_height="0dp" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="@dimen/horizontal_margin"
+                android:layout_marginEnd="10dp"
                 android:layout_weight="1">
 
                 <ImageView
@@ -143,8 +143,8 @@
 
                 <ImageView
                     android:id="@+id/pokemon_2_img"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
+                    android:layout_width="76dp"
+                    android:layout_height="76dp"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="6dp"
                     app:urlInAssets="@{viewModel.pokemon2.pokemonInfo.imageUrl}"
@@ -153,10 +153,10 @@
 
                 <TextView
                     android:id="@+id/pokemon_2_type_1_text"
-                    android:layout_width="wrap_content"
+                    android:layout_width="46dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="6dp"
-                    android:background="@drawable/background_radius_5"
+                    android:gravity="center"
                     android:text="@{viewModel.pokemon2.pokemonInfo.type1}"
                     app:typeBackground="@{viewModel.pokemon2.pokemonInfo.type1}"
                     app:layout_constraintBottom_toBottomOf="@id/pokemon_2_img"
@@ -164,9 +164,9 @@
 
                 <TextView
                     android:id="@+id/pokemon_2_type_2_text"
-                    android:layout_width="wrap_content"
+                    android:layout_width="46dp"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/background_radius_5"
+                    android:gravity="center"
                     android:text="@{viewModel.pokemon2.pokemonInfo.type2}"
                     app:typeBackground="@{viewModel.pokemon2.pokemonInfo.type2}"
                     app:layout_constraintBottom_toBottomOf="@id/pokemon_2_type_1_text"
