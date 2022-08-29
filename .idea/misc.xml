@@ -3,9 +3,25 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/bosspc/AndroidStudioProjects/Battle-Manager/app/src/main/res/drawable/background_bug.xml" value="0.1215" />
+        <entry key="..\:/Users/bosspc/AndroidStudioProjects/Battle-Manager/app/src/main/res/drawable/background_dark.xml" value="0.1215" />
+        <entry key="..\:/Users/bosspc/AndroidStudioProjects/Battle-Manager/app/src/main/res/drawable/background_dragon.xml" value="0.1215" />
+        <entry key="..\:/Users/bosspc/AndroidStudioProjects/Battle-Manager/app/src/main/res/drawable/background_electric.xml" value="0.1215" />
+        <entry key="..\:/Users/bosspc/AndroidStudioProjects/Battle-Manager/app/src/main/res/drawable/background_fairy.xml" value="0.1215" />
+        <entry key="..\:/Users/bosspc/AndroidStudioProjects/Battle-Manager/app/src/main/res/drawable/background_fighting.xml" value="0.1215" />
         <entry key="..\:/Users/bosspc/AndroidStudioProjects/Battle-Manager/app/src/main/res/drawable/background_fire.xml" value="0.1215" />
+        <entry key="..\:/Users/bosspc/AndroidStudioProjects/Battle-Manager/app/src/main/res/drawable/background_flying.xml" value="0.1215" />
+        <entry key="..\:/Users/bosspc/AndroidStudioProjects/Battle-Manager/app/src/main/res/drawable/background_ghost.xml" value="0.1215" />
+        <entry key="..\:/Users/bosspc/AndroidStudioProjects/Battle-Manager/app/src/main/res/drawable/background_graass.xml" value="0.1215" />
+        <entry key="..\:/Users/bosspc/AndroidStudioProjects/Battle-Manager/app/src/main/res/drawable/background_ground.xml" value="0.1215" />
+        <entry key="..\:/Users/bosspc/AndroidStudioProjects/Battle-Manager/app/src/main/res/drawable/background_ice.xml" value="0.1215" />
         <entry key="..\:/Users/bosspc/AndroidStudioProjects/Battle-Manager/app/src/main/res/drawable/background_normal.xml" value="0.1215" />
+        <entry key="..\:/Users/bosspc/AndroidStudioProjects/Battle-Manager/app/src/main/res/drawable/background_poison.xml" value="0.1215" />
+        <entry key="..\:/Users/bosspc/AndroidStudioProjects/Battle-Manager/app/src/main/res/drawable/background_psychic.xml" value="0.1215" />
         <entry key="..\:/Users/bosspc/AndroidStudioProjects/Battle-Manager/app/src/main/res/drawable/background_radius_5.xml" value="0.1215" />
+        <entry key="..\:/Users/bosspc/AndroidStudioProjects/Battle-Manager/app/src/main/res/drawable/background_rock.xml" value="0.1215" />
+        <entry key="..\:/Users/bosspc/AndroidStudioProjects/Battle-Manager/app/src/main/res/drawable/background_stell.xml" value="0.1215" />
+        <entry key="..\:/Users/bosspc/AndroidStudioProjects/Battle-Manager/app/src/main/res/drawable/background_water.xml" value="0.1215" />
         <entry key="..\:/Users/bosspc/AndroidStudioProjects/Battle-Manager/app/src/main/res/drawable/seekbar_progress.xml" value="0.1215" />
         <entry key="..\:/Users/bosspc/AndroidStudioProjects/Battle-Manager/app/src/main/res/drawable/type_background_1.xml" value="0.1215" />
         <entry key="..\:/Users/bosspc/AndroidStudioProjects/Battle-Manager/app/src/main/res/layout/dialog_search.xml" value="0.25364583333333335" />
