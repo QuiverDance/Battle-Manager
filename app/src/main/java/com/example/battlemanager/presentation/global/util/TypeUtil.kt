@@ -1,5 +1,7 @@
 package com.example.battlemanager.presentation.global.util
 
+import com.example.battlemanager.R
+
 object TypeUtil {
     private val typeList = listOf("노말", "불꽃", "물", "전기", "풀", "얼음", "격투", "독", "땅", "비행", "에스퍼", "벌레", "바위", "고스트", "드래곤", "악", "강철", "페어리")
     private val typeTable = listOf(
@@ -39,5 +41,28 @@ object TypeUtil {
     fun getTypeCorrelation(type1 : String, type2 : String) : Float{
         return if(type1 == "" || type2 == "") 1f
         else typeTable[typeToInt(type1)][typeToInt(type2)]
+    }
+    fun getTypeColor(type : String) : Int{
+        return when(type){
+            "노말" -> R.color.normal
+            "불꽃" -> R.color.fire
+            "물" -> R.color.water
+            "풀" -> R.color.grass
+            "전기" -> R.color.electric
+            "얼음" -> R.color.ice
+            "격투" -> R.color.fighting
+            "독" -> R.color.poison
+            "땅" -> R.color.ground
+            "비행" -> R.color.flying
+            "에스퍼" -> R.color.psychic
+            "벌레" -> R.color.bug
+            "바위" -> R.color.rock
+            "고스트" -> R.color.ghost
+            "드래곤" -> R.color.dragon
+            "악" -> R.color.dark
+            "강철" -> R.color.steel
+            "페어리" -> R.color.fairy
+            else -> R.color.white
+        }
     }
 }
