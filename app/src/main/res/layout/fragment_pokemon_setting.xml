@@ -140,10 +140,11 @@
                 android:textSize="18sp"
                 android:layout_gravity="center" />
             <EditText
-                android:layout_width="28dp"
+                android:layout_width="40dp"
                 android:layout_height="28dp"
                 android:inputType="number"
                 android:text="@={viewModel.level}"
+                android:gravity="center"
                 android:layout_gravity="center"/>
             <View
                 android:layout_width="0dp"
@@ -234,9 +235,11 @@
                 android:textSize="16sp"
                 android:layout_marginEnd="2dp"/>
             <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="38dp"
+                android:layout_height="28dp"
                 android:inputType="number"
+                android:layout_gravity="bottom"
+                android:gravity="center"
                 android:text="@={viewModel.ivH}"/>
             <View
                 android:layout_width="0dp"
@@ -249,9 +252,11 @@
                 android:textSize="16sp"
                 android:layout_marginEnd="2dp"/>
             <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="38dp"
+                android:layout_height="28dp"
                 android:inputType="number"
+                android:layout_gravity="bottom"
+                android:gravity="center"
                 android:text="@={viewModel.ivA}"/>
             <View
                 android:layout_width="0dp"
@@ -264,9 +269,11 @@
                 android:textSize="16sp"
                 android:layout_marginEnd="2dp"/>
             <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="38dp"
+                android:layout_height="28dp"
                 android:inputType="number"
+                android:layout_gravity="bottom"
+                android:gravity="center"
                 android:text="@={viewModel.ivB}"/>
             <View
                 android:layout_width="0dp"
@@ -279,9 +286,11 @@
                 android:textSize="16sp"
                 android:layout_marginEnd="2dp"/>
             <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="38dp"
+                android:layout_height="28dp"
                 android:inputType="number"
+                android:layout_gravity="bottom"
+                android:gravity="center"
                 android:text="@={viewModel.ivC}"/>
             <View
                 android:layout_width="0dp"
@@ -294,8 +303,10 @@
                 android:textSize="16sp"
                 android:layout_marginEnd="2dp"/>
             <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="38dp"
+                android:layout_height="28dp"
+                android:layout_gravity="bottom"
+                android:gravity="center"
                 android:inputType="number"
                 android:text="@={viewModel.ivD}"/>
             <View
@@ -309,8 +320,10 @@
                 android:textSize="16sp"
                 android:layout_marginEnd="2dp"/>
             <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="38dp"
+                android:layout_height="28dp"
+                android:layout_gravity="bottom"
+                android:gravity="center"
                 android:inputType="number"
                 android:text="@={viewModel.ivS}"/>
         </LinearLayout>
@@ -339,9 +352,11 @@
                 android:textSize="16sp"
                 android:layout_marginEnd="2dp"/>
             <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="38dp"
+                android:layout_height="28dp"
                 android:inputType="number"
+                android:layout_gravity="bottom"
+                android:gravity="center"
                 android:text="@={viewModel.evH}"/>
             <View
                 android:layout_width="0dp"
@@ -354,8 +369,10 @@
                 android:textSize="16sp"
                 android:layout_marginEnd="2dp"/>
             <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="38dp"
+                android:layout_height="28dp"
+                android:layout_gravity="bottom"
+                android:gravity="center"
                 android:inputType="number"
                 android:text="@={viewModel.evA}"/>
             <View
@@ -369,8 +386,10 @@
                 android:textSize="16sp"
                 android:layout_marginEnd="2dp"/>
             <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="38dp"
+                android:layout_height="28dp"
+                android:layout_gravity="bottom"
+                android:gravity="center"
                 android:inputType="number"
                 android:text="@={viewModel.evB}"/>
             <View
@@ -378,14 +397,18 @@
                 android:layout_height="0dp"
                 android:layout_weight="1"/>
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="38dp"
+                android:layout_height="28dp"
+                android:layout_gravity="center"
+                android:gravity="center"
                 android:text="C"
                 android:textSize="16sp"
                 android:layout_marginEnd="2dp"/>
             <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="38dp"
+                android:layout_height="28dp"
+                android:layout_gravity="bottom"
+                android:gravity="center"
                 android:inputType="number"
                 android:text="@={viewModel.evC}"/>
             <View
@@ -399,8 +422,10 @@
                 android:textSize="16sp"
                 android:layout_marginEnd="2dp"/>
             <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="38dp"
+                android:layout_height="28dp"
+                android:layout_gravity="bottom"
+                android:gravity="center"
                 android:inputType="number"
                 android:text="@={viewModel.evD}"/>
             <View
@@ -414,9 +439,11 @@
                 android:textSize="16sp"
                 android:layout_marginEnd="2dp"/>
             <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="38dp"
+                android:layout_height="28dp"
                 android:inputType="number"
+                android:layout_gravity="bottom"
+                android:gravity="center"
                 android:text="@={viewModel.evS}"/>
         </LinearLayout>
         <TextView
@@ -462,8 +489,10 @@
                 android:textSize="16sp"
                 android:layout_marginEnd="2dp"/>
             <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="38dp"
+                android:layout_height="28dp"
+                android:layout_gravity="bottom"
+                android:gravity="center"
                 android:inputType="number"
                 android:text="@={viewModel.rankA}"/>
             <View
@@ -477,8 +506,10 @@
                 android:textSize="16sp"
                 android:layout_marginEnd="2dp"/>
             <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="38dp"
+                android:layout_height="28dp"
+                android:layout_gravity="bottom"
+                android:gravity="center"
                 android:inputType="number"
                 android:text="@={viewModel.rankB}"/>
             <View
@@ -492,8 +523,10 @@
                 android:textSize="16sp"
                 android:layout_marginEnd="2dp"/>
             <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="38dp"
+                android:layout_height="28dp"
+                android:layout_gravity="bottom"
+                android:gravity="center"
                 android:inputType="number"
                 android:text="@={viewModel.rankC}"/>
             <View
@@ -507,8 +540,10 @@
                 android:textSize="16sp"
                 android:layout_marginEnd="2dp"/>
             <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="38dp"
+                android:layout_height="28dp"
+                android:layout_gravity="bottom"
+                android:gravity="center"
                 android:inputType="number"
                 android:text="@={viewModel.rankD}"/>
             <View
@@ -522,8 +557,10 @@
                 android:textSize="16sp"
                 android:layout_marginEnd="2dp"/>
             <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="38dp"
+                android:layout_height="28dp"
+                android:layout_gravity="bottom"
+                android:gravity="center"
                 android:inputType="number"
                 android:text="@={viewModel.rankS}"/>
         </LinearLayout>
@@ -541,8 +578,10 @@
                 android:textSize="16sp"
                 android:layout_marginEnd="2dp"/>
             <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="38dp"
+                android:layout_height="28dp"
+                android:layout_gravity="bottom"
+                android:gravity="center"
                 android:inputType="number"
                 android:text="@={viewModel.rankAcc}"/>
             <View
@@ -556,8 +595,10 @@
                 android:textSize="16sp"
                 android:layout_marginEnd="2dp"/>
             <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="38dp"
+                android:layout_height="28dp"
+                android:layout_gravity="bottom"
+                android:gravity="center"
                 android:inputType="number"
                 android:text="@={viewModel.rankEva}"/>
             <View
@@ -571,8 +612,10 @@
                 android:textSize="16sp"
                 android:layout_marginEnd="2dp"/>
             <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="38dp"
+                android:layout_height="28dp"
+                android:layout_gravity="bottom"
+                android:gravity="center"
                 android:inputType="number"
                 android:text="@={viewModel.rankCri}"/>
             <View
