@@ -233,6 +233,7 @@
                 android:layout_height="wrap_content"
                 android:text="H"
                 android:textSize="16sp"
+                android:layout_gravity="center"
                 android:layout_marginEnd="2dp"/>
             <EditText
                 android:layout_width="38dp"
@@ -250,6 +251,7 @@
                 android:layout_height="wrap_content"
                 android:text="A"
                 android:textSize="16sp"
+                android:layout_gravity="center"
                 android:layout_marginEnd="2dp"/>
             <EditText
                 android:layout_width="38dp"
@@ -267,6 +269,7 @@
                 android:layout_height="wrap_content"
                 android:text="B"
                 android:textSize="16sp"
+                android:layout_gravity="center"
                 android:layout_marginEnd="2dp"/>
             <EditText
                 android:layout_width="38dp"
@@ -284,6 +287,7 @@
                 android:layout_height="wrap_content"
                 android:text="C"
                 android:textSize="16sp"
+                android:layout_gravity="center"
                 android:layout_marginEnd="2dp"/>
             <EditText
                 android:layout_width="38dp"
@@ -301,6 +305,7 @@
                 android:layout_height="wrap_content"
                 android:text="D"
                 android:textSize="16sp"
+                android:layout_gravity="center"
                 android:layout_marginEnd="2dp"/>
             <EditText
                 android:layout_width="38dp"
@@ -318,6 +323,7 @@
                 android:layout_height="wrap_content"
                 android:text="S"
                 android:textSize="16sp"
+                android:layout_gravity="center"
                 android:layout_marginEnd="2dp"/>
             <EditText
                 android:layout_width="38dp"
@@ -350,6 +356,7 @@
                 android:layout_height="wrap_content"
                 android:text="H"
                 android:textSize="16sp"
+                android:layout_gravity="center"
                 android:layout_marginEnd="2dp"/>
             <EditText
                 android:layout_width="38dp"
@@ -367,6 +374,7 @@
                 android:layout_height="wrap_content"
                 android:text="A"
                 android:textSize="16sp"
+                android:layout_gravity="center"
                 android:layout_marginEnd="2dp"/>
             <EditText
                 android:layout_width="38dp"
@@ -384,6 +392,7 @@
                 android:layout_height="wrap_content"
                 android:text="B"
                 android:textSize="16sp"
+                android:layout_gravity="center"
                 android:layout_marginEnd="2dp"/>
             <EditText
                 android:layout_width="38dp"
@@ -401,6 +410,7 @@
                 android:layout_height="wrap_content"
                 android:text="C"
                 android:textSize="16sp"
+                android:layout_gravity="center"
                 android:layout_marginEnd="2dp"/>
             <EditText
                 android:layout_width="38dp"
@@ -418,6 +428,7 @@
                 android:layout_height="wrap_content"
                 android:text="D"
                 android:textSize="16sp"
+                android:layout_gravity="center"
                 android:layout_marginEnd="2dp"/>
             <EditText
                 android:layout_width="38dp"
@@ -435,6 +446,7 @@
                 android:layout_height="wrap_content"
                 android:text="S"
                 android:textSize="16sp"
+                android:layout_gravity="center"
                 android:layout_marginEnd="2dp"/>
             <EditText
                 android:layout_width="38dp"
@@ -485,6 +497,7 @@
                 android:layout_height="wrap_content"
                 android:text="공격"
                 android:textSize="16sp"
+                android:layout_gravity="center"
                 android:layout_marginEnd="2dp"/>
             <EditText
                 android:layout_width="38dp"
@@ -502,6 +515,7 @@
                 android:layout_height="wrap_content"
                 android:text="방어"
                 android:textSize="16sp"
+                android:layout_gravity="center"
                 android:layout_marginEnd="2dp"/>
             <EditText
                 android:layout_width="38dp"
@@ -519,6 +533,7 @@
                 android:layout_height="wrap_content"
                 android:text="특공"
                 android:textSize="16sp"
+                android:layout_gravity="center"
                 android:layout_marginEnd="2dp"/>
             <EditText
                 android:layout_width="38dp"
@@ -536,6 +551,7 @@
                 android:layout_height="wrap_content"
                 android:text="특방"
                 android:textSize="16sp"
+                android:layout_gravity="center"
                 android:layout_marginEnd="2dp"/>
             <EditText
                 android:layout_width="38dp"
@@ -553,6 +569,7 @@
                 android:layout_height="wrap_content"
                 android:text="스피드"
                 android:textSize="16sp"
+                android:layout_gravity="center"
                 android:layout_marginEnd="2dp"/>
             <EditText
                 android:layout_width="38dp"
@@ -574,6 +591,7 @@
                 android:layout_height="wrap_content"
                 android:text="명중률"
                 android:textSize="16sp"
+                android:layout_gravity="center"
                 android:layout_marginEnd="2dp"/>
             <EditText
                 android:layout_width="38dp"
@@ -591,6 +609,7 @@
                 android:layout_height="wrap_content"
                 android:text="회피율"
                 android:textSize="16sp"
+                android:layout_gravity="center"
                 android:layout_marginEnd="2dp"/>
             <EditText
                 android:layout_width="38dp"
@@ -608,6 +627,7 @@
                 android:layout_height="wrap_content"
                 android:text="급소율"
                 android:textSize="16sp"
+                android:layout_gravity="center"
                 android:layout_marginEnd="2dp"/>
             <EditText
                 android:layout_width="38dp"
