@@ -32,12 +32,7 @@ object PokemonMemory {
             secondPokemon = tPokemon
         }
         catch (e : UninitializedPropertyAccessException){
-            if(!isFirstSet && isSecondSet)
-                firstPokemon = secondPokemon
-            else if(isFirstSet && !isSecondSet)
-                secondPokemon = firstPokemon
-            else
-                return
+            return
         }
 
         val tSet = isFirstSet
