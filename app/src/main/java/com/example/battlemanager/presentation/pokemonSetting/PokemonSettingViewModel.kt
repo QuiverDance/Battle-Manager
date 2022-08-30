@@ -1,5 +1,6 @@
 package com.example.battlemanager.presentation.pokemonSetting
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -115,14 +116,16 @@ class PokemonSettingViewModel @Inject constructor(
     val nature: LiveData<String> get() = _nature
     fun setNature(value: String) = _nature.postValue(value)
 
-    private val _moveList = MutableList<MoveInfo>(4){MoveInfo(0, "미설정", 0, "없음", "없음", 0)}
-    val moveList : List<MoveInfo> get() = _moveList
+    private val _moveList = MutableLiveData(MutableList<MoveInfo>(4){MoveInfo(0, "미설정", 0, "없음", "없음", 0)})
+    val moveList : LiveData<MutableList<MoveInfo>> get() = _moveList
     fun setMoveInfo(name: String, pos: Int){
         viewModelScope.launch {
             val moveInfo = withContext(Dispatchers.IO) {
                 getMoveInfoUseCase.invoke(name)
             }
-            _moveList[pos] = moveInfo
+            val moves = _moveList.value!!
+            moves[pos] = moveInfo
+            _moveList.value = moves
         }
     }
 
@@ -132,7 +135,7 @@ class PokemonSettingViewModel @Inject constructor(
             level.value!!.toInt(),
             AbilityInfo(0, ability.value!!, ""),
             ItemInfo(0, "아이템", "", false),
-            moveList,
+            _moveList.value!!,
             Nature.NULL,
             EffortValues(
                 evH.value!!.toInt(),
