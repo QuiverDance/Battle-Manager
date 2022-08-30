@@ -14,6 +14,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".presentation.main.MainActivity">
+        <include
+            android:id="@+id/header"
+            layout="@layout/layout_header"
+            app:title='@{"필드"}'
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
         <TextView
             android:id="@+id/attack_text"
             android:layout_width="wrap_content"
@@ -42,12 +48,12 @@
             android:id="@+id/swap_img"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="6dp"
             android:src="@drawable/ic_swap_horiz"
             android:onClick="@{()->viewModel.onStartSwap()}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/header" />
 
         <LinearLayout
             android:id="@+id/pokemon_layout"

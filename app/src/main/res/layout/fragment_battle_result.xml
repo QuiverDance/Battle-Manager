@@ -12,21 +12,27 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+        <include
+            android:id="@+id/header"
+            layout="@layout/layout_header"
+            app:title='@{"결과"}'
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/move_1_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/horizontal_margin"
+            android:layout_marginTop="6dp"
             android:orientation="vertical"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toBottomOf="@id/header">
 
             <TextView
                 android:id="@+id/move_1_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
                 android:text="@{viewModel.pokemon1.moves.get(0).name}"
                 android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="parent"
