@@ -17,7 +17,7 @@ object DamageUtil {
         isCritical: Boolean,
         randType: Int
     ): Int {
-        if (move.type == "변화")
+        if (move.category == "변화")
             return 0
 
         val attackRealStat = getAttackRealStat(move, myPokemon)
