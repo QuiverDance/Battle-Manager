@@ -44,6 +44,7 @@
             android:layout_height="40dp"
             android:layout_marginTop="20dp"
             android:src="@drawable/ic_swap_horiz"
+            android:onClick="@{()->viewModel.onStartSwap()}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -122,6 +123,7 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginBottom="10dp"
                     android:text="@{viewModel.pokemon1.pokemonInfo.name}"
+                    android:textSize="18sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/pokemon_1_img" />
@@ -198,6 +200,7 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginBottom="10dp"
                     android:text="@{viewModel.pokemon2.pokemonInfo.name}"
+                    android:textSize="18sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/pokemon_2_img" />

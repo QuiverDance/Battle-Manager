@@ -25,4 +25,23 @@ object PokemonMemory {
     fun getIsValid(pos: Int) : Boolean{
         return if(pos == 1) isFirstSet else isSecondSet
     }
+    fun swapPokemon(){
+        try {
+            val tPokemon = firstPokemon
+            firstPokemon = secondPokemon
+            secondPokemon = tPokemon
+        }
+        catch (e : UninitializedPropertyAccessException){
+            if(!isFirstSet && isSecondSet)
+                firstPokemon = secondPokemon
+            else if(isFirstSet && !isSecondSet)
+                secondPokemon = firstPokemon
+            else
+                return
+        }
+
+        val tSet = isFirstSet
+        isFirstSet = isSecondSet
+        isSecondSet = tSet
+    }
 }

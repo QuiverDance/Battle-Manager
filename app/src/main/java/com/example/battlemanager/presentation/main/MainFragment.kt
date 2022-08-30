@@ -16,12 +16,7 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
 
     override fun initState() {
         super.initState()
-        if(PokemonMemory.getIsValid(1)){
-            viewModel.setPokemon(PokemonMemory.getPokemon(1), 1)
-        }
-        if(PokemonMemory.getIsValid(2)){
-            viewModel.setPokemon(PokemonMemory.getPokemon(2), 2)
-        }
+        setPokemon()
     }
 
     override fun initDataBinding() {
@@ -38,6 +33,18 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
         viewModel.startResult.observe(this){
             if(PokemonMemory.getIsValid(1) && PokemonMemory.getIsValid(2))
                 findNavController().navigate(R.id.action_mainFragment_to_ResultFragment)
+        }
+        viewModel.startSwap.observe(this){
+            PokemonMemory.swapPokemon()
+            setPokemon()
+        }
+    }
+    private fun setPokemon(){
+        if(PokemonMemory.getIsValid(1)){
+            viewModel.setPokemon(PokemonMemory.getPokemon(1), 1)
+        }
+        if(PokemonMemory.getIsValid(2)){
+            viewModel.setPokemon(PokemonMemory.getPokemon(2), 2)
         }
     }
 }

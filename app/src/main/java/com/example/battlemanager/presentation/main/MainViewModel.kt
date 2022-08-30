@@ -40,4 +40,9 @@ class MainViewModel : ViewModel() {
     fun onStartResult() {
         startResult.call()
     }
+
+    val startSwap = SingleLiveEvent<Any>()
+    fun onStartSwap() {
+        startSwap.call()
+    }
 }
