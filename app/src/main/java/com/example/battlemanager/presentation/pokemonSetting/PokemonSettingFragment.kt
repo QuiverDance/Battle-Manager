@@ -183,7 +183,7 @@ class PokemonSettingFragment : BaseFragment<FragmentPokemonSettingBinding>() {
         }
 
         viewModel.level.observe(this) {
-            if(it != "") {
+            try {
                 val maxHp = StatUtil.getHp(
                     viewModel.pokemonInfo.value!!.name,
                     it.toInt(),
@@ -193,18 +193,22 @@ class PokemonSettingFragment : BaseFragment<FragmentPokemonSettingBinding>() {
                 )
                 binding.hpSeekBar.max = maxHp
             }
+            catch (e : NumberFormatException){}
         }
         viewModel.pokemonInfo.observe(this) {
-            val maxHp = StatUtil.getHp(
-                it.name, viewModel.level.value!!.toInt(),
-                it.baseStats.H,
-                viewModel.ivH.value!!.toInt(),
-                viewModel.evH.value!!.toInt()
-            )
-            binding.hpSeekBar.max = maxHp
+            try {
+                val maxHp = StatUtil.getHp(
+                    it.name, viewModel.level.value!!.toInt(),
+                    it.baseStats.H,
+                    viewModel.ivH.value!!.toInt(),
+                    viewModel.evH.value!!.toInt()
+                )
+                binding.hpSeekBar.max = maxHp
+            }
+            catch (e : NumberFormatException){}
         }
         viewModel.ivH.observe(this) {
-            if (it != "") {
+            try{
                 val maxHp = StatUtil.getHp(
                     viewModel.pokemonInfo.value!!.name,
                     viewModel.level.value!!.toInt(),
@@ -214,9 +218,10 @@ class PokemonSettingFragment : BaseFragment<FragmentPokemonSettingBinding>() {
                 )
                 binding.hpSeekBar.max = maxHp
             }
+            catch (e : NumberFormatException){}
         }
         viewModel.evH.observe(this) {
-            if (it != "") {
+            try {
                 val maxHp = StatUtil.getHp(
                     viewModel.pokemonInfo.value!!.name,
                     viewModel.level.value!!.toInt(),
@@ -226,6 +231,7 @@ class PokemonSettingFragment : BaseFragment<FragmentPokemonSettingBinding>() {
                 )
                 binding.hpSeekBar.max = maxHp
             }
+            catch(e : NumberFormatException){}
         }
     }
 }

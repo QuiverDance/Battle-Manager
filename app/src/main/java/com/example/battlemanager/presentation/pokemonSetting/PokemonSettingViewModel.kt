@@ -44,7 +44,7 @@ class PokemonSettingViewModel @Inject constructor(
     val pokemonFilterList: LiveData<List<FilterItem>> get() = _pokemonFilterList
     val endGetPokemonList = SingleLiveEvent<Any>()
     fun getPokemonFilterList() {
-        if(_pokemonFilterList.value != null){
+        if (_pokemonFilterList.value != null) {
             endGetPokemonList.call()
             return
         }
@@ -61,7 +61,7 @@ class PokemonSettingViewModel @Inject constructor(
     val moveFilterList: LiveData<List<FilterItem>> get() = _moveFilterList
     val endGetMoveList = SingleLiveEvent<Any>()
     fun getMoveFilterList() {
-        if(_moveFilterList.value != null){
+        if (_moveFilterList.value != null) {
             endGetMoveList.call()
             return
         }
@@ -116,9 +116,10 @@ class PokemonSettingViewModel @Inject constructor(
     val nature: LiveData<String> get() = _nature
     fun setNature(value: String) = _nature.postValue(value)
 
-    private val _moveList = MutableLiveData(MutableList<MoveInfo>(4){MoveInfo(0, "미설정", 0, "없음", "없음", 0)})
-    val moveList : LiveData<MutableList<MoveInfo>> get() = _moveList
-    fun setMoveInfo(name: String, pos: Int){
+    private val _moveList =
+        MutableLiveData(MutableList<MoveInfo>(4) { MoveInfo(0, "미설정", 0, "없음", "없음", 0) })
+    val moveList: LiveData<MutableList<MoveInfo>> get() = _moveList
+    fun setMoveInfo(name: String, pos: Int) {
         viewModelScope.launch {
             val moveInfo = withContext(Dispatchers.IO) {
                 getMoveInfoUseCase.invoke(name)
@@ -137,34 +138,67 @@ class PokemonSettingViewModel @Inject constructor(
             ItemInfo(0, "아이템", "", false),
             _moveList.value!!,
             Nature.NULL,
-            EffortValues(
-                evH.value!!.toInt(),
-                evA.value!!.toInt(),
-                evB.value!!.toInt(),
-                evC.value!!.toInt(),
-                evD.value!!.toInt(),
-                evS.value!!.toInt()
-            ),
-            IndividualValues(
-                ivH.value!!.toInt(),
-                ivA.value!!.toInt(),
-                ivB.value!!.toInt(),
-                ivC.value!!.toInt(),
-                ivD.value!!.toInt(),
-                ivS.value!!.toInt()
-            ),
-            RankStates(
-                rankA.value!!.toInt(),
-                rankB.value!!.toInt(),
-                rankC.value!!.toInt(),
-                rankD.value!!.toInt(),
-                rankS.value!!.toInt(),
-                rankAcc.value!!.toInt(),
-                rankEva.value!!.toInt(),
-                rankCri.value!!.toInt()
-            ),
+            getEffortValues(),
+            getIndividualValues(),
+            getRankStates(),
             StatusAbnormalityUtil.getStatusAbnormalityId(statusAbnormality.value!!),
             hp.value!!
+        )
+    }
+
+    private fun getEffortValues(): EffortValues {
+        val evList = mutableListOf(evH.value!!, evA.value!!, evB.value!!, evC.value!!, evD.value!!, evS.value!!)
+
+        for ((idx, value) in evList.withIndex()) {
+            if (value == "")
+                evList[idx] = "0"
+        }
+
+        return EffortValues(
+            evList[0].toInt(),
+            evList[1].toInt(),
+            evList[2].toInt(),
+            evList[3].toInt(),
+            evList[4].toInt(),
+            evList[5].toInt()
+        )
+    }
+
+    private fun getIndividualValues(): IndividualValues {
+        val ivList = mutableListOf(ivH.value!!, ivA.value!!, ivB.value!!, ivC.value!!, ivD.value!!, ivS.value!!)
+
+        for ((idx, value) in ivList.withIndex()) {
+            if (value == "")
+                ivList[idx] = "0"
+        }
+
+        return IndividualValues(
+            ivList[0].toInt(),
+            ivList[1].toInt(),
+            ivList[2].toInt(),
+            ivList[3].toInt(),
+            ivList[4].toInt(),
+            ivList[5].toInt()
+        )
+    }
+
+    private fun getRankStates(): RankStates {
+        val rankList = mutableListOf(rankA.value!!, rankB.value!!, rankC.value!!, rankD.value!!, rankS.value!!, rankAcc.value!!, rankEva.value!!, rankCri.value!!)
+
+        for ((idx, value) in rankList.withIndex()) {
+            if (value == "")
+                rankList[idx] = "0"
+        }
+
+        return RankStates(
+            rankList[0].toInt(),
+            rankList[1].toInt(),
+            rankList[2].toInt(),
+            rankList[3].toInt(),
+            rankList[4].toInt(),
+            rankList[5].toInt(),
+            rankList[6].toInt(),
+            rankList[7].toInt(),
         )
     }
 
@@ -175,10 +209,21 @@ class PokemonSettingViewModel @Inject constructor(
     fun onSetSpinner() = startSetSpinner.call()
 
     val selectedMove = MutableLiveData(-1)
-    fun onSetMove1() {selectedMove.value = 0}
-    fun onSetMove2() {selectedMove.value = 1}
-    fun onSetMove3() {selectedMove.value = 2}
-    fun onSetMove4() {selectedMove.value = 3}
+    fun onSetMove1() {
+        selectedMove.value = 0
+    }
+
+    fun onSetMove2() {
+        selectedMove.value = 1
+    }
+
+    fun onSetMove3() {
+        selectedMove.value = 2
+    }
+
+    fun onSetMove4() {
+        selectedMove.value = 3
+    }
 
     val startComplete = SingleLiveEvent<Any>()
     fun onComplete() = startComplete.call()
