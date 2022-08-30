@@ -27,40 +27,17 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
     override fun initDataBinding() {
         super.initDataBinding()
         binding.viewModel = viewModel
-        //setViewPager()
         viewModel.startPokemon1.observe(this){
-//            val pokemon1Dialog = FilterDialogFragment(viewModel.pokemonNameList.value!!) {
-//                viewModel.getPokemonInfo(it.id, 1)
-//            }
-//            pokemon1Dialog.show(childFragmentManager, "pokemons")
             val bundle = bundleOf("pos" to 1)
             findNavController().navigate(R.id.action_mainFragment_to_pokemonSettingFragment, bundle)
         }
         viewModel.startPokemon2.observe(this){
-//            val pokemon1Dialog = FilterDialogFragment(viewModel.pokemonNameList.value!!) {
-//                viewModel.getPokemonInfo(it.id, 2)
-//            }
             val bundle = bundleOf("pos" to 2)
             findNavController().navigate(R.id.action_mainFragment_to_pokemonSettingFragment, bundle)
         }
         viewModel.startResult.observe(this){
             if(PokemonMemory.getIsValid(1) && PokemonMemory.getIsValid(2))
                 findNavController().navigate(R.id.action_mainFragment_to_ResultFragment)
-        }
-    }
-
-    private fun setViewPager(){
-        with(binding.pokemonViewPager) {
-            adapter = PokemonSettingViewPagerAdapter(this@MainFragment, viewModel)
-            isUserInputEnabled = false
-            binding.tabs.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
-                override fun onTabSelected(tab: TabLayout.Tab?) {
-                    val position = tab!!.position
-                    currentItem = position
-                }
-                override fun onTabUnselected(tab: TabLayout.Tab?) {}
-                override fun onTabReselected(tab: TabLayout.Tab?) {}
-            })
         }
     }
 }
