@@ -14,32 +14,46 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".presentation.main.MainActivity">
-
+        <TextView
+            android:id="@+id/attack_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="공격"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="@color/fire"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/swap_img"
+            app:layout_constraintEnd_toStartOf="@id/swap_img"
+            app:layout_constraintBottom_toBottomOf="@id/swap_img"/>
+        <TextView
+            android:id="@+id/defense_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="방어"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="@color/water"
+            app:layout_constraintStart_toEndOf="@id/swap_img"
+            app:layout_constraintTop_toTopOf="@id/swap_img"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/swap_img"/>
         <ImageView
-            android:id="@+id/change_direction_img"
+            android:id="@+id/swap_img"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_marginTop="20dp"
-            android:layout_marginEnd="8dp"
-            android:background="@color/grad_8"
-            app:layout_constraintEnd_toStartOf="@id/undo_img"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageView
-            android:id="@+id/undo_img"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginEnd="@dimen/horizontal_margin"
-            android:background="@color/grad_8"
+            android:src="@drawable/ic_swap_horiz"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/change_direction_img" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <LinearLayout
             android:id="@+id/pokemon_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintTop_toBottomOf="@id/change_direction_img">
+            app:layout_constraintTop_toBottomOf="@id/swap_img">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="wrap_content"
@@ -53,7 +67,7 @@
                     android:layout_height="30dp"
                     android:layout_marginTop="6dp"
                     android:layout_marginEnd="6dp"
-                    android:background="@color/grad_8"
+                    android:src="@drawable/ic_info"
                     app:layout_constraintEnd_toStartOf="@id/change_pokemon_1_img"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -62,7 +76,7 @@
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_marginEnd="6dp"
-                    android:background="@color/grad_8"
+                    android:src="@drawable/ic_edit"
                     android:onClick="@{()->viewModel.startPokemon1()}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="@id/pokemonInfo_1_img" />
@@ -129,7 +143,7 @@
                     android:layout_height="30dp"
                     android:layout_marginTop="6dp"
                     android:layout_marginEnd="6dp"
-                    android:background="@color/grad_8"
+                    android:src="@drawable/ic_info"
                     app:layout_constraintEnd_toStartOf="@id/change_pokemon_2_img"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -138,7 +152,7 @@
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_marginEnd="6dp"
-                    android:background="@color/grad_8"
+                    android:src="@drawable/ic_edit"
                     android:onClick="@{()->viewModel.startPokemon2()}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="@id/pokemonInfo_2_img" />
@@ -190,36 +204,6 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
 
-        <com.google.android.material.tabs.TabLayout
-            android:id="@+id/tabs"
-            android:layout_width="match_parent"
-            android:layout_height="32dp"
-            android:layout_marginHorizontal="@dimen/horizontal_margin"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/pokemon_layout"
-            app:tabSelectedTextColor="@color/black"
-            app:tabTextColor="@color/grad_8">
-
-            <com.google.android.material.tabs.TabItem
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="공격" />
-
-            <com.google.android.material.tabs.TabItem
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="수비" />
-        </com.google.android.material.tabs.TabLayout>
-
-        <androidx.viewpager2.widget.ViewPager2
-            android:id="@+id/pokemon_viewPager"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/horizontal_margin"
-            android:layout_marginTop="12dp"
-            android:nestedScrollingEnabled="false"
-            app:layout_constraintTop_toBottomOf="@id/tabs" />
-
         <TextView
             android:id="@+id/field_setting_text"
             android:layout_width="wrap_content"
@@ -229,7 +213,7 @@
             android:text="필드 설정"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/pokemon_viewPager" />
+            app:layout_constraintTop_toBottomOf="@id/pokemon_layout" />
 
         <ImageView
             android:id="@+id/field_unfold_img"
