@@ -86,7 +86,11 @@ class PokemonSettingFragment : BaseFragment<FragmentPokemonSettingBinding>() {
 
         }
 
-        val abilityList = viewModel.pokemonInfo.value!!.validAbilityList
+        val abilityList = mutableListOf<String>()
+        for(value in viewModel.pokemonInfo.value!!.validAbilityList){
+            if(value != "")
+                abilityList.add(value)
+        }
         val abilityAdapter = ArrayAdapter(
             requireContext(),
             androidx.appcompat.R.layout.support_simple_spinner_dropdown_item,
