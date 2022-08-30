@@ -5,15 +5,14 @@ import android.widget.SearchView
 import com.example.battlemanager.R
 import com.example.battlemanager.databinding.DialogSearchBinding
 import com.example.battlemanager.domain.model.FilterItem
+import com.example.battlemanager.presentation.global.base.BaseBottomSheetFragment
 import com.example.battlemanager.presentation.global.base.BaseDialogFragment
 
-class FilterDialogFragment(val items: List<FilterItem>, val selectedItem: (FilterItem) -> Unit) : BaseDialogFragment<DialogSearchBinding>() {
+class FilterDialogFragment(val items: List<FilterItem>, val selectedItem: (FilterItem) -> Unit) : BaseBottomSheetFragment<DialogSearchBinding>() {
     override val layoutResourceId = R.layout.dialog_search
 
-//    val selectedItem = ArrayList<FilterItem>()
     override fun onResume() {
         super.onResume()
-        context?.dialogFragmentResize(this@FilterDialogFragment, 0.8f, 0.8f)
     }
 
     override fun initDataBinding() {
@@ -45,7 +44,6 @@ class FilterDialogFragment(val items: List<FilterItem>, val selectedItem: (Filte
         val adapter = FilterAdapter(dataset)
         adapter.setOnFilterItemClickListener(object : FilterAdapter.OnFilterItemClickListener {
             override fun onItemClick(view: View, pos: Int) {
-                //selectedItem.add(adapter.getItem(pos));
                 selectedItem(adapter.getItem(pos))
                 dismiss()
             }
