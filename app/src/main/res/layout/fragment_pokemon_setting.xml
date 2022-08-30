@@ -473,6 +473,7 @@
             android:layout_marginStart="6dp"
             android:textSize="18sp"
             app:layout_constraintTop_toTopOf="@id/nature_text"
+            app:layout_constraintBottom_toBottomOf="@id/nature_text"
             app:layout_constraintStart_toEndOf="@id/nature_text"/>
         <TextView
             android:id="@+id/rank_text"

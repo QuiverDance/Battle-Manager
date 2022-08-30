@@ -32,16 +32,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/move_1_result_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="6dp"
-                android:text="확정 n타"
-                android:textSize="16sp"
-                app:layout_constraintStart_toEndOf="@id/move_1_text"
-                app:layout_constraintTop_toTopOf="@id/move_1_text" />
-
             <LinearLayout
                 android:id="@+id/move_1_min_layout"
                 android:layout_width="match_parent"
@@ -229,16 +219,6 @@
                 android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/move_2_result_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="6dp"
-                android:text="확정 n타"
-                android:textSize="16sp"
-                app:layout_constraintStart_toEndOf="@id/move_2_text"
-                app:layout_constraintTop_toTopOf="@id/move_2_text" />
 
             <LinearLayout
                 android:id="@+id/move_2_min_layout"
@@ -428,16 +408,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/move_3_result_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="6dp"
-                android:text="확정 n타"
-                android:textSize="16sp"
-                app:layout_constraintStart_toEndOf="@id/move_3_text"
-                app:layout_constraintTop_toTopOf="@id/move_3_text" />
-
             <LinearLayout
                 android:id="@+id/move_3_min_layout"
                 android:layout_width="match_parent"
@@ -625,16 +595,6 @@
                 android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/move_4_result_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="6dp"
-                android:text="확정 n타"
-                android:textSize="16sp"
-                app:layout_constraintStart_toEndOf="@id/move_4_text"
-                app:layout_constraintTop_toTopOf="@id/move_4_text" />
 
             <LinearLayout
                 android:id="@+id/move_4_min_layout"
