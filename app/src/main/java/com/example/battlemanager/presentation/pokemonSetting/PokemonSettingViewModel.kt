@@ -142,7 +142,8 @@ class PokemonSettingViewModel @Inject constructor(
             getIndividualValues(),
             getRankStates(),
             StatusAbnormalityUtil.getStatusAbnormalityId(statusAbnormality.value!!),
-            hp.value!!
+            hp.value!!,
+            _gender.value!!
         )
     }
 
