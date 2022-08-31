@@ -21,7 +21,7 @@ object DamageUtil {
             return 0
 
         val attackRealStat = getAttackRealStat(move, myPokemon, weather)
-        val defenseRealStat = getDefenseRealStat(move, opponentPokemon, weather, )
+        val defenseRealStat = getDefenseRealStat(move, opponentPokemon, weather)
         val criticalCoefficient = getCriticalCoefficient(myPokemon, isCritical)
         val randomNumber = getRandomNumber(randType)
         val typeCorrelation = getTypeCorrelation(move, myPokemon)
