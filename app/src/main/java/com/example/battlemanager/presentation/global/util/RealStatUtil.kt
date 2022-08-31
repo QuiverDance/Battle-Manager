@@ -3,6 +3,7 @@ package com.example.battlemanager.presentation.global.util
 import com.example.battlemanager.domain.model.AbilityInfo
 import com.example.battlemanager.domain.model.ItemInfo
 import com.example.battlemanager.domain.model.RankStates
+import com.example.battlemanager.presentation.global.constant.StatusAbnormality
 import kotlin.math.floor
 
 object RealStatUtil {
@@ -14,12 +15,13 @@ object RealStatUtil {
         nature: Int,
         rank: RankStates,
         ability: AbilityInfo,
-        item: ItemInfo
+        item: ItemInfo,
+        statusAbnormality: Int
     ): Int {
         return floor(
             StatUtil.getA(level, baseA, ivA, evA, nature) * RankUtil.getBaseStatRankChange(
                 rank.attack
-            ) * AbilityUtil.getAttackCorrelation(ability) * ItemUtil.getAttackCorrelation(item)
+            ) * AbilityUtil.getAttackCorrelation(ability, statusAbnormality) * ItemUtil.getAttackCorrelation(item)
         ).toInt()
     }
 
@@ -31,12 +33,13 @@ object RealStatUtil {
         nature: Int,
         rank: RankStates,
         ability: AbilityInfo,
-        item: ItemInfo
+        item: ItemInfo,
+        weather: String
     ): Int {
         return floor(
             StatUtil.getC(level, baseC, ivC, evC, nature) * RankUtil.getBaseStatRankChange(
                 rank.specialAttack
-            ) * AbilityUtil.getSpecialAttackCorrelation(ability) * ItemUtil.getSpecialAttackCorrelation(
+            ) * AbilityUtil.getSpecialAttackCorrelation(ability, weather) * ItemUtil.getSpecialAttackCorrelation(
                 item
             )
         ).toInt()
@@ -50,12 +53,13 @@ object RealStatUtil {
         nature: Int,
         rank: RankStates,
         ability: AbilityInfo,
-        item: ItemInfo
+        item: ItemInfo,
+        statusAbnormality: Int
     ): Int {
         return floor(
             StatUtil.getB(level, baseB, ivB, evB, nature) * RankUtil.getBaseStatRankChange(
                 rank.defense
-            ) * AbilityUtil.getDefenseCorrelation(ability) * ItemUtil.getDefenseCorrelation(item)
+            ) * AbilityUtil.getDefenseCorrelation(ability, statusAbnormality) * ItemUtil.getDefenseCorrelation(item)
         ).toInt()
     }
 
@@ -80,7 +84,10 @@ object RealStatUtil {
             ) * mod(weather, type1, type2)
         ).toInt()
     }
-
+    
+    /*
+    곡예, 불굴의마음 효과 미반영
+     */
     fun getSpeed(
         level: Int,
         baseS: Int,
@@ -89,12 +96,14 @@ object RealStatUtil {
         nature: Int,
         rank: RankStates,
         ability: AbilityInfo,
-        item: ItemInfo
+        item: ItemInfo,
+        statusAbnormality: Int,
+        weather: String
     ): Int {
         return floor(
             StatUtil.getS(level, baseS, ivS, evS, nature) * RankUtil.getBaseStatRankChange(
                 rank.speed
-            ) * AbilityUtil.getSpeedCorrelation(ability) * ItemUtil.getSpeedCorrelation(item)
+            ) * AbilityUtil.getSpeedCorrelation(ability, statusAbnormality, weather) * ItemUtil.getSpeedCorrelation(item)
         ).toInt()
     }
 

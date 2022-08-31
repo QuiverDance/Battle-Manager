@@ -20,8 +20,8 @@ object DamageUtil {
         if (move.category == "변화")
             return 0
 
-        val attackRealStat = getAttackRealStat(move, myPokemon)
-        val defenseRealStat = getDefenseRealStat(move, opponentPokemon, weather)
+        val attackRealStat = getAttackRealStat(move, myPokemon, weather)
+        val defenseRealStat = getDefenseRealStat(move, opponentPokemon, weather, )
         val criticalCoefficient = getCriticalCoefficient(myPokemon, isCritical)
         val randomNumber = getRandomNumber(randType)
         val typeCorrelation = getTypeCorrelation(move, myPokemon)
@@ -33,10 +33,9 @@ object DamageUtil {
                         floor(
                             floor(
                                 floor(myPokemon.level * 0.4) * PowerUtil.getPower(
-                                    move.power,
-                                    myPokemon.item,
-                                    myPokemon.ability,
-                                    opponentPokemon.ability
+                                    move,
+                                    myPokemon,
+                                    opponentPokemon
                                 ) * attackRealStat * 0.02
                             ) / defenseRealStat
                         )
@@ -49,7 +48,7 @@ object DamageUtil {
         ).toInt()
     }
 
-    private fun getAttackRealStat(move: MoveInfo, pokemon: Pokemon): Int {
+    private fun getAttackRealStat(move: MoveInfo, pokemon: Pokemon, weather: String): Int {
         return if (move.type == "물리") RealStatUtil.getAttack(
             pokemon.level,
             pokemon.pokemonInfo.baseStats.A,
@@ -58,7 +57,8 @@ object DamageUtil {
             pokemon.nature,
             pokemon.rankStates,
             pokemon.ability,
-            pokemon.item
+            pokemon.item,
+            pokemon.statusAbnormality
         )
         else
             RealStatUtil.getSpecialAttack(
@@ -69,7 +69,8 @@ object DamageUtil {
                 pokemon.nature,
                 pokemon.rankStates,
                 pokemon.ability,
-                pokemon.item
+                pokemon.item,
+                weather
             )
     }
 
@@ -82,7 +83,8 @@ object DamageUtil {
             pokemon.nature,
             pokemon.rankStates,
             pokemon.ability,
-            pokemon.item
+            pokemon.item,
+            pokemon.statusAbnormality
         )
         else
             RealStatUtil.getSpecialDefense(
@@ -132,7 +134,7 @@ object DamageUtil {
      */
     private fun mod1(move: MoveInfo, pokemon: Pokemon, weather: String): Float {
         val burnEffect =
-            if (pokemon.statusAbnormality == StatusAbnormality.BURN && move.type == "물리") 0.5f else 1f
+            if(pokemon.ability.name == "근성") 1f else if (pokemon.statusAbnormality == StatusAbnormality.BURN && move.type == "물리") 0.5f else 1f
         val weatherEffect = if (weather == "쾌청") {
             if (move.type == "불꽃")
                 1.5f

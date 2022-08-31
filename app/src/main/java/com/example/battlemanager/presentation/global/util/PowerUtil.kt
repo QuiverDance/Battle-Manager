@@ -2,6 +2,8 @@ package com.example.battlemanager.presentation.global.util
 
 import com.example.battlemanager.domain.model.AbilityInfo
 import com.example.battlemanager.domain.model.ItemInfo
+import com.example.battlemanager.domain.model.MoveInfo
+import com.example.battlemanager.domain.model.Pokemon
 import kotlin.math.floor
 
 object PowerUtil {
@@ -9,15 +11,14 @@ object PowerUtil {
     도우미, 충전, 흙놀이, 물놀이 미반영
      */
     fun getPower(
-        power: Int,
-        item: ItemInfo,
-        myAbility: AbilityInfo,
-        opponentAbility: AbilityInfo
+        move: MoveInfo,
+        myPokemon: Pokemon,
+        opponentPokemon: Pokemon
     ): Int {
         return floor(
-            power * ItemUtil.getPowerCorrelation(item) * AbilityUtil.getMyPowerCorrelation(
-                myAbility
-            ) * AbilityUtil.getOpponentPowerCorrelation(opponentAbility)
+            move.power * ItemUtil.getPowerCorrelation(myPokemon.item) * AbilityUtil.getMyPowerCorrelation(
+                move, myPokemon, opponentPokemon
+            ) * AbilityUtil.getOpponentPowerCorrelation(move, opponentPokemon)
         ).toInt()
     }
 }
