@@ -28,6 +28,9 @@ class MainViewModel : ViewModel() {
 
     private val _weather = MutableLiveData<String>("없음")
     private val _field = MutableLiveData<String>("없음")
+    val weather: LiveData<String> get() = _weather
+    val field: LiveData<String> get() = _field
+
     fun setWeather(weather: String) = _weather.postValue(weather)
     fun setField(field: String) = _field.postValue(field)
 
