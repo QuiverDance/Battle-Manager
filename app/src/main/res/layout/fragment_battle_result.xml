@@ -37,7 +37,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@{viewModel.pokemon1.moves.get(0).name}"
-                android:textSize="16sp"
+                android:textSize="20sp"
+                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -214,7 +215,7 @@
             android:id="@+id/move_2_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:paddingHorizontal="@dimen/horizontal_margin"
             android:paddingVertical="10dp"
             android:orientation="vertical"
@@ -227,7 +228,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@{viewModel.pokemon1.moves.get(1).name}"
-                android:textSize="16sp"
+                android:textSize="20sp"
+                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -404,7 +406,7 @@
             android:id="@+id/move_3_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:paddingHorizontal="@dimen/horizontal_margin"
             android:paddingVertical="10dp"
             android:orientation="vertical"
@@ -417,7 +419,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@{viewModel.pokemon1.moves.get(2).name}"
-                android:textSize="16sp"
+                android:textSize="20sp"
+                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -594,7 +597,7 @@
             android:id="@+id/move_4_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:paddingHorizontal="@dimen/horizontal_margin"
             android:paddingVertical="10dp"
             android:background="@drawable/background_rectangle"
@@ -607,7 +610,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@{viewModel.pokemon1.moves.get(3).name}"
-                android:textSize="16sp"
+                android:textSize="20sp"
+                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
