@@ -17,7 +17,7 @@ class BattleResultFragment : BaseFragment<FragmentBattleResultBinding>() {
     override fun initDataBinding() {
         super.initDataBinding()
         binding.viewModel = viewModel
-        //setMaxHp()
+
         setHp(binding.move1MinHpProgressbar, 0, false, 0, binding.move1MinHpText, binding.move1MinMaxhpText)
         setHp(binding.move1MaxHpProgressbar, 0, false, 1, binding.move1MaxHpText, binding.move1MaxMaxhpText)
         setHp(binding.move1CriticalMinHpProgressbar, 0, true, 0, binding.move1CriticalMinHpText, binding.move1CriticalMinMaxhpText)
@@ -44,7 +44,7 @@ class BattleResultFragment : BaseFragment<FragmentBattleResultBinding>() {
             viewModel.pokemon1.value!!,
             viewModel.pokemon2.value!!,
             viewModel.pokemon1.value!!.moves[moveIdx],
-            "없음",
+            viewModel.weather.value!!,
             isCritical,
             randType
         )
