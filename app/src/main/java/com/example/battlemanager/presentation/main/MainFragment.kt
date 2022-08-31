@@ -1,5 +1,8 @@
 package com.example.battlemanager.presentation.main
 
+import android.view.View
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -7,6 +10,8 @@ import com.example.battlemanager.R
 import com.example.battlemanager.databinding.FragmentMainBinding
 import com.example.battlemanager.presentation.global.base.BaseFragment
 import com.example.battlemanager.presentation.PokemonMemory
+import com.example.battlemanager.presentation.global.util.FieldUtil
+import com.example.battlemanager.presentation.global.util.StatusAbnormalityUtil
 import com.example.battlemanager.presentation.pokemonSetting.PokemonSettingViewPagerAdapter
 import com.google.android.material.tabs.TabLayout
 
@@ -17,6 +22,7 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
     override fun initState() {
         super.initState()
         setPokemon()
+        setSpinner()
     }
 
     override fun initDataBinding() {
@@ -46,5 +52,58 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
         if(PokemonMemory.getIsValid(2)){
             viewModel.setPokemon(PokemonMemory.getPokemon(2), 2)
         }
+    }
+    private fun setSpinner(){
+        val weatherList = FieldUtil.getWeatherList()
+        val weatherAdapter = ArrayAdapter(
+            requireContext(),
+            androidx.appcompat.R.layout.support_simple_spinner_dropdown_item,
+            weatherList
+        )
+        weatherAdapter.setDropDownViewResource(androidx.appcompat.R.layout.support_simple_spinner_dropdown_item)
+        binding.weatherSpinner.adapter = weatherAdapter
+        binding.weatherSpinner.onItemSelectedListener =
+            object : AdapterView.OnItemSelectedListener {
+                override fun onItemSelected(
+                    parent: AdapterView<*>?,
+                    view: View?,
+                    position: Int,
+                    id: Long
+                ) {
+                    viewModel.setWeather(weatherList[position])
+                    return
+                }
+
+                override fun onNothingSelected(parent: AdapterView<*>?) {
+                    viewModel.setWeather(weatherList[0])
+                }
+
+            }
+
+        val fieldList = FieldUtil.getWeatherList()
+        val fieldAdapter = ArrayAdapter(
+            requireContext(),
+            androidx.appcompat.R.layout.support_simple_spinner_dropdown_item,
+            weatherList
+        )
+        fieldAdapter.setDropDownViewResource(androidx.appcompat.R.layout.support_simple_spinner_dropdown_item)
+        binding.weatherSpinner.adapter = fieldAdapter
+        binding.weatherSpinner.onItemSelectedListener =
+            object : AdapterView.OnItemSelectedListener {
+                override fun onItemSelected(
+                    parent: AdapterView<*>?,
+                    view: View?,
+                    position: Int,
+                    id: Long
+                ) {
+                    viewModel.setField(fieldList[position])
+                    return
+                }
+
+                override fun onNothingSelected(parent: AdapterView<*>?) {
+                    viewModel.setField(fieldList[0])
+                }
+
+            }
     }
 }

@@ -26,6 +26,11 @@ class MainViewModel : ViewModel() {
         else _pokemon2.postValue(pokemon)
     }
 
+    private val _weather = MutableLiveData<String>("없음")
+    private val _field = MutableLiveData<String>("없음")
+    fun setWeather(weather: String) = _weather.postValue(weather)
+    fun setField(field: String) = _field.postValue(field)
+
     val startPokemon1 = SingleLiveEvent<Any>()
     fun startPokemon1() {
         startPokemon1.call()
