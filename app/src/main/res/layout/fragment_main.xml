@@ -13,7 +13,8 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".presentation.main.MainActivity">
+        tools:context=".presentation.main.MainActivity"
+        android:background="@color/beige">
         <include
             android:id="@+id/header"
             layout="@layout/layout_header"
@@ -61,6 +62,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_marginTop="10dp"
+            android:background="@drawable/background_rectangle"
             app:layout_constraintTop_toBottomOf="@id/swap_img">
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -223,6 +225,7 @@
             android:text="필드 설정"
             android:textStyle="bold"
             android:textSize="20sp"
+            android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/pokemon_layout" />
 
@@ -231,6 +234,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
+            android:background="@drawable/background_rectangle"
             app:layout_constraintTop_toBottomOf="@id/field_setting_text">
             <TextView
                 android:id="@+id/weather_text"
@@ -272,6 +276,8 @@
             android:layout_height="wrap_content"
             android:text="결과 확인"
             android:textSize="20sp"
+            android:textStyle="bold"
+            android:backgroundTint="@color/white"
             android:layout_marginBottom="10dp"
             android:layout_marginHorizontal="@dimen/horizontal_margin"
             android:onClick="@{()->viewModel.onStartResult()}"

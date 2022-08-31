@@ -10,6 +10,8 @@
     <color name="grad_8">#808080</color>
     <color name="gray_f">#FFF1F1F1</color>
     <color name="gray_8">#FF888888</color>
+    <color name="light_gray">#D8D8D8</color>
+    <color name="beige">#FFF5F5DC</color>
     <color name="normal">#A8A878</color>
     <color name="fighting">#C03028</color>
     <color name="flying">#A890F0</color>

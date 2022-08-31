@@ -11,7 +11,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/beige">
         <include
             android:id="@+id/header"
             layout="@layout/layout_header"
@@ -23,9 +24,11 @@
             android:id="@+id/move_1_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/horizontal_margin"
+            android:paddingHorizontal="@dimen/horizontal_margin"
+            android:paddingVertical="10dp"
             android:layout_marginTop="6dp"
             android:orientation="vertical"
+            android:background="@drawable/background_rectangle"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/header">
 
@@ -211,8 +214,11 @@
             android:id="@+id/move_2_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/horizontal_margin"
+            android:layout_marginTop="20dp"
+            android:paddingHorizontal="@dimen/horizontal_margin"
+            android:paddingVertical="10dp"
             android:orientation="vertical"
+            android:background="@drawable/background_rectangle"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/move_1_layout">
 
@@ -220,7 +226,6 @@
                 android:id="@+id/move_2_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
                 android:text="@{viewModel.pokemon1.moves.get(1).name}"
                 android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="parent"
@@ -399,8 +404,11 @@
             android:id="@+id/move_3_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/horizontal_margin"
+            android:layout_marginTop="20dp"
+            android:paddingHorizontal="@dimen/horizontal_margin"
+            android:paddingVertical="10dp"
             android:orientation="vertical"
+            android:background="@drawable/background_rectangle"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/move_2_layout">
 
@@ -408,7 +416,6 @@
                 android:id="@+id/move_3_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
                 android:text="@{viewModel.pokemon1.moves.get(2).name}"
                 android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="parent"
@@ -587,7 +594,10 @@
             android:id="@+id/move_4_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/horizontal_margin"
+            android:layout_marginTop="20dp"
+            android:paddingHorizontal="@dimen/horizontal_margin"
+            android:paddingVertical="10dp"
+            android:background="@drawable/background_rectangle"
             android:orientation="vertical"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/move_3_layout">
@@ -596,7 +606,6 @@
                 android:id="@+id/move_4_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
                 android:text="@{viewModel.pokemon1.moves.get(3).name}"
                 android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="parent"
