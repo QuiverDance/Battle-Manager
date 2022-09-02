@@ -6,12 +6,15 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.battlemanager.domain.model.*
+import com.example.battlemanager.domain.usecase.item.GetItemFilterListUseCase
+import com.example.battlemanager.domain.usecase.item.GetItemInfoUseCase
 import com.example.battlemanager.domain.usecase.move.GetMoveFilterListUseCase
 import com.example.battlemanager.domain.usecase.move.GetMoveInfoUseCase
 import com.example.battlemanager.domain.usecase.pokemon.GetPokemonFilterListUseCase
 import com.example.battlemanager.domain.usecase.pokemon.GetPokemonInfoUseCase
 import com.example.battlemanager.presentation.global.constant.Nature
 import com.example.battlemanager.presentation.global.util.GenderUtil
+import com.example.battlemanager.presentation.global.util.NatureUtil
 import com.example.battlemanager.presentation.global.util.SingleLiveEvent
 import com.example.battlemanager.presentation.global.util.StatusAbnormalityUtil
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -25,7 +28,9 @@ class PokemonSettingViewModel @Inject constructor(
     private val getPokemonInfoUseCase: GetPokemonInfoUseCase,
     private val getPokemonFilterListUseCase: GetPokemonFilterListUseCase,
     private val getMoveInfoUseCase: GetMoveInfoUseCase,
-    private val getMoveFilterListUseCase: GetMoveFilterListUseCase
+    private val getMoveFilterListUseCase: GetMoveFilterListUseCase,
+    private val getItemInfoUseCase: GetItemInfoUseCase,
+    private val getItemFilterListUseCase: GetItemFilterListUseCase
 ) : ViewModel() {
 
     private val _pokemonInfo = MutableLiveData<PokemonInfo>()
@@ -71,6 +76,34 @@ class PokemonSettingViewModel @Inject constructor(
             }
             _moveFilterList.value = filterList
             endGetMoveList.call()
+        }
+    }
+
+    private val _itemInfo = MutableLiveData<ItemInfo>(ItemInfo(0, "없음", ""))
+    val itemInfo: LiveData<ItemInfo> get() = _itemInfo
+    fun getItemInfo(name: String) {
+        viewModelScope.launch {
+            val itemInfo = withContext(Dispatchers.IO) {
+                getItemInfoUseCase.invoke(name)
+            }
+            _itemInfo.value = itemInfo
+        }
+    }
+
+    private val _itemFilterList = MutableLiveData<List<FilterItem>>(null)
+    val itemFilterList: LiveData<List<FilterItem>> get() = _itemFilterList
+    val endGetItemList = SingleLiveEvent<Any>()
+    fun getItemFilterList() {
+        if (_itemFilterList.value != null) {
+            endGetItemList.call()
+            return
+        }
+        viewModelScope.launch {
+            val filterList = withContext(Dispatchers.IO) {
+                getItemFilterListUseCase.invoke()
+            }
+            _itemFilterList.value = filterList
+            endGetItemList.call()
         }
     }
 
@@ -135,9 +168,9 @@ class PokemonSettingViewModel @Inject constructor(
             pokemonInfo.value!!,
             level.value!!.toInt(),
             AbilityInfo(0, ability.value!!, ""),
-            ItemInfo(0, "아이템", ""),
+            _itemInfo.value!!,
             _moveList.value!!,
-            Nature.NULL,
+            NatureUtil.getNatureId(_nature.value!!),
             getEffortValues(),
             getIndividualValues(),
             getRankStates(),
@@ -205,6 +238,9 @@ class PokemonSettingViewModel @Inject constructor(
 
     val startSelectPokemon = SingleLiveEvent<Any>()
     fun onSelectPokemon() = startSelectPokemon.call()
+
+    val startSelectItem = SingleLiveEvent<Any>()
+    fun onSelectItem() = startSelectItem.call()
 
     val startSetSpinner = SingleLiveEvent<Any>()
     fun onSetSpinner() = startSetSpinner.call()

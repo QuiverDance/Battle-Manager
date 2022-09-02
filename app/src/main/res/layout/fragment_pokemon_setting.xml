@@ -91,7 +91,7 @@
                     android:id="@+id/selected_item_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="없음"
+                    android:text="@{viewModel.itemInfo.name}"
                     android:textSize="16sp"
                     android:layout_marginEnd="6dp"
                     app:layout_constraintTop_toTopOf="@id/item_selection_img"
@@ -103,6 +103,7 @@
                     android:layout_height="30dp"
                     android:src="@drawable/ic_search"
                     android:layout_marginEnd="20dp"
+                    android:onClick="@{()->viewModel.onSelectItem()}"
                     app:layout_constraintBottom_toBottomOf="@id/pokemon_img"
                     app:layout_constraintEnd_toEndOf="parent"/>
             </androidx.constraintlayout.widget.ConstraintLayout>

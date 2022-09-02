@@ -56,6 +56,15 @@ class PokemonSettingFragment : BaseFragment<FragmentPokemonSettingBinding>() {
             }
             moveDialog.show(childFragmentManager, "move")
         }
+        viewModel.startSelectItem.observe(this){
+            viewModel.getItemFilterList()
+        }
+        viewModel.endGetItemList.observe(this){
+            val itemDialog = FilterDialogFragment(viewModel.itemFilterList.value!!, ItemUtil.getItemCategory()) {
+                viewModel.getItemInfo(it.itemName)
+            }
+            itemDialog.show(childFragmentManager, "item")
+        }
     }
 
     private fun setSpinner() {
