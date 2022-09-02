@@ -13,10 +13,8 @@ class GetFilterListByCategoryUseCase @Inject constructor(private val itemReposit
         }
         val filterList = mutableListOf<MutableList<FilterItem>>()
         for (item in itemList) {
-            filterList[getCorrectPosition(
-                filterList,
-                item.category
-            )].add(FilterItem(item.id.toInt(), "", item.name, item.category))
+            filterList[getCorrectPosition(filterList, item.category)]
+                .add(FilterItem(item.id.toInt(), "", item.name, item.category))
         }
         return filterList
     }
