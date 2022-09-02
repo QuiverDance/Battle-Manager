@@ -38,4 +38,8 @@ object ItemUtil {
             else -> 1f
         }
     }
+
+    fun toGetItemCategory() : List<String>{
+        return listOf("나무열매", "배틀전용도구", "능력치상승도구", "기술강화도구", "플레이트", "주얼", "메가스톤", "원시회귀", "폼체인지")
+    }
 }

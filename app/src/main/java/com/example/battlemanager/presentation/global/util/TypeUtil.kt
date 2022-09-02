@@ -65,4 +65,7 @@ object TypeUtil {
             else -> R.drawable.background_radius_5
         }
     }
+    fun getTypeList() : List<String>{
+        return typeList
+    }
 }
