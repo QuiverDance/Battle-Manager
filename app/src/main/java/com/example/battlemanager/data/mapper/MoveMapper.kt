@@ -14,7 +14,7 @@ object MoveMapper {
             name = moveResponse.name,
             power = moveResponse.power,
             type = moveResponse.type,
-            category = moveResponse.type,
+            category = moveResponse.category,
             accuracy = moveResponse.accuracy
         )
     }
