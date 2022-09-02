@@ -30,4 +30,5 @@
     <color name="dragon">#7038F8</color>
     <color name="dark">#705848</color>
     <color name="fairy">#EE99AC</color>
+    <color name="background">#F1F1F1</color>
 </resources>
