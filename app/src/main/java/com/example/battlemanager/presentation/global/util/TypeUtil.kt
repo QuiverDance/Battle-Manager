@@ -66,6 +66,6 @@ object TypeUtil {
         }
     }
     fun getTypeList() : List<String>{
-        return typeList
+        return listOf("전체") + typeList
     }
 }
