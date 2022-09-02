@@ -45,6 +45,7 @@ class CategoryAdapter(private val items: List<CategoryItem>) :
                 if (selectedPosition != adapterPosition) {
                     notifyItemChanged(selectedPosition)
                     selectedPosition = adapterPosition
+                    notifyItemChanged(selectedPosition)
                     listener.onItemClick(v!!, adapterPosition)
                 }
             }

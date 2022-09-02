@@ -8,12 +8,9 @@ import androidx.navigation.fragment.findNavController
 import com.example.battlemanager.R
 import com.example.battlemanager.databinding.FragmentPokemonSettingBinding
 import com.example.battlemanager.presentation.global.base.BaseFragment
-import com.example.battlemanager.presentation.global.util.GenderUtil
-import com.example.battlemanager.presentation.global.util.NatureUtil
-import com.example.battlemanager.presentation.global.util.StatUtil
-import com.example.battlemanager.presentation.global.util.StatusAbnormalityUtil
 import com.example.battlemanager.presentation.FilterDialogFragment
 import com.example.battlemanager.presentation.PokemonMemory
+import com.example.battlemanager.presentation.global.util.*
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -35,7 +32,7 @@ class PokemonSettingFragment : BaseFragment<FragmentPokemonSettingBinding>() {
             viewModel.getPokemonFilterList()
         }
         viewModel.endGetPokemonList.observe(this){
-            val pokemonDialog = FilterDialogFragment(viewModel.pokemonFilterList.value!!) {
+            val pokemonDialog = FilterDialogFragment(viewModel.pokemonFilterList.value!!, TypeUtil.getTypeList()) {
                 viewModel.getPokemonInfo(it.itemName)
             }
             pokemonDialog.show(childFragmentManager, "pokemon")
@@ -54,7 +51,7 @@ class PokemonSettingFragment : BaseFragment<FragmentPokemonSettingBinding>() {
                 viewModel.getMoveFilterList()
         }
         viewModel.endGetMoveList.observe(this){
-            val moveDialog = FilterDialogFragment(viewModel.moveFilterList.value!!) {
+            val moveDialog = FilterDialogFragment(viewModel.moveFilterList.value!!, TypeUtil.getTypeList()) {
                 viewModel.setMoveInfo(it.itemName, viewModel.selectedMove.value!!)
             }
             moveDialog.show(childFragmentManager, "move")

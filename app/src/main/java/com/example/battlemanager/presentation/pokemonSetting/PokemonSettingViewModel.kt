@@ -135,7 +135,7 @@ class PokemonSettingViewModel @Inject constructor(
             pokemonInfo.value!!,
             level.value!!.toInt(),
             AbilityInfo(0, ability.value!!, ""),
-            ItemInfo(0, "아이템", "", false),
+            ItemInfo(0, "아이템", ""),
             _moveList.value!!,
             Nature.NULL,
             getEffortValues(),
