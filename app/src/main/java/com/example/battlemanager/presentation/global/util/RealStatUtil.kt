@@ -16,12 +16,13 @@ object RealStatUtil {
         rank: RankStates,
         ability: AbilityInfo,
         item: ItemInfo,
-        statusAbnormality: Int
+        statusAbnormality: Int,
+        pokemonName: String
     ): Int {
         return floor(
             StatUtil.getA(level, baseA, ivA, evA, nature) * RankUtil.getBaseStatRankChange(
                 rank.attack
-            ) * AbilityUtil.getAttackCorrelation(ability, statusAbnormality) * ItemUtil.getAttackCorrelation(item)
+            ) * AbilityUtil.getAttackCorrelation(ability, statusAbnormality) * ItemUtil.getAttackCorrelation(item, pokemonName)
         ).toInt()
     }
 
@@ -34,14 +35,14 @@ object RealStatUtil {
         rank: RankStates,
         ability: AbilityInfo,
         item: ItemInfo,
-        weather: String
+        weather: String,
+        pokemonName: String
     ): Int {
         return floor(
             StatUtil.getC(level, baseC, ivC, evC, nature) * RankUtil.getBaseStatRankChange(
                 rank.specialAttack
             ) * AbilityUtil.getSpecialAttackCorrelation(ability, weather) * ItemUtil.getSpecialAttackCorrelation(
-                item
-            )
+                item, pokemonName)
         ).toInt()
     }
     /* 방, 특방에서 자폭 보정 제외*/
@@ -54,12 +55,13 @@ object RealStatUtil {
         rank: RankStates,
         ability: AbilityInfo,
         item: ItemInfo,
-        statusAbnormality: Int
+        statusAbnormality: Int,
+        pokemonName: String
     ): Int {
         return floor(
             StatUtil.getB(level, baseB, ivB, evB, nature) * RankUtil.getBaseStatRankChange(
                 rank.defense
-            ) * AbilityUtil.getDefenseCorrelation(ability, statusAbnormality) * ItemUtil.getDefenseCorrelation(item)
+            ) * AbilityUtil.getDefenseCorrelation(ability, statusAbnormality) * ItemUtil.getDefenseCorrelation(item, pokemonName)
         ).toInt()
     }
 
@@ -74,13 +76,14 @@ object RealStatUtil {
         item: ItemInfo,
         weather: String,
         type1: String,
-        type2: String
+        type2: String,
+        pokemonName: String
     ): Int {
         return floor(
             StatUtil.getD(level, baseD, ivD, evD, nature) * RankUtil.getBaseStatRankChange(
                 rank.special_defense
             ) * AbilityUtil.getSpecialDefenseCorrelation(ability) * ItemUtil.getSpecialDefenseCorrelation(
-                item
+                item, pokemonName
             ) * mod(weather, type1, type2)
         ).toInt()
     }
@@ -98,12 +101,13 @@ object RealStatUtil {
         ability: AbilityInfo,
         item: ItemInfo,
         statusAbnormality: Int,
-        weather: String
+        weather: String,
+        pokemonName: String
     ): Int {
         return floor(
             StatUtil.getS(level, baseS, ivS, evS, nature) * RankUtil.getBaseStatRankChange(
                 rank.speed
-            ) * AbilityUtil.getSpeedCorrelation(ability, statusAbnormality, weather) * ItemUtil.getSpeedCorrelation(item)
+            ) * AbilityUtil.getSpeedCorrelation(ability, statusAbnormality, weather) * ItemUtil.getSpeedCorrelation(item, pokemonName)
         ).toInt()
     }
 

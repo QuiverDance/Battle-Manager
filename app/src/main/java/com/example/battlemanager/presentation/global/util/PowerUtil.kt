@@ -16,7 +16,7 @@ object PowerUtil {
         opponentPokemon: Pokemon
     ): Int {
         return floor(
-            move.power * ItemUtil.getPowerCorrelation(myPokemon.item) * AbilityUtil.getMyPowerCorrelation(
+            move.power * ItemUtil.getPowerCorrelation(myPokemon.item, move, myPokemon.pokemonInfo.name) * AbilityUtil.getMyPowerCorrelation(
                 move, myPokemon, opponentPokemon
             ) * AbilityUtil.getOpponentPowerCorrelation(move, opponentPokemon)
         ).toInt()

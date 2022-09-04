@@ -1,5 +1,6 @@
 package com.example.battlemanager.presentation.global.util
 
+import com.example.battlemanager.domain.model.ItemInfo
 import com.example.battlemanager.domain.model.MoveInfo
 import com.example.battlemanager.domain.model.Pokemon
 import com.example.battlemanager.presentation.global.constant.StatusAbnormality
@@ -58,7 +59,8 @@ object DamageUtil {
             pokemon.rankStates,
             pokemon.ability,
             pokemon.item,
-            pokemon.statusAbnormality
+            pokemon.statusAbnormality,
+            pokemon.pokemonInfo.name
         )
         else
             RealStatUtil.getSpecialAttack(
@@ -70,7 +72,8 @@ object DamageUtil {
                 pokemon.rankStates,
                 pokemon.ability,
                 pokemon.item,
-                weather
+                weather,
+                pokemon.pokemonInfo.name
             )
     }
 
@@ -84,7 +87,8 @@ object DamageUtil {
             pokemon.rankStates,
             pokemon.ability,
             pokemon.item,
-            pokemon.statusAbnormality
+            pokemon.statusAbnormality,
+            pokemon.pokemonInfo.name
         )
         else
             RealStatUtil.getSpecialDefense(
@@ -98,7 +102,8 @@ object DamageUtil {
                 pokemon.item,
                 weather,
                 pokemon.pokemonInfo.type1,
-                pokemon.pokemonInfo.type2
+                pokemon.pokemonInfo.type2,
+                pokemon.pokemonInfo.name
             )
     }
 
@@ -165,9 +170,6 @@ object DamageUtil {
             1f
     }
 
-    /*
-    나무열매 반감 효과 미반영
-     */
     private fun mod3(move: MoveInfo, myPokemon: Pokemon, opponentPokemon: Pokemon): Float {
         val abilityEffect1 =
             if (opponentPokemon.ability.name == "하드록" || opponentPokemon.ability.name == "필터") {
@@ -215,6 +217,31 @@ object DamageUtil {
         } else
             1f
 
-        return floor(abilityEffect1 * itemEffect * abilityEffect2)
+        val fruitEffect = getFruitEffect(opponentPokemon.item, move)
+        return floor(abilityEffect1 * itemEffect * abilityEffect2 * fruitEffect)
+    }
+
+    private fun getFruitEffect(item: ItemInfo, move: MoveInfo) : Float{
+        return when(item.name){
+            "오카열매" -> if(move.type == "불꽃") 0.5f else 1f
+            "꼬시개열매" -> if(move.type == "물") 0.5f else 1f
+            "초나열매" -> if(move.type == "전기") 0.5f else 1f
+            "린드열매" -> if(move.type == "풀") 0.5f else 1f
+            "플카열매" -> if(move.type == "얼음") 0.5f else 1f
+            "로플열매" -> if(move.type == "격투") 0.5f else 1f
+            "으름열매" -> if(move.type == "독") 0.5f else 1f
+            "슈캐열매" -> if(move.type == "땅") 0.5f else 1f
+            "바코열매" -> if(move.type == "비행") 0.5f else 1f
+            "야파열매" -> if(move.type == "에스퍼") 0.5f else 1f
+            "리체열매" -> if(move.type == "벌레") 0.5f else 1f
+            "루미열매" -> if(move.type == "바위") 0.5f else 1f
+            "수불열매" -> if(move.type == "고스트") 0.5f else 1f
+            "하반열매" -> if(move.type == "드래곤") 0.5f else 1f
+            "마코열매" -> if(move.type == "악") 0.5f else 1f
+            "바리비열매" -> if(move.type == "강철") 0.5f else 1f
+            "카리열매" -> if(move.type == "노말") 0.5f else 1f
+            "로셀열매" -> if(move.type == "페어리") 0.5f else 1f
+            else -> 1f
+        }
     }
 }
