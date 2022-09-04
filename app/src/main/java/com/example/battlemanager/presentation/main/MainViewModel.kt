@@ -6,11 +6,12 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.battlemanager.domain.model.Pokemon
 import com.example.battlemanager.presentation.PokemonMemory
+import com.example.battlemanager.presentation.global.base.BaseViewModel
 import com.example.battlemanager.presentation.global.util.RealStatUtil
 import com.example.battlemanager.presentation.global.util.SingleLiveEvent
 import com.example.battlemanager.presentation.global.util.StatUtil
 
-class MainViewModel : ViewModel() {
+class MainViewModel : BaseViewModel() {
 
     private val _pokemon1 = MutableLiveData<Pokemon>()
     private val _pokemon2 = MutableLiveData<Pokemon>()

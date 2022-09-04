@@ -12,6 +12,7 @@ import com.example.battlemanager.domain.usecase.move.GetMoveFilterListUseCase
 import com.example.battlemanager.domain.usecase.move.GetMoveInfoUseCase
 import com.example.battlemanager.domain.usecase.pokemon.GetPokemonFilterListUseCase
 import com.example.battlemanager.domain.usecase.pokemon.GetPokemonInfoUseCase
+import com.example.battlemanager.presentation.global.base.BaseViewModel
 import com.example.battlemanager.presentation.global.constant.Nature
 import com.example.battlemanager.presentation.global.util.GenderUtil
 import com.example.battlemanager.presentation.global.util.NatureUtil
@@ -31,8 +32,8 @@ class PokemonSettingViewModel @Inject constructor(
     private val getMoveFilterListUseCase: GetMoveFilterListUseCase,
     private val getItemInfoUseCase: GetItemInfoUseCase,
     private val getItemFilterListUseCase: GetItemFilterListUseCase
-) : ViewModel() {
-
+) : BaseViewModel() {
+    
     private val _pokemonInfo = MutableLiveData<PokemonInfo>()
     val pokemonInfo: LiveData<PokemonInfo> get() = _pokemonInfo
     fun getPokemonInfo(name: String) {
@@ -261,7 +262,4 @@ class PokemonSettingViewModel @Inject constructor(
     fun onSetMove4() {
         selectedMove.value = 3
     }
-
-    val startComplete = SingleLiveEvent<Any>()
-    fun onComplete() = startComplete.call()
 }

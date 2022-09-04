@@ -3,6 +3,7 @@ package com.example.battlemanager.presentation.battleResult
 import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.example.battlemanager.R
 import com.example.battlemanager.databinding.FragmentBattleResultBinding
 import com.example.battlemanager.presentation.global.base.BaseFragment
@@ -17,6 +18,10 @@ class BattleResultFragment : BaseFragment<FragmentBattleResultBinding>() {
     override fun initDataBinding() {
         super.initDataBinding()
         binding.viewModel = viewModel
+
+        viewModel.leftMenu.observe(this){
+            findNavController().navigateUp()
+        }
 
         setHp(binding.move1MinHpProgressbar, 0, false, 0, binding.move1MinHpText, binding.move1MinMaxhpText)
         setHp(binding.move1MaxHpProgressbar, 0, false, 1, binding.move1MaxHpText, binding.move1MaxMaxhpText)

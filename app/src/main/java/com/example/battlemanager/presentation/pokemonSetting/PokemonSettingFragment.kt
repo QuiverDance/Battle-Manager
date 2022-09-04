@@ -41,9 +41,12 @@ class PokemonSettingFragment : BaseFragment<FragmentPokemonSettingBinding>() {
             setSpinner()
             setHp()
         }
-        viewModel.startComplete.observe(this) {
+        viewModel.rightMenu1.observe(this){
             if(position != -1)
                 PokemonMemory.setPokemon(position, viewModel.makePokemon())
+            findNavController().navigateUp()
+        }
+        viewModel.leftMenu.observe(this){
             findNavController().navigateUp()
         }
         viewModel.selectedMove.observe(this){

@@ -18,6 +18,7 @@
         <include
             android:id="@+id/header"
             layout="@layout/layout_header"
+            app:viewModel="@{viewModel}"
             app:title='@{"필드"}'
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"/>
@@ -62,6 +63,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_marginTop="10dp"
+            android:paddingVertical="8dp"
             android:background="@drawable/background_rectangle"
             app:layout_constraintTop_toBottomOf="@id/swap_img">
 
@@ -256,6 +258,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
+            android:paddingVertical="8dp"
             android:background="@drawable/background_rectangle"
             app:layout_constraintTop_toBottomOf="@id/field_setting_text">
             <TextView

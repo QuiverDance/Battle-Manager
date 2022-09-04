@@ -17,7 +17,10 @@
             <include
                 android:id="@+id/header"
                 layout="@layout/layout_header"
+                app:viewModel="@{viewModel}"
                 app:title='@{"포켓몬 설정"}'
+                app:leftMenu='@{"취소"}'
+                app:rightMenu1='@{"저장"}'
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"/>
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -767,18 +770,6 @@
                         android:layout_weight="1"
                         android:onClick="@{()->viewModel.onSetMove4()}"/>
                 </LinearLayout>
-                <androidx.appcompat.widget.AppCompatButton
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:onClick="@{()->viewModel.onComplete()}"
-                    android:text="완료"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/black"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginHorizontal="@dimen/horizontal_margin"
-                    android:layout_marginBottom="10dp"
-                    app:layout_constraintTop_toBottomOf="@id/layout_8"/>
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

@@ -16,7 +16,9 @@
         <include
             android:id="@+id/header"
             layout="@layout/layout_header"
+            app:viewModel="@{viewModel}"
             app:title='@{"결과"}'
+            app:leftMenu='@{"뒤로가기"}'
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"/>
 
