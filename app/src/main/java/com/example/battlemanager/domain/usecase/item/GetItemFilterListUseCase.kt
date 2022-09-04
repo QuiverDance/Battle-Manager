@@ -13,7 +13,7 @@ class GetItemFilterListUseCase @Inject constructor(private val itemRepository: I
         }
         val filterList = mutableListOf<FilterItem>()
         for (item in itemList) {
-            filterList.add(FilterItem(item.id.toInt(), "", item.name, ""))
+            filterList.add(FilterItem(item.id.toInt(), "", item.name, item.category))
         }
         return filterList
     }
