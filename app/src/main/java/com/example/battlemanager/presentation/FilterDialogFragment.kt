@@ -20,8 +20,6 @@ class FilterDialogFragment(
         super.initDataBinding()
         binding.viewModel = viewModel
 
-//        setSearchView(items)
-//        setAdapter(items)
         setCategoryAdapter()
 
         viewModel.selectedCategory.observe(this) {
