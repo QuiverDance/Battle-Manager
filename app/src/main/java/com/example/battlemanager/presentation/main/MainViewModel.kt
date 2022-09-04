@@ -55,7 +55,8 @@ class MainViewModel : BaseViewModel() {
             pokemon1.ability,
             pokemon1.item,
             pokemon1.statusAbnormality,
-            weather.value!!
+            weather.value!!,
+            pokemon1.pokemonInfo.name
         )
         val speed2 = RealStatUtil.getSpeed(
             pokemon2.level,
@@ -67,7 +68,8 @@ class MainViewModel : BaseViewModel() {
             pokemon2.ability,
             pokemon2.item,
             pokemon2.statusAbnormality,
-            weather.value!!
+            weather.value!!,
+            pokemon2.pokemonInfo.name
         )
         Log.d("pokemon1", pokemon1.toString())
         Log.d("pokemon2", pokemon2.toString())
