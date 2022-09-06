@@ -267,20 +267,8 @@ class PokemonSettingViewModel @Inject constructor(
     fun onSetSpinner() = startSetSpinner.call()
 
     val selectedMove = MutableLiveData(-1)
-    fun onSetMove1() {
-        selectedMove.value = 0
-    }
-
-    fun onSetMove2() {
-        selectedMove.value = 1
-    }
-
-    fun onSetMove3() {
-        selectedMove.value = 2
-    }
-
-    fun onSetMove4() {
-        selectedMove.value = 3
+    fun onSetMove(pos: Int) {
+        selectedMove.value = pos
     }
 
     fun initPokemonInfo(pokemon: Pokemon){

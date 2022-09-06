@@ -732,7 +732,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:onClick="@{()->viewModel.onSetMove1()}"/>
+                        android:onClick="@{()->viewModel.onSetMove(0)}"/>
                     <View
                         android:layout_width="10dp"
                         android:layout_height="30dp" />
@@ -742,7 +742,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:onClick="@{()->viewModel.onSetMove2()}"/>
+                        android:onClick="@{()->viewModel.onSetMove(1)}"/>
                 </LinearLayout>
                 <LinearLayout
                     android:id="@+id/layout_8"
@@ -758,7 +758,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:onClick="@{()->viewModel.onSetMove3()}"/>
+                        android:onClick="@{()->viewModel.onSetMove(2)}"/>
                     <View
                         android:layout_width="10dp"
                         android:layout_height="30dp" />
@@ -768,7 +768,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:onClick="@{()->viewModel.onSetMove4()}"/>
+                        android:onClick="@{()->viewModel.onSetMove(3)}"/>
                 </LinearLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
