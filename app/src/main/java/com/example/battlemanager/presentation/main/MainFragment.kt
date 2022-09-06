@@ -26,13 +26,11 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
     override fun initDataBinding() {
         super.initDataBinding()
         binding.viewModel = viewModel
-        viewModel.startPokemon1.observe(this) {
-            val bundle = bundleOf("pos" to 1)
-            findNavController().navigate(R.id.action_mainFragment_to_pokemonSettingFragment, bundle)
-        }
-        viewModel.startPokemon2.observe(this) {
-            val bundle = bundleOf("pos" to 2)
-            findNavController().navigate(R.id.action_mainFragment_to_pokemonSettingFragment, bundle)
+        viewModel.startPokemon.observe(this) {
+            if(viewModel.setId.value!! > 0) {
+                val bundle = bundleOf("pos" to viewModel.setId.value!!)
+                findNavController().navigate(R.id.action_mainFragment_to_pokemonSettingFragment, bundle)
+            }
         }
         viewModel.startResult.observe(this) {
             if (PokemonMemory.getIsValid(1) && PokemonMemory.getIsValid(2))

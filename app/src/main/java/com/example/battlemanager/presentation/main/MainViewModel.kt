@@ -82,14 +82,11 @@ class MainViewModel : BaseViewModel() {
             _preemptivePokemon.postValue(0)
     }
 
-    val startPokemon1 = SingleLiveEvent<Any>()
-    fun startPokemon1() {
-        startPokemon1.call()
-    }
-
-    val startPokemon2 = SingleLiveEvent<Any>()
-    fun startPokemon2() {
-        startPokemon2.call()
+    val setId = MutableLiveData(-1)
+    val startPokemon = SingleLiveEvent<Any>()
+    fun startPokemon(pos: Int) {
+        setId.value = pos
+        startPokemon.call()
     }
 
     val startResult = SingleLiveEvent<Any>()

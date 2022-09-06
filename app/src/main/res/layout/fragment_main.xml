@@ -101,7 +101,7 @@
                     android:layout_height="30dp"
                     android:layout_marginEnd="6dp"
                     android:src="@drawable/ic_edit"
-                    android:onClick="@{()->viewModel.startPokemon1()}"
+                    android:onClick="@{()->viewModel.startPokemon(1)}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="@id/pokemonInfo_1_img" />
 
@@ -190,7 +190,7 @@
                     android:layout_height="30dp"
                     android:layout_marginEnd="6dp"
                     android:src="@drawable/ic_edit"
-                    android:onClick="@{()->viewModel.startPokemon2()}"
+                    android:onClick="@{()->viewModel.startPokemon(2)}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="@id/pokemonInfo_2_img" />
 
