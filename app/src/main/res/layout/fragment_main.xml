@@ -134,6 +134,7 @@
                     android:gravity="center"
                     android:textColor="@color/white"
                     android:text="@{viewModel.pokemon1.pokemonInfo.type2}"
+                    android:visibility='@{viewModel.pokemon1.pokemonInfo.type2.isEmpty() ? View.INVISIBLE : View.VISIBLE}'
                     app:typeBackground="@{viewModel.pokemon1.pokemonInfo.type2}"
                     app:layout_constraintBottom_toBottomOf="@id/pokemon_1_type_1_text"
                     app:layout_constraintStart_toEndOf="@id/pokemon_1_type_1_text" />
@@ -223,6 +224,7 @@
                     android:gravity="center"
                     android:textColor="@color/white"
                     android:text="@{viewModel.pokemon2.pokemonInfo.type2}"
+                    android:visibility='@{viewModel.pokemon2.pokemonInfo.type2.isEmpty() ? View.INVISIBLE : View.VISIBLE}'
                     app:typeBackground="@{viewModel.pokemon2.pokemonInfo.type2}"
                     app:layout_constraintBottom_toBottomOf="@id/pokemon_2_type_1_text"
                     app:layout_constraintStart_toEndOf="@id/pokemon_2_type_1_text" />

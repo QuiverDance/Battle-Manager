@@ -3,6 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
+        <import type="android.view.View"/>
         <variable
             name="viewModel"
             type="com.example.battlemanager.presentation.pokemonSetting.PokemonSettingViewModel" />
@@ -69,6 +70,7 @@
                     android:gravity="center"
                     android:textColor="@color/white"
                     android:text="@{viewModel.pokemonInfo.type2}"
+                    android:visibility='@{viewModel.pokemonInfo.type2.isEmpty() ? View.INVISIBLE : View.VISIBLE}'
                     app:typeBackground="@{viewModel.pokemonInfo.type2}"
                     app:layout_constraintTop_toTopOf="@id/pokemon_type_1_text"
                     app:layout_constraintStart_toEndOf="@id/pokemon_type_1_text"/>

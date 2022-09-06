@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
+        <import type="android.view.View"/>
         <variable
             name="viewModel"
             type="com.example.battlemanager.presentation.dialog.pokemonInfo.InfoViewModel" />
@@ -45,10 +46,11 @@
             android:id="@+id/type_2_text"
             android:layout_width="46dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="6dp"
+            android:layout_marginStart="2dp"
             android:gravity="center"
             android:textColor="@color/white"
             android:text="@{viewModel.pokemon.pokemonInfo.type2}"
+            android:visibility='@{viewModel.pokemon.pokemonInfo.type2.isEmpty() ? View.INVISIBLE : View.VISIBLE}'
             app:typeBackground="@{viewModel.pokemon.pokemonInfo.type2}"
             app:layout_constraintBottom_toBottomOf="@id/type_1_text"
             app:layout_constraintStart_toEndOf="@id/type_1_text"/>
