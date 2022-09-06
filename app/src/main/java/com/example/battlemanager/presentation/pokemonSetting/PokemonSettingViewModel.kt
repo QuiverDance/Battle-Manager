@@ -11,10 +11,7 @@ import com.example.battlemanager.domain.usecase.move.GetMoveInfoUseCase
 import com.example.battlemanager.domain.usecase.pokemon.GetPokemonFilterListUseCase
 import com.example.battlemanager.domain.usecase.pokemon.GetPokemonInfoUseCase
 import com.example.battlemanager.presentation.global.base.BaseViewModel
-import com.example.battlemanager.presentation.global.util.GenderUtil
-import com.example.battlemanager.presentation.global.util.NatureUtil
-import com.example.battlemanager.presentation.global.util.SingleLiveEvent
-import com.example.battlemanager.presentation.global.util.StatusAbnormalityUtil
+import com.example.battlemanager.presentation.global.util.*
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -134,19 +131,27 @@ class PokemonSettingViewModel @Inject constructor(
 
     private val _gender = MutableLiveData<String>()
     val gender: LiveData<String> get() = _gender
+    val genderList = MutableLiveData<List<String>>()
     fun setGender(id: Int) = _gender.postValue(GenderUtil.genderToString(id))
+    fun setGenderList() = genderList.postValue(GenderUtil.getGenderList(pokemonInfo.value!!.validGender))
 
     private val _ability = MutableLiveData<String>()
     val ability: LiveData<String> get() = _ability
+    val abilityList = MutableLiveData<List<String>>()
     fun setAbility(value: String) = _ability.postValue(value)
+    fun setAbilityList() = abilityList.postValue(pokemonInfo.value!!.validAbilityList)
 
     private val _statusAbnormality = MutableLiveData<String>()
     val statusAbnormality: LiveData<String> get() = _statusAbnormality
+    val statusAbnormalityList = MutableLiveData<List<String>>()
     fun setStatusAbnormality(value: String) = _statusAbnormality.postValue(value)
+    fun setStatusAbnormalityList() = statusAbnormalityList.postValue(StatusAbnormalityUtil.getStatusAbnormalityList())
 
     private val _nature = MutableLiveData<String>()
     val nature: LiveData<String> get() = _nature
+    val natureList = MutableLiveData<List<String>>()
     fun setNature(value: String) = _nature.postValue(value)
+    fun setNatureList() = natureList.postValue(NatureUtil.getNatureList())
 
     private val _moveList =
         MutableLiveData(MutableList(4) { MoveInfo(0, "미설정", 0, "없음", "없음", 0) })

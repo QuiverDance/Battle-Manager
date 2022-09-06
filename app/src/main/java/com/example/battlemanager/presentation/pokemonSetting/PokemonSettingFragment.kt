@@ -31,6 +31,14 @@ class PokemonSettingFragment : BaseFragment<FragmentPokemonSettingBinding>() {
         super.initDataBinding()
         binding.viewModel = viewModel
 
+        viewModel.rightMenu1.observe(this){
+            if(position != -1)
+                PokemonMemory.setPokemon(position, viewModel.makePokemon())
+            findNavController().navigateUp()
+        }
+        viewModel.leftMenu.observe(this){
+            findNavController().navigateUp()
+        }
         viewModel.startSelectPokemon.observe(this) {
             viewModel.getPokemonFilterList()
         }
@@ -43,14 +51,6 @@ class PokemonSettingFragment : BaseFragment<FragmentPokemonSettingBinding>() {
         viewModel.startSetSpinner.observe(this) {
             setSpinner()
             setHp()
-        }
-        viewModel.rightMenu1.observe(this){
-            if(position != -1)
-                PokemonMemory.setPokemon(position, viewModel.makePokemon())
-            findNavController().navigateUp()
-        }
-        viewModel.leftMenu.observe(this){
-            findNavController().navigateUp()
         }
         viewModel.selectedMove.observe(this){
             if(viewModel.selectedMove.value!! >= 0)
@@ -74,14 +74,7 @@ class PokemonSettingFragment : BaseFragment<FragmentPokemonSettingBinding>() {
     }
 
     private fun setSpinner() {
-        val genderList = GenderUtil.getGenderList(viewModel.pokemonInfo.value!!.validGender)
-        val genderAdapter = ArrayAdapter(
-            requireContext(),
-            androidx.appcompat.R.layout.support_simple_spinner_dropdown_item,
-            genderList
-        )
-        genderAdapter.setDropDownViewResource(androidx.appcompat.R.layout.support_simple_spinner_dropdown_item)
-        binding.genderSpinner.adapter = genderAdapter
+        viewModel.setGenderList()
         binding.genderSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(
                 parent: AdapterView<*>?,
@@ -89,27 +82,16 @@ class PokemonSettingFragment : BaseFragment<FragmentPokemonSettingBinding>() {
                 position: Int,
                 id: Long
             ) {
-                viewModel.setGender(GenderUtil.getGenderId(genderList[position]))
+                viewModel.setGender(GenderUtil.getGenderId(viewModel.genderList.value!![position]))
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
-                viewModel.setGender(GenderUtil.getGenderId(genderList[0]))
+                viewModel.setGender(GenderUtil.getGenderId(viewModel.genderList.value!![0]))
             }
 
         }
 
-        val abilityList = mutableListOf<String>()
-        for(value in viewModel.pokemonInfo.value!!.validAbilityList){
-            if(value != "")
-                abilityList.add(value)
-        }
-        val abilityAdapter = ArrayAdapter(
-            requireContext(),
-            androidx.appcompat.R.layout.support_simple_spinner_dropdown_item,
-            abilityList
-        )
-        abilityAdapter.setDropDownViewResource(androidx.appcompat.R.layout.support_simple_spinner_dropdown_item)
-        binding.abilitySpinner.adapter = abilityAdapter
+        viewModel.setAbilityList()
         binding.abilitySpinner.onItemSelectedListener =
             object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(
@@ -118,24 +100,17 @@ class PokemonSettingFragment : BaseFragment<FragmentPokemonSettingBinding>() {
                     position: Int,
                     id: Long
                 ) {
-                    viewModel.setAbility(abilityList[position])
+                    viewModel.setAbility(viewModel.abilityList.value!![position])
                     return
                 }
 
                 override fun onNothingSelected(parent: AdapterView<*>?) {
-                    viewModel.setAbility(abilityList[0])
+                    viewModel.setAbility(viewModel.abilityList.value!![0])
                 }
 
             }
 
-        val statusAbnormalityList = StatusAbnormalityUtil.getStatusAbnormalityList()
-        val statusAbnormalityAdapter = ArrayAdapter(
-            requireContext(),
-            androidx.appcompat.R.layout.support_simple_spinner_dropdown_item,
-            statusAbnormalityList
-        )
-        statusAbnormalityAdapter.setDropDownViewResource(androidx.appcompat.R.layout.support_simple_spinner_dropdown_item)
-        binding.statusAbnormalitySpinner.adapter = statusAbnormalityAdapter
+        viewModel.setStatusAbnormalityList()
         binding.statusAbnormalitySpinner.onItemSelectedListener =
             object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(
@@ -144,24 +119,17 @@ class PokemonSettingFragment : BaseFragment<FragmentPokemonSettingBinding>() {
                     position: Int,
                     id: Long
                 ) {
-                    viewModel.setStatusAbnormality(statusAbnormalityList[position])
+                    viewModel.setStatusAbnormality(viewModel.statusAbnormalityList.value!![position])
                     return
                 }
 
                 override fun onNothingSelected(parent: AdapterView<*>?) {
-                    viewModel.setStatusAbnormality(statusAbnormalityList[0])
+                    viewModel.setStatusAbnormality(viewModel.statusAbnormalityList.value!![0])
                 }
 
             }
 
-        val natureList = NatureUtil.getNatureList()
-        val natureAdapter = ArrayAdapter(
-            requireContext(),
-            androidx.appcompat.R.layout.support_simple_spinner_dropdown_item,
-            natureList
-        )
-        natureAdapter.setDropDownViewResource(androidx.appcompat.R.layout.support_simple_spinner_dropdown_item)
-        binding.natureSpinner.adapter = natureAdapter
+        viewModel.setNatureList()
         binding.natureSpinner.onItemSelectedListener =
             object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(
@@ -170,12 +138,12 @@ class PokemonSettingFragment : BaseFragment<FragmentPokemonSettingBinding>() {
                     position: Int,
                     id: Long
                 ) {
-                    viewModel.setNature(natureList[position])
+                    viewModel.setNature(viewModel.natureList.value!![position])
                     return
                 }
 
                 override fun onNothingSelected(parent: AdapterView<*>?) {
-                    viewModel.setNature(natureList[0])
+                    viewModel.setNature(viewModel.natureList.value!![0])
                 }
 
             }

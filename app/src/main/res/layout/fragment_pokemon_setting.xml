@@ -165,7 +165,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="28dp"
                         android:layout_marginStart="6dp"
-                        android:layout_gravity="center"/>
+                        android:layout_gravity="center"
+                        app:items="@{viewModel.genderList}"/>
                     <View
                         android:layout_width="0dp"
                         android:layout_height="0dp"
@@ -192,7 +193,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="28dp"
                         android:layout_marginStart="6dp"
-                        android:layout_gravity="center"/>
+                        android:layout_gravity="center"
+                        app:items="@{viewModel.abilityList}"/>
                     <View
                         android:layout_width="0dp"
                         android:layout_height="28dp"
@@ -210,12 +212,35 @@
                         android:layout_width="wrap_content"
                         android:layout_height="28dp"
                         android:layout_marginStart="6dp"
-                        android:layout_gravity="center"/>
+                        android:layout_gravity="center"
+                        app:items="@{viewModel.statusAbnormalityList}"/>
                     <View
                         android:layout_width="0dp"
                         android:layout_height="28dp"
                         android:layout_weight="1"/>
                 </LinearLayout>
+                <TextView
+                    android:id="@+id/nature_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="성격"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginStart="@dimen/horizontal_margin"
+                    app:layout_constraintTop_toBottomOf="@id/layout_2"
+                    app:layout_constraintStart_toStartOf="parent"/>
+                <Spinner
+                    android:id="@+id/nature_spinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="6dp"
+                    android:textSize="18sp"
+                    app:items="@{viewModel.natureList}"
+                    app:layout_constraintTop_toTopOf="@id/nature_text"
+                    app:layout_constraintBottom_toBottomOf="@id/nature_text"
+                    app:layout_constraintStart_toEndOf="@id/nature_text"/>
                 <TextView
                     android:id="@+id/item_text"
                     android:layout_width="wrap_content"
@@ -246,7 +271,7 @@
                     android:layout_marginTop="6dp"
                     android:layout_marginEnd="@dimen/horizontal_margin"
                     android:onClick="@{()->viewModel.onSelectItem()}"
-                    app:layout_constraintTop_toBottomOf="@id/layout_2"
+                    app:layout_constraintTop_toBottomOf="@id/nature_text"
                     app:layout_constraintBottom_toBottomOf="@id/item_text"
                     app:layout_constraintEnd_toEndOf="parent"/>
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -508,27 +533,7 @@
                         android:gravity="center"
                         android:text="@={viewModel.evS}"/>
                 </LinearLayout>
-                <TextView
-                    android:id="@+id/nature_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="성격"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/black"
-                    android:layout_marginTop="6dp"
-                    android:layout_marginStart="@dimen/horizontal_margin"
-                    app:layout_constraintTop_toBottomOf="@id/layout_4"
-                    app:layout_constraintStart_toStartOf="parent"/>
-                <Spinner
-                    android:id="@+id/nature_spinner"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="6dp"
-                    android:textSize="18sp"
-                    app:layout_constraintTop_toTopOf="@id/nature_text"
-                    app:layout_constraintBottom_toBottomOf="@id/nature_text"
-                    app:layout_constraintStart_toEndOf="@id/nature_text"/>
+
                 <TextView
                     android:id="@+id/rank_text"
                     android:layout_width="wrap_content"
@@ -539,7 +544,7 @@
                     android:textColor="@color/black"
                     android:layout_marginTop="6dp"
                     android:layout_marginStart="@dimen/horizontal_margin"
-                    app:layout_constraintTop_toBottomOf="@id/nature_spinner"
+                    app:layout_constraintTop_toBottomOf="@id/layout_4"
                     app:layout_constraintStart_toStartOf="parent"/>
                 <LinearLayout
                     android:id="@+id/layout_5"
