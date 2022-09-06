@@ -18,7 +18,7 @@ object DamageUtil {
         isCritical: Boolean,
         randType: Int
     ): Int {
-        if (move.category == "변화")
+        if (move.category == "변화" || move.name == "미설정")
             return 0
 
         val attackRealStat = getAttackRealStat(move, myPokemon, weather)
