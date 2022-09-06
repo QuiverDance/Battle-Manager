@@ -70,10 +70,7 @@ class MainViewModel : BaseViewModel() {
             weather.value!!,
             pokemon2.pokemonInfo.name
         )
-        Log.d("pokemon1", pokemon1.toString())
-        Log.d("pokemon2", pokemon2.toString())
-        Log.d("speed", "$speed1 ? $speed2")
-        Log.d("weather", _weather.value!!)
+
         if(speed1 > speed2)
             _preemptivePokemon.postValue(1)
         else if(speed2 > speed1)
