@@ -3,7 +3,6 @@ package com.example.battlemanager.presentation.main
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import com.example.battlemanager.domain.model.Pokemon
 import com.example.battlemanager.presentation.PokemonMemory
 import com.example.battlemanager.presentation.global.base.BaseViewModel
@@ -101,5 +100,12 @@ class MainViewModel : BaseViewModel() {
     val startSwap = SingleLiveEvent<Any>()
     fun onStartSwap() {
         startSwap.call()
+    }
+
+    val infoId = MutableLiveData(-1)
+    val startShowInfo = SingleLiveEvent<Any>()
+    fun onShowInfo(pos: Int) {
+        infoId.value = pos
+        startShowInfo.call()
     }
 }

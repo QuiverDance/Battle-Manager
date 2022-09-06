@@ -1,6 +1,5 @@
 package com.example.battlemanager.presentation.main
 
-import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
@@ -11,11 +10,8 @@ import com.example.battlemanager.R
 import com.example.battlemanager.databinding.FragmentMainBinding
 import com.example.battlemanager.presentation.global.base.BaseFragment
 import com.example.battlemanager.presentation.PokemonMemory
+import com.example.battlemanager.presentation.dialog.pokemonInfo.InfoDialogFragment
 import com.example.battlemanager.presentation.global.util.FieldUtil
-import com.example.battlemanager.presentation.global.util.RealStatUtil
-import com.example.battlemanager.presentation.global.util.StatusAbnormalityUtil
-import com.example.battlemanager.presentation.pokemonSetting.PokemonSettingViewPagerAdapter
-import com.google.android.material.tabs.TabLayout
 
 class MainFragment : BaseFragment<FragmentMainBinding>() {
     override val layoutResourceId = R.layout.fragment_main
@@ -49,6 +45,12 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
         viewModel.weather.observe(this){
             if(PokemonMemory.getIsValid(1) && PokemonMemory.getIsValid(2))
                 viewModel.setPreemptivePokemon()
+        }
+        viewModel.startShowInfo.observe(this){
+            if(viewModel.infoId.value!! > 0 && PokemonMemory.getIsValid(viewModel.infoId.value!!)){
+                val dialog = InfoDialogFragment(PokemonMemory.getPokemon(viewModel.infoId.value!!))
+                dialog.show(childFragmentManager, "pokemon info")
+            }
         }
     }
 
