@@ -8,7 +8,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.battlemanager.R
 import com.example.battlemanager.databinding.FragmentPokemonSettingBinding
 import com.example.battlemanager.presentation.global.base.BaseFragment
-import com.example.battlemanager.presentation.FilterDialogFragment
+import com.example.battlemanager.presentation.dialog.FilterDialogFragment
 import com.example.battlemanager.presentation.PokemonMemory
 import com.example.battlemanager.presentation.global.util.*
 import dagger.hilt.android.AndroidEntryPoint
@@ -23,6 +23,9 @@ class PokemonSettingFragment : BaseFragment<FragmentPokemonSettingBinding>() {
         super.initState()
         val pos = arguments?.getInt("pos") ?: -1
         position = pos
+
+        if(PokemonMemory.getIsValid(pos))
+            viewModel.initPokemonInfo(PokemonMemory.getPokemon(pos))
     }
     override fun initDataBinding() {
         super.initDataBinding()

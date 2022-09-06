@@ -1,9 +1,7 @@
 package com.example.battlemanager.presentation.pokemonSetting
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.battlemanager.domain.model.*
 import com.example.battlemanager.domain.usecase.item.GetItemFilterListUseCase
@@ -13,7 +11,6 @@ import com.example.battlemanager.domain.usecase.move.GetMoveInfoUseCase
 import com.example.battlemanager.domain.usecase.pokemon.GetPokemonFilterListUseCase
 import com.example.battlemanager.domain.usecase.pokemon.GetPokemonInfoUseCase
 import com.example.battlemanager.presentation.global.base.BaseViewModel
-import com.example.battlemanager.presentation.global.constant.Nature
 import com.example.battlemanager.presentation.global.util.GenderUtil
 import com.example.battlemanager.presentation.global.util.NatureUtil
 import com.example.battlemanager.presentation.global.util.SingleLiveEvent
@@ -33,7 +30,7 @@ class PokemonSettingViewModel @Inject constructor(
     private val getItemInfoUseCase: GetItemInfoUseCase,
     private val getItemFilterListUseCase: GetItemFilterListUseCase
 ) : BaseViewModel() {
-    
+
     private val _pokemonInfo = MutableLiveData<PokemonInfo>()
     val pokemonInfo: LiveData<PokemonInfo> get() = _pokemonInfo
     fun getPokemonInfo(name: String) {
@@ -108,31 +105,31 @@ class PokemonSettingViewModel @Inject constructor(
         }
     }
 
-    val level = MutableLiveData<String>("50")
-    val hp = MutableLiveData<Int>(0)
-    val hpText = MutableLiveData<String>("0")
-    val ivH = MutableLiveData<String>("0")
-    val ivA = MutableLiveData<String>("0")
-    val ivB = MutableLiveData<String>("0")
-    val ivC = MutableLiveData<String>("0")
-    val ivD = MutableLiveData<String>("0")
-    val ivS = MutableLiveData<String>("0")
+    val level = MutableLiveData("50")
+    val hp = MutableLiveData(0)
+    val hpText = MutableLiveData("0")
+    val ivH = MutableLiveData("0")
+    val ivA = MutableLiveData("0")
+    val ivB = MutableLiveData("0")
+    val ivC = MutableLiveData("0")
+    val ivD = MutableLiveData("0")
+    val ivS = MutableLiveData("0")
 
-    val evH = MutableLiveData<String>("0")
-    val evA = MutableLiveData<String>("0")
-    val evB = MutableLiveData<String>("0")
-    val evC = MutableLiveData<String>("0")
-    val evD = MutableLiveData<String>("0")
-    val evS = MutableLiveData<String>("0")
+    val evH = MutableLiveData("0")
+    val evA = MutableLiveData("0")
+    val evB = MutableLiveData("0")
+    val evC = MutableLiveData("0")
+    val evD = MutableLiveData("0")
+    val evS = MutableLiveData("0")
 
-    val rankA = MutableLiveData<String>("0")
-    val rankB = MutableLiveData<String>("0")
-    val rankC = MutableLiveData<String>("0")
-    val rankD = MutableLiveData<String>("0")
-    val rankS = MutableLiveData<String>("0")
-    val rankAcc = MutableLiveData<String>("0")
-    val rankEva = MutableLiveData<String>("0")
-    val rankCri = MutableLiveData<String>("0")
+    val rankA = MutableLiveData("0")
+    val rankB = MutableLiveData("0")
+    val rankC = MutableLiveData("0")
+    val rankD = MutableLiveData("0")
+    val rankS = MutableLiveData("0")
+    val rankAcc = MutableLiveData("0")
+    val rankEva = MutableLiveData("0")
+    val rankCri = MutableLiveData("0")
 
     private val _gender = MutableLiveData<String>()
     val gender: LiveData<String> get() = _gender
@@ -151,7 +148,7 @@ class PokemonSettingViewModel @Inject constructor(
     fun setNature(value: String) = _nature.postValue(value)
 
     private val _moveList =
-        MutableLiveData(MutableList<MoveInfo>(4) { MoveInfo(0, "미설정", 0, "없음", "없음", 0) })
+        MutableLiveData(MutableList(4) { MoveInfo(0, "미설정", 0, "없음", "없음", 0) })
     val moveList: LiveData<MutableList<MoveInfo>> get() = _moveList
     fun setMoveInfo(name: String, pos: Int) {
         viewModelScope.launch {
@@ -182,7 +179,14 @@ class PokemonSettingViewModel @Inject constructor(
     }
 
     private fun getEffortValues(): EffortValues {
-        val evList = mutableListOf(evH.value!!, evA.value!!, evB.value!!, evC.value!!, evD.value!!, evS.value!!)
+        val evList = mutableListOf(
+            evH.value!!,
+            evA.value!!,
+            evB.value!!,
+            evC.value!!,
+            evD.value!!,
+            evS.value!!
+        )
 
         for ((idx, value) in evList.withIndex()) {
             if (value == "")
@@ -200,7 +204,14 @@ class PokemonSettingViewModel @Inject constructor(
     }
 
     private fun getIndividualValues(): IndividualValues {
-        val ivList = mutableListOf(ivH.value!!, ivA.value!!, ivB.value!!, ivC.value!!, ivD.value!!, ivS.value!!)
+        val ivList = mutableListOf(
+            ivH.value!!,
+            ivA.value!!,
+            ivB.value!!,
+            ivC.value!!,
+            ivD.value!!,
+            ivS.value!!
+        )
 
         for ((idx, value) in ivList.withIndex()) {
             if (value == "")
@@ -218,7 +229,16 @@ class PokemonSettingViewModel @Inject constructor(
     }
 
     private fun getRankStates(): RankStates {
-        val rankList = mutableListOf(rankA.value!!, rankB.value!!, rankC.value!!, rankD.value!!, rankS.value!!, rankAcc.value!!, rankEva.value!!, rankCri.value!!)
+        val rankList = mutableListOf(
+            rankA.value!!,
+            rankB.value!!,
+            rankC.value!!,
+            rankD.value!!,
+            rankS.value!!,
+            rankAcc.value!!,
+            rankEva.value!!,
+            rankCri.value!!
+        )
 
         for ((idx, value) in rankList.withIndex()) {
             if (value == "")
@@ -261,5 +281,40 @@ class PokemonSettingViewModel @Inject constructor(
 
     fun onSetMove4() {
         selectedMove.value = 3
+    }
+
+    fun initPokemonInfo(pokemon: Pokemon){
+        _pokemonInfo.postValue(pokemon.pokemonInfo)
+        _ability.postValue(pokemon.ability.name)
+        _gender.postValue(pokemon.gender)
+        _itemInfo.postValue(pokemon.item)
+        _nature.postValue(NatureUtil.natureToString(pokemon.nature))
+        _statusAbnormality.postValue(StatusAbnormalityUtil.StatusAbnormalityToString(pokemon.statusAbnormality))
+        level.postValue(pokemon.level.toString())
+        ivH.postValue(pokemon.individualValues.H.toString())
+        ivA.postValue(pokemon.individualValues.A.toString())
+        ivB.postValue(pokemon.individualValues.B.toString())
+        ivC.postValue(pokemon.individualValues.C.toString())
+        ivD.postValue(pokemon.individualValues.D.toString())
+        ivS.postValue(pokemon.individualValues.S.toString())
+
+        evH.postValue(pokemon.effortValues.H.toString())
+        evA.postValue(pokemon.effortValues.A.toString())
+        evB.postValue(pokemon.effortValues.B.toString())
+        evC.postValue(pokemon.effortValues.C.toString())
+        evD.postValue(pokemon.effortValues.D.toString())
+        evS.postValue(pokemon.effortValues.S.toString())
+
+        rankA.postValue(pokemon.rankStates.attack.toString())
+        rankB.postValue(pokemon.rankStates.defense.toString())
+        rankC.postValue(pokemon.rankStates.specialAttack.toString())
+        rankD.postValue(pokemon.rankStates.specialDefense.toString())
+        rankS.postValue(pokemon.rankStates.speed.toString())
+        rankAcc.postValue(pokemon.rankStates.accuracy.toString())
+        rankEva.postValue(pokemon.rankStates.evasionRate.toString())
+        rankCri.postValue(pokemon.rankStates.criticalRate.toString())
+
+        for(i in 0..3)
+            _moveList.value!![i] = pokemon.moves[i]
     }
 }
