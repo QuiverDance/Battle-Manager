@@ -3,7 +3,6 @@ package com.example.battlemanager.presentation.global.util
 import com.example.battlemanager.domain.model.AbilityInfo
 import com.example.battlemanager.domain.model.ItemInfo
 import com.example.battlemanager.domain.model.RankStates
-import com.example.battlemanager.presentation.global.constant.StatusAbnormality
 import kotlin.math.floor
 
 object RealStatUtil {
@@ -81,7 +80,7 @@ object RealStatUtil {
     ): Int {
         return floor(
             StatUtil.getD(level, baseD, ivD, evD, nature) * RankUtil.getBaseStatRankChange(
-                rank.special_defense
+                rank.specialDefense
             ) * AbilityUtil.getSpecialDefenseCorrelation(ability) * ItemUtil.getSpecialDefenseCorrelation(
                 item, pokemonName
             ) * mod(weather, type1, type2)
