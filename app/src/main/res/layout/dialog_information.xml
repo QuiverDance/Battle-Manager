@@ -121,6 +121,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="특수방어"
+                    android:textColor="@color/black"
                     android:textStyle="bold"
                     android:textSize="16sp" />
                 <TextView
@@ -168,7 +169,6 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     app:intText="@{viewModel.pokemon.pokemonInfo.baseStats.d}"
-                    android:textColor="@color/black"
                     android:textStyle="bold"
                     android:textSize="16sp" />
                 <TextView
