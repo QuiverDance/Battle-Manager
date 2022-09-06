@@ -1,4 +1,4 @@
-package com.example.battlemanager.presentation
+package com.example.battlemanager.presentation.dialog.filter
 
 import android.view.LayoutInflater
 import android.view.View

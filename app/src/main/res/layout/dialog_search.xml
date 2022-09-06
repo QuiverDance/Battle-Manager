@@ -3,7 +3,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.example.battlemanager.presentation.FilterViewModel" />
+            type="com.example.battlemanager.presentation.dialog.filter.FilterViewModel" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
