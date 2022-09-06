@@ -39,6 +39,7 @@ class PokemonSettingViewModel @Inject constructor(
                 getPokemonInfoUseCase.invoke(name)
             }
             _pokemonInfo.value = pokemonInfo
+            rightMenu1Enable.value = true
             startSetSpinner.call()
         }
     }
