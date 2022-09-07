@@ -7,9 +7,7 @@ import com.example.battlemanager.domain.model.Pokemon
 import com.example.battlemanager.presentation.PokemonMemory
 import com.example.battlemanager.presentation.global.base.BaseViewModel
 import com.example.battlemanager.presentation.global.constant.Stat
-import com.example.battlemanager.presentation.global.util.RealStatUtil
-import com.example.battlemanager.presentation.global.util.SingleLiveEvent
-import com.example.battlemanager.presentation.global.util.StatUtil
+import com.example.battlemanager.presentation.global.util.*
 
 class MainViewModel : BaseViewModel() {
 
@@ -34,9 +32,13 @@ class MainViewModel : BaseViewModel() {
     private val _field = MutableLiveData<String>("없음")
     val weather: LiveData<String> get() = _weather
     val field: LiveData<String> get() = _field
-
     fun setWeather(value: String) = _weather.postValue(value)
     fun setField(value: String) = _field.postValue(value)
+
+    val weatherList = MutableLiveData<List<String>>()
+    fun setWeatherList() = weatherList.postValue(FieldUtil.getWeatherList())
+    val fieldList = MutableLiveData<List<String>>()
+    fun setFieldList() = fieldList.postValue(FieldUtil.getFieldList())
 
     private val _preemptivePokemon = MutableLiveData<Int>(0)
     val preemptivePokemon: LiveData<Int> get() = _preemptivePokemon

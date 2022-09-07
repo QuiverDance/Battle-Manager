@@ -64,14 +64,7 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
     }
 
     private fun setSpinner() {
-        val weatherList = FieldUtil.getWeatherList()
-        val weatherAdapter = ArrayAdapter(
-            requireContext(),
-            androidx.appcompat.R.layout.support_simple_spinner_dropdown_item,
-            weatherList
-        )
-        weatherAdapter.setDropDownViewResource(androidx.appcompat.R.layout.support_simple_spinner_dropdown_item)
-        binding.weatherSpinner.adapter = weatherAdapter
+        viewModel.setWeatherList()
         binding.weatherSpinner.onItemSelectedListener =
             object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(
@@ -80,24 +73,17 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
                     position: Int,
                     id: Long
                 ) {
-                    viewModel.setWeather(weatherList[position])
+                    viewModel.setWeather(viewModel.weatherList.value!![position])
                     return
                 }
 
                 override fun onNothingSelected(parent: AdapterView<*>?) {
-                    viewModel.setWeather(weatherList[0])
+                    viewModel.setWeather(viewModel.weatherList.value!![0])
                 }
 
             }
 
-        val fieldList = FieldUtil.getFieldList()
-        val fieldAdapter = ArrayAdapter(
-            requireContext(),
-            androidx.appcompat.R.layout.support_simple_spinner_dropdown_item,
-            fieldList
-        )
-        fieldAdapter.setDropDownViewResource(androidx.appcompat.R.layout.support_simple_spinner_dropdown_item)
-        binding.fieldSpinner.adapter = fieldAdapter
+        viewModel.setFieldList()
         binding.fieldSpinner.onItemSelectedListener =
             object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(
@@ -106,12 +92,12 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
                     position: Int,
                     id: Long
                 ) {
-                    viewModel.setField(fieldList[position])
+                    viewModel.setField(viewModel.fieldList.value!![position])
                     return
                 }
 
                 override fun onNothingSelected(parent: AdapterView<*>?) {
-                    viewModel.setField(fieldList[0])
+                    viewModel.setField(viewModel.fieldList.value!![0])
                 }
 
             }
