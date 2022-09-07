@@ -1,15 +1,11 @@
 package com.example.battlemanager.presentation.battleResult
 
-import android.widget.ProgressBar
-import android.widget.TextView
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.battlemanager.R
 import com.example.battlemanager.databinding.FragmentBattleResultBinding
 import com.example.battlemanager.presentation.global.base.BaseFragment
-import com.example.battlemanager.presentation.global.util.DamageUtil
 import com.example.battlemanager.presentation.main.MainViewModel
-import kotlin.math.ceil
 
 class BattleResultFragment : BaseFragment<FragmentBattleResultBinding>() {
     override val layoutResourceId = R.layout.fragment_battle_result
