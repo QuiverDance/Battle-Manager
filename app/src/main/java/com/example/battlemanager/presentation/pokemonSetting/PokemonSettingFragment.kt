@@ -10,6 +10,7 @@ import com.example.battlemanager.databinding.FragmentPokemonSettingBinding
 import com.example.battlemanager.presentation.global.base.BaseFragment
 import com.example.battlemanager.presentation.dialog.filter.FilterDialogFragment
 import com.example.battlemanager.presentation.PokemonMemory
+import com.example.battlemanager.presentation.global.constant.Stat
 import com.example.battlemanager.presentation.global.util.*
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -154,7 +155,7 @@ class PokemonSettingFragment : BaseFragment<FragmentPokemonSettingBinding>() {
         val initHp = StatUtil.getHp(
             viewModel.pokemonInfo.value!!.name,
             50,
-            viewModel.pokemonInfo.value!!.baseStats.H,
+            viewModel.pokemonInfo.value!!.baseStats[Stat.HP],
             0,
             0
         )
@@ -171,7 +172,7 @@ class PokemonSettingFragment : BaseFragment<FragmentPokemonSettingBinding>() {
                 val maxHp = StatUtil.getHp(
                     viewModel.pokemonInfo.value!!.name,
                     it.toInt(),
-                    viewModel.pokemonInfo.value!!.baseStats.H,
+                    viewModel.pokemonInfo.value!!.baseStats[Stat.HP],
                     viewModel.ivList[0].value!!.toInt(),
                     viewModel.evList[0].value!!.toInt()
                 )
@@ -183,7 +184,7 @@ class PokemonSettingFragment : BaseFragment<FragmentPokemonSettingBinding>() {
             try {
                 val maxHp = StatUtil.getHp(
                     it.name, viewModel.level.value!!.toInt(),
-                    it.baseStats.H,
+                    it.baseStats[Stat.HP],
                     viewModel.ivList[0].value!!.toInt(),
                     viewModel.evList[0].value!!.toInt()
                 )
@@ -196,7 +197,7 @@ class PokemonSettingFragment : BaseFragment<FragmentPokemonSettingBinding>() {
                 val maxHp = StatUtil.getHp(
                     viewModel.pokemonInfo.value!!.name,
                     viewModel.level.value!!.toInt(),
-                    viewModel.pokemonInfo.value!!.baseStats.H,
+                    viewModel.pokemonInfo.value!!.baseStats[Stat.HP],
                     it.toInt(),
                     viewModel.evList[0].value!!.toInt()
                 )
@@ -209,7 +210,7 @@ class PokemonSettingFragment : BaseFragment<FragmentPokemonSettingBinding>() {
                 val maxHp = StatUtil.getHp(
                     viewModel.pokemonInfo.value!!.name,
                     viewModel.level.value!!.toInt(),
-                    viewModel.pokemonInfo.value!!.baseStats.H,
+                    viewModel.pokemonInfo.value!!.baseStats[Stat.HP],
                     viewModel.ivList[0].value!!.toInt(),
                     it.toInt()
                 )

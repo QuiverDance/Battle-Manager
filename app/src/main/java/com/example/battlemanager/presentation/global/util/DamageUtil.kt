@@ -3,6 +3,7 @@ package com.example.battlemanager.presentation.global.util
 import com.example.battlemanager.domain.model.ItemInfo
 import com.example.battlemanager.domain.model.MoveInfo
 import com.example.battlemanager.domain.model.Pokemon
+import com.example.battlemanager.presentation.global.constant.Stat
 import com.example.battlemanager.presentation.global.constant.StatusAbnormality
 import kotlin.math.floor
 
@@ -52,7 +53,7 @@ object DamageUtil {
     private fun getAttackRealStat(move: MoveInfo, pokemon: Pokemon, weather: String): Int {
         return if (move.type == "물리") RealStatUtil.getAttack(
             pokemon.level,
-            pokemon.pokemonInfo.baseStats.A,
+            pokemon.pokemonInfo.baseStats[Stat.ATTACK],
             pokemon.individualValues.A,
             pokemon.effortValues.A,
             pokemon.nature,
@@ -65,7 +66,7 @@ object DamageUtil {
         else
             RealStatUtil.getSpecialAttack(
                 pokemon.level,
-                pokemon.pokemonInfo.baseStats.C,
+                pokemon.pokemonInfo.baseStats[Stat.SPECIAL_ATTACK],
                 pokemon.individualValues.C,
                 pokemon.effortValues.C,
                 pokemon.nature,
@@ -80,7 +81,7 @@ object DamageUtil {
     private fun getDefenseRealStat(move: MoveInfo, pokemon: Pokemon, weather: String): Int {
         return if (move.type == "물리") RealStatUtil.getDefense(
             pokemon.level,
-            pokemon.pokemonInfo.baseStats.B,
+            pokemon.pokemonInfo.baseStats[Stat.DEFENSE],
             pokemon.individualValues.B,
             pokemon.effortValues.B,
             pokemon.nature,
@@ -93,7 +94,7 @@ object DamageUtil {
         else
             RealStatUtil.getSpecialDefense(
                 pokemon.level,
-                pokemon.pokemonInfo.baseStats.D,
+                pokemon.pokemonInfo.baseStats[Stat.SPECIAL_DEFENSE],
                 pokemon.individualValues.D,
                 pokemon.effortValues.D,
                 pokemon.nature,

@@ -6,6 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import com.example.battlemanager.domain.model.Pokemon
 import com.example.battlemanager.presentation.PokemonMemory
 import com.example.battlemanager.presentation.global.base.BaseViewModel
+import com.example.battlemanager.presentation.global.constant.Stat
 import com.example.battlemanager.presentation.global.util.RealStatUtil
 import com.example.battlemanager.presentation.global.util.SingleLiveEvent
 import com.example.battlemanager.presentation.global.util.StatUtil
@@ -21,7 +22,7 @@ class MainViewModel : BaseViewModel() {
         pokemon.maxHp = StatUtil.getHp(
             pokemon.pokemonInfo.name,
             pokemon.level,
-            pokemon.pokemonInfo.baseStats.H,
+            pokemon.pokemonInfo.baseStats[Stat.HP],
             pokemon.individualValues.H,
             pokemon.effortValues.H
         )
@@ -46,7 +47,7 @@ class MainViewModel : BaseViewModel() {
 
         val speed1 = RealStatUtil.getSpeed(
             pokemon1.level,
-            pokemon1.pokemonInfo.baseStats.S,
+            pokemon1.pokemonInfo.baseStats[Stat.SPEED],
             pokemon1.individualValues.S,
             pokemon1.effortValues.S,
             pokemon1.nature,
@@ -59,7 +60,7 @@ class MainViewModel : BaseViewModel() {
         )
         val speed2 = RealStatUtil.getSpeed(
             pokemon2.level,
-            pokemon2.pokemonInfo.baseStats.S,
+            pokemon2.pokemonInfo.baseStats[Stat.SPEED],
             pokemon2.individualValues.S,
             pokemon2.effortValues.S,
             pokemon2.nature,

@@ -23,13 +23,13 @@ object PokemonMapper {
             validAbilityList = abilityList,
             validGender = pokemonResponse.genderType,
             weight = pokemonResponse.weight,
-            baseStats = BaseStats(
-                H = pokemonResponse.h,
-                A = pokemonResponse.a,
-                B = pokemonResponse.b,
-                C = pokemonResponse.c,
-                D = pokemonResponse.d,
-                S = pokemonResponse.s,
+            baseStats = listOf(
+                pokemonResponse.h,
+                pokemonResponse.a,
+                pokemonResponse.b,
+                pokemonResponse.c,
+                pokemonResponse.d,
+                pokemonResponse.s,
             )
         )
     }

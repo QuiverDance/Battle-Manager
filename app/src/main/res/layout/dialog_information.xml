@@ -2,6 +2,7 @@
 <layout xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
         <import type="android.view.View"/>
+        <import type="com.example.battlemanager.presentation.global.constant.Stat"/>
         <variable
             name="viewModel"
             type="com.example.battlemanager.presentation.dialog.pokemonInfo.InfoViewModel" />
@@ -142,42 +143,42 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    app:intText="@{viewModel.pokemon.pokemonInfo.baseStats.a}"
+                    app:intText="@{viewModel.pokemon.pokemonInfo.baseStats[Stat.HP]}"
                     android:textStyle="bold"
                     android:textSize="16sp" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    app:intText="@{viewModel.pokemon.pokemonInfo.baseStats.h}"
+                    app:intText="@{viewModel.pokemon.pokemonInfo.baseStats[Stat.ATTACK]}"
                     android:textStyle="bold"
                     android:textSize="16sp" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    app:intText="@{viewModel.pokemon.pokemonInfo.baseStats.b}"
+                    app:intText="@{viewModel.pokemon.pokemonInfo.baseStats[Stat.DEFENSE]}"
                     android:textStyle="bold"
                     android:textSize="16sp" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    app:intText="@{viewModel.pokemon.pokemonInfo.baseStats.c}"
+                    app:intText="@{viewModel.pokemon.pokemonInfo.baseStats[Stat.SPECIAL_ATTACK]}"
                     android:textStyle="bold"
                     android:textSize="16sp" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    app:intText="@{viewModel.pokemon.pokemonInfo.baseStats.d}"
+                    app:intText="@{viewModel.pokemon.pokemonInfo.baseStats[Stat.SPECIAL_DEFENSE]}"
                     android:textStyle="bold"
                     android:textSize="16sp" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    app:intText="@{viewModel.pokemon.pokemonInfo.baseStats.s}"
+                    app:intText="@{viewModel.pokemon.pokemonInfo.baseStats[Stat.SPEED]}"
                     android:textStyle="bold"
                     android:textSize="16sp" />
             </TableRow>
