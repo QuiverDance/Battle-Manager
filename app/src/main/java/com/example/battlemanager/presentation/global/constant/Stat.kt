@@ -1,6 +1,6 @@
 package com.example.battlemanager.presentation.global.constant
 
-class Rank {
+class Stat {
     companion object {
         const val ATTACK = 0
         const val DEFENSE = 1
