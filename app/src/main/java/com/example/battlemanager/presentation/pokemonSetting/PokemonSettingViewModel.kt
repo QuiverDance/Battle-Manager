@@ -224,32 +224,13 @@ class PokemonSettingViewModel @Inject constructor(
         _statusAbnormality.postValue(StatusAbnormalityUtil.StatusAbnormalityToString(pokemon.statusAbnormality))
         level.postValue(pokemon.level.toString())
 
-//        for(i in 0..5){
-//            ivList[i].postValue(pokemon.individualValues.)
-//        }
-//        ivH.postValue(pokemon.individualValues.H.toString())
-//        ivA.postValue(pokemon.individualValues.A.toString())
-//        ivB.postValue(pokemon.individualValues.B.toString())
-//        ivC.postValue(pokemon.individualValues.C.toString())
-//        ivD.postValue(pokemon.individualValues.D.toString())
-//        ivS.postValue(pokemon.individualValues.S.toString())
-//
-//        evH.postValue(pokemon.effortValues.H.toString())
-//        evA.postValue(pokemon.effortValues.A.toString())
-//        evB.postValue(pokemon.effortValues.B.toString())
-//        evC.postValue(pokemon.effortValues.C.toString())
-//        evD.postValue(pokemon.effortValues.D.toString())
-//        evS.postValue(pokemon.effortValues.S.toString())
-//
-//        rankA.postValue(pokemon.rankStates.attack.toString())
-//        rankB.postValue(pokemon.rankStates.defense.toString())
-//        rankC.postValue(pokemon.rankStates.specialAttack.toString())
-//        rankD.postValue(pokemon.rankStates.specialDefense.toString())
-//        rankS.postValue(pokemon.rankStates.speed.toString())
-//        rankAcc.postValue(pokemon.rankStates.accuracy.toString())
-//        rankEva.postValue(pokemon.rankStates.evasionRate.toString())
-//        rankCri.postValue(pokemon.rankStates.criticalRate.toString())
-
+        for(i in 0..5){
+            ivList[i].postValue(pokemon.individualValues[i].toString())
+            evList[i].postValue(pokemon.effortValues[i].toString())
+        }
+        for(i in 1..7){
+            rankList[i-1].postValue(pokemon.rankStates[i].toString())
+        }
         for(i in 0..3)
             _moveList.value!![i] = pokemon.moves[i]
     }
