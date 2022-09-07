@@ -172,8 +172,8 @@ class PokemonSettingFragment : BaseFragment<FragmentPokemonSettingBinding>() {
                     viewModel.pokemonInfo.value!!.name,
                     it.toInt(),
                     viewModel.pokemonInfo.value!!.baseStats.H,
-                    viewModel.ivH.value!!.toInt(),
-                    viewModel.evH.value!!.toInt()
+                    viewModel.ivList[0].value!!.toInt(),
+                    viewModel.evList[0].value!!.toInt()
                 )
                 binding.hpSeekBar.max = maxHp
             }
@@ -184,33 +184,33 @@ class PokemonSettingFragment : BaseFragment<FragmentPokemonSettingBinding>() {
                 val maxHp = StatUtil.getHp(
                     it.name, viewModel.level.value!!.toInt(),
                     it.baseStats.H,
-                    viewModel.ivH.value!!.toInt(),
-                    viewModel.evH.value!!.toInt()
+                    viewModel.ivList[0].value!!.toInt(),
+                    viewModel.evList[0].value!!.toInt()
                 )
                 binding.hpSeekBar.max = maxHp
             }
             catch (e : NumberFormatException){}
         }
-        viewModel.ivH.observe(this) {
+        viewModel.ivList[0].observe(this) {
             try{
                 val maxHp = StatUtil.getHp(
                     viewModel.pokemonInfo.value!!.name,
                     viewModel.level.value!!.toInt(),
                     viewModel.pokemonInfo.value!!.baseStats.H,
                     it.toInt(),
-                    viewModel.evH.value!!.toInt()
+                    viewModel.evList[0].value!!.toInt()
                 )
                 binding.hpSeekBar.max = maxHp
             }
             catch (e : NumberFormatException){}
         }
-        viewModel.evH.observe(this) {
+        viewModel.evList[0].observe(this) {
             try {
                 val maxHp = StatUtil.getHp(
                     viewModel.pokemonInfo.value!!.name,
                     viewModel.level.value!!.toInt(),
                     viewModel.pokemonInfo.value!!.baseStats.H,
-                    viewModel.ivH.value!!.toInt(),
+                    viewModel.ivList[0].value!!.toInt(),
                     it.toInt()
                 )
                 binding.hpSeekBar.max = maxHp

@@ -106,28 +106,10 @@ class PokemonSettingViewModel @Inject constructor(
     val level = MutableLiveData("50")
     val hp = MutableLiveData(0)
     val hpText = MutableLiveData("0")
-    val ivH = MutableLiveData("0")
-    val ivA = MutableLiveData("0")
-    val ivB = MutableLiveData("0")
-    val ivC = MutableLiveData("0")
-    val ivD = MutableLiveData("0")
-    val ivS = MutableLiveData("0")
 
-    val evH = MutableLiveData("0")
-    val evA = MutableLiveData("0")
-    val evB = MutableLiveData("0")
-    val evC = MutableLiveData("0")
-    val evD = MutableLiveData("0")
-    val evS = MutableLiveData("0")
-
-    val rankA = MutableLiveData("0")
-    val rankB = MutableLiveData("0")
-    val rankC = MutableLiveData("0")
-    val rankD = MutableLiveData("0")
-    val rankS = MutableLiveData("0")
-    val rankAcc = MutableLiveData("0")
-    val rankEva = MutableLiveData("0")
-    val rankCri = MutableLiveData("0")
+    val ivList = MutableList(6){MutableLiveData("0")}
+    val evList = MutableList(6){MutableLiveData("0")}
+    val rankList = MutableList(8){MutableLiveData("0")}
 
     private val _gender = MutableLiveData<String>()
     val gender: LiveData<String> get() = _gender
@@ -185,81 +167,37 @@ class PokemonSettingViewModel @Inject constructor(
     }
 
     private fun getEffortValues(): EffortValues {
-        val evList = mutableListOf(
-            evH.value!!,
-            evA.value!!,
-            evB.value!!,
-            evC.value!!,
-            evD.value!!,
-            evS.value!!
-        )
-
-        for ((idx, value) in evList.withIndex()) {
-            if (value == "")
-                evList[idx] = "0"
-        }
-
         return EffortValues(
-            evList[0].toInt(),
-            evList[1].toInt(),
-            evList[2].toInt(),
-            evList[3].toInt(),
-            evList[4].toInt(),
-            evList[5].toInt()
+            evList[0].value!!.toInt(),
+            evList[1].value!!.toInt(),
+            evList[2].value!!.toInt(),
+            evList[3].value!!.toInt(),
+            evList[4].value!!.toInt(),
+            evList[5].value!!.toInt()
         )
     }
 
     private fun getIndividualValues(): IndividualValues {
-        val ivList = mutableListOf(
-            ivH.value!!,
-            ivA.value!!,
-            ivB.value!!,
-            ivC.value!!,
-            ivD.value!!,
-            ivS.value!!
-        )
-
-        for ((idx, value) in ivList.withIndex()) {
-            if (value == "")
-                ivList[idx] = "0"
-        }
-
         return IndividualValues(
-            ivList[0].toInt(),
-            ivList[1].toInt(),
-            ivList[2].toInt(),
-            ivList[3].toInt(),
-            ivList[4].toInt(),
-            ivList[5].toInt()
+            ivList[0].value!!.toInt(),
+            ivList[1].value!!.toInt(),
+            ivList[2].value!!.toInt(),
+            ivList[3].value!!.toInt(),
+            ivList[4].value!!.toInt(),
+            ivList[5].value!!.toInt()
         )
     }
 
     private fun getRankStates(): RankStates {
-        val rankList = mutableListOf(
-            rankA.value!!,
-            rankB.value!!,
-            rankC.value!!,
-            rankD.value!!,
-            rankS.value!!,
-            rankAcc.value!!,
-            rankEva.value!!,
-            rankCri.value!!
-        )
-
-        for ((idx, value) in rankList.withIndex()) {
-            if (value == "")
-                rankList[idx] = "0"
-        }
-
         return RankStates(
-            rankList[0].toInt(),
-            rankList[1].toInt(),
-            rankList[2].toInt(),
-            rankList[3].toInt(),
-            rankList[4].toInt(),
-            rankList[5].toInt(),
-            rankList[6].toInt(),
-            rankList[7].toInt(),
+            rankList[0].value!!.toInt(),
+            rankList[1].value!!.toInt(),
+            rankList[2].value!!.toInt(),
+            rankList[3].value!!.toInt(),
+            rankList[4].value!!.toInt(),
+            rankList[5].value!!.toInt(),
+            rankList[6].value!!.toInt(),
+            rankList[7].value!!.toInt()
         )
     }
 
@@ -270,7 +208,6 @@ class PokemonSettingViewModel @Inject constructor(
     fun onSelectItem() = startSelectItem.call()
 
     val startSetSpinner = SingleLiveEvent<Any>()
-    fun onSetSpinner() = startSetSpinner.call()
 
     val selectedMove = MutableLiveData(-1)
     fun onSetMove(pos: Int) {
@@ -285,28 +222,32 @@ class PokemonSettingViewModel @Inject constructor(
         _nature.postValue(NatureUtil.natureToString(pokemon.nature))
         _statusAbnormality.postValue(StatusAbnormalityUtil.StatusAbnormalityToString(pokemon.statusAbnormality))
         level.postValue(pokemon.level.toString())
-        ivH.postValue(pokemon.individualValues.H.toString())
-        ivA.postValue(pokemon.individualValues.A.toString())
-        ivB.postValue(pokemon.individualValues.B.toString())
-        ivC.postValue(pokemon.individualValues.C.toString())
-        ivD.postValue(pokemon.individualValues.D.toString())
-        ivS.postValue(pokemon.individualValues.S.toString())
 
-        evH.postValue(pokemon.effortValues.H.toString())
-        evA.postValue(pokemon.effortValues.A.toString())
-        evB.postValue(pokemon.effortValues.B.toString())
-        evC.postValue(pokemon.effortValues.C.toString())
-        evD.postValue(pokemon.effortValues.D.toString())
-        evS.postValue(pokemon.effortValues.S.toString())
-
-        rankA.postValue(pokemon.rankStates.attack.toString())
-        rankB.postValue(pokemon.rankStates.defense.toString())
-        rankC.postValue(pokemon.rankStates.specialAttack.toString())
-        rankD.postValue(pokemon.rankStates.specialDefense.toString())
-        rankS.postValue(pokemon.rankStates.speed.toString())
-        rankAcc.postValue(pokemon.rankStates.accuracy.toString())
-        rankEva.postValue(pokemon.rankStates.evasionRate.toString())
-        rankCri.postValue(pokemon.rankStates.criticalRate.toString())
+//        for(i in 0..5){
+//            ivList[i].postValue(pokemon.individualValues.)
+//        }
+//        ivH.postValue(pokemon.individualValues.H.toString())
+//        ivA.postValue(pokemon.individualValues.A.toString())
+//        ivB.postValue(pokemon.individualValues.B.toString())
+//        ivC.postValue(pokemon.individualValues.C.toString())
+//        ivD.postValue(pokemon.individualValues.D.toString())
+//        ivS.postValue(pokemon.individualValues.S.toString())
+//
+//        evH.postValue(pokemon.effortValues.H.toString())
+//        evA.postValue(pokemon.effortValues.A.toString())
+//        evB.postValue(pokemon.effortValues.B.toString())
+//        evC.postValue(pokemon.effortValues.C.toString())
+//        evD.postValue(pokemon.effortValues.D.toString())
+//        evS.postValue(pokemon.effortValues.S.toString())
+//
+//        rankA.postValue(pokemon.rankStates.attack.toString())
+//        rankB.postValue(pokemon.rankStates.defense.toString())
+//        rankC.postValue(pokemon.rankStates.specialAttack.toString())
+//        rankD.postValue(pokemon.rankStates.specialDefense.toString())
+//        rankS.postValue(pokemon.rankStates.speed.toString())
+//        rankAcc.postValue(pokemon.rankStates.accuracy.toString())
+//        rankEva.postValue(pokemon.rankStates.evasionRate.toString())
+//        rankCri.postValue(pokemon.rankStates.criticalRate.toString())
 
         for(i in 0..3)
             _moveList.value!![i] = pokemon.moves[i]
