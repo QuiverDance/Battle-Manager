@@ -7,9 +7,9 @@ class Pokemon(
     val item: ItemInfo,
     val moves: List<MoveInfo>,
     val nature: Int,
-    val effortValues: EffortValues,
-    val individualValues: IndividualValues,
-    val rankStates: RankStates,
+    val effortValues: List<Int>,
+    val individualValues: List<Int>,
+    val rankStates: List<Int>,
     val statusAbnormality: Int,
     val hp: Int,
     val gender: String

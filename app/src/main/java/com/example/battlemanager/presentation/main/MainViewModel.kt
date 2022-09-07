@@ -23,8 +23,8 @@ class MainViewModel : BaseViewModel() {
             pokemon.pokemonInfo.name,
             pokemon.level,
             pokemon.pokemonInfo.baseStats[Stat.HP],
-            pokemon.individualValues.H,
-            pokemon.effortValues.H
+            pokemon.individualValues[Stat.HP],
+            pokemon.effortValues[Stat.HP]
         )
         if (target == 1) _pokemon1.postValue(pokemon)
         else _pokemon2.postValue(pokemon)
@@ -48,10 +48,10 @@ class MainViewModel : BaseViewModel() {
         val speed1 = RealStatUtil.getSpeed(
             pokemon1.level,
             pokemon1.pokemonInfo.baseStats[Stat.SPEED],
-            pokemon1.individualValues.S,
-            pokemon1.effortValues.S,
+            pokemon1.individualValues[Stat.SPEED],
+            pokemon1.effortValues[Stat.SPEED],
             pokemon1.nature,
-            pokemon1.rankStates,
+            pokemon1.rankStates[Stat.SPEED],
             pokemon1.ability,
             pokemon1.item,
             pokemon1.statusAbnormality,
@@ -61,10 +61,10 @@ class MainViewModel : BaseViewModel() {
         val speed2 = RealStatUtil.getSpeed(
             pokemon2.level,
             pokemon2.pokemonInfo.baseStats[Stat.SPEED],
-            pokemon2.individualValues.S,
-            pokemon2.effortValues.S,
+            pokemon2.individualValues[Stat.SPEED],
+            pokemon2.effortValues[Stat.SPEED],
             pokemon2.nature,
-            pokemon2.rankStates,
+            pokemon2.rankStates[Stat.SPEED],
             pokemon2.ability,
             pokemon2.item,
             pokemon2.statusAbnormality,

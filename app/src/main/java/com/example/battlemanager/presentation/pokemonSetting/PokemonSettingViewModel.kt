@@ -166,8 +166,8 @@ class PokemonSettingViewModel @Inject constructor(
         )
     }
 
-    private fun getEffortValues(): EffortValues {
-        return EffortValues(
+    private fun getEffortValues(): List<Int> {
+        return listOf(
             evList[0].value!!.toInt(),
             evList[1].value!!.toInt(),
             evList[2].value!!.toInt(),
@@ -177,8 +177,8 @@ class PokemonSettingViewModel @Inject constructor(
         )
     }
 
-    private fun getIndividualValues(): IndividualValues {
-        return IndividualValues(
+    private fun getIndividualValues(): List<Int> {
+        return listOf(
             ivList[0].value!!.toInt(),
             ivList[1].value!!.toInt(),
             ivList[2].value!!.toInt(),
@@ -188,8 +188,9 @@ class PokemonSettingViewModel @Inject constructor(
         )
     }
 
-    private fun getRankStates(): RankStates {
-        return RankStates(
+    private fun getRankStates(): List<Int> {
+        return listOf(
+            0,
             rankList[0].value!!.toInt(),
             rankList[1].value!!.toInt(),
             rankList[2].value!!.toInt(),
