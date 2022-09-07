@@ -62,6 +62,7 @@
                 <ProgressBar
                     android:id="@+id/move_1_min_hp_progressbar"
                     style="?android:attr/progressBarStyleHorizontal"
+                    android:progress="@{viewModel.remainingHpList[0][0].progress}"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -71,7 +72,8 @@
                     android:id="@+id/move_1_min_hp_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="14sp" />
+                    android:textSize="14sp"
+                    app:intText="@{viewModel.remainingHpList[0][0].hp}"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -83,7 +85,8 @@
                     android:id="@+id/move_1_min_maxhp_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="14sp" />
+                    android:textSize="14sp"
+                    app:intText="@{viewModel.pokemon2.maxHp}"/>
             </LinearLayout>
 
             <LinearLayout
@@ -104,6 +107,7 @@
                 <ProgressBar
                     android:id="@+id/move_1_max_hp_progressbar"
                     style="?android:attr/progressBarStyleHorizontal"
+                    android:progress="@{viewModel.remainingHpList[0][1].progress}"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -113,7 +117,8 @@
                     android:id="@+id/move_1_max_hp_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="14sp" />
+                    android:textSize="14sp"
+                    app:intText="@{viewModel.remainingHpList[0][1].hp}"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -125,7 +130,8 @@
                     android:id="@+id/move_1_max_maxhp_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="14sp" />
+                    android:textSize="14sp"
+                    app:intText="@{viewModel.pokemon2.maxHp}"/>
             </LinearLayout>
 
             <LinearLayout
@@ -146,6 +152,7 @@
                 <ProgressBar
                     android:id="@+id/move_1_critical_min_hp_progressbar"
                     style="?android:attr/progressBarStyleHorizontal"
+                    android:progress="@{viewModel.remainingHpList[0][2].progress}"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -155,7 +162,8 @@
                     android:id="@+id/move_1_critical_min_hp_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="14sp" />
+                    android:textSize="14sp"
+                    app:intText="@{viewModel.remainingHpList[0][2].hp}"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -167,7 +175,8 @@
                     android:id="@+id/move_1_critical_min_maxhp_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="14sp" />
+                    android:textSize="14sp"
+                    app:intText="@{viewModel.pokemon2.maxHp}"/>
             </LinearLayout>
 
             <LinearLayout
@@ -188,6 +197,7 @@
                 <ProgressBar
                     android:id="@+id/move_1_critical_max_hp_progressbar"
                     style="?android:attr/progressBarStyleHorizontal"
+                    android:progress="@{viewModel.remainingHpList[0][3].progress}"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -197,7 +207,8 @@
                     android:id="@+id/move_1_critical_max_hp_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="14sp" />
+                    android:textSize="14sp"
+                    app:intText="@{viewModel.remainingHpList[0][3].hp}"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -209,7 +220,8 @@
                     android:id="@+id/move_1_critical_max_maxhp_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="14sp" />
+                    android:textSize="14sp"
+                    app:intText="@{viewModel.pokemon2.maxHp}"/>
             </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -253,6 +265,7 @@
                 <ProgressBar
                     android:id="@+id/move_2_min_hp_progressbar"
                     style="?android:attr/progressBarStyleHorizontal"
+                    android:progress="@{viewModel.remainingHpList[1][0].progress}"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -262,7 +275,8 @@
                     android:id="@+id/move_2_min_hp_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="14sp" />
+                    android:textSize="14sp"
+                    app:intText="@{viewModel.remainingHpList[1][0].hp}"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -274,7 +288,8 @@
                     android:id="@+id/move_2_min_maxhp_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="14sp" />
+                    android:textSize="14sp"
+                    app:intText="@{viewModel.pokemon2.maxHp}"/>
             </LinearLayout>
 
             <LinearLayout
@@ -295,6 +310,7 @@
                 <ProgressBar
                     android:id="@+id/move_2_max_hp_progressbar"
                     style="?android:attr/progressBarStyleHorizontal"
+                    android:progress="@{viewModel.remainingHpList[1][1].progress}"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -304,7 +320,8 @@
                     android:id="@+id/move_2_max_hp_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="14sp" />
+                    android:textSize="14sp"
+                    app:intText="@{viewModel.remainingHpList[1][1].hp}"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -316,7 +333,8 @@
                     android:id="@+id/move_2_max_maxhp_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="14sp" />
+                    android:textSize="14sp"
+                    app:intText="@{viewModel.pokemon2.maxHp}"/>
             </LinearLayout>
 
             <LinearLayout
@@ -337,6 +355,7 @@
                 <ProgressBar
                     android:id="@+id/move_2_critical_min_hp_progressbar"
                     style="?android:attr/progressBarStyleHorizontal"
+                    android:progress="@{viewModel.remainingHpList[1][2].progress}"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -346,7 +365,8 @@
                     android:id="@+id/move_2_critical_min_hp_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="14sp" />
+                    android:textSize="14sp"
+                    app:intText="@{viewModel.remainingHpList[1][2].hp}"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -358,7 +378,8 @@
                     android:id="@+id/move_2_critical_min_maxhp_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="14sp" />
+                    android:textSize="14sp"
+                    app:intText="@{viewModel.pokemon2.maxHp}"/>
             </LinearLayout>
 
             <LinearLayout
@@ -379,6 +400,7 @@
                 <ProgressBar
                     android:id="@+id/move_2_critical_max_hp_progressbar"
                     style="?android:attr/progressBarStyleHorizontal"
+                    android:progress="@{viewModel.remainingHpList[1][3].progress}"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -388,7 +410,8 @@
                     android:id="@+id/move_2_critical_max_hp_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="14sp" />
+                    android:textSize="14sp"
+                    app:intText="@{viewModel.remainingHpList[1][3].hp}"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -400,7 +423,8 @@
                     android:id="@+id/move_2_critical_max_maxhp_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="14sp" />
+                    android:textSize="14sp"
+                    app:intText="@{viewModel.pokemon2.maxHp}"/>
             </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -444,6 +468,7 @@
                 <ProgressBar
                     android:id="@+id/move_3_min_hp_progressbar"
                     style="?android:attr/progressBarStyleHorizontal"
+                    android:progress="@{viewModel.remainingHpList[2][0].progress}"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -453,7 +478,8 @@
                     android:id="@+id/move_3_min_hp_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="14sp" />
+                    android:textSize="14sp"
+                    app:intText="@{viewModel.remainingHpList[2][0].hp}"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -465,7 +491,8 @@
                     android:id="@+id/move_3_min_maxhp_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="14sp" />
+                    android:textSize="14sp"
+                    app:intText="@{viewModel.pokemon2.maxHp}"/>
             </LinearLayout>
 
             <LinearLayout
@@ -486,6 +513,7 @@
                 <ProgressBar
                     android:id="@+id/move_3_max_hp_progressbar"
                     style="?android:attr/progressBarStyleHorizontal"
+                    android:progress="@{viewModel.remainingHpList[2][1].progress}"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -495,7 +523,8 @@
                     android:id="@+id/move_3_max_hp_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="14sp" />
+                    android:textSize="14sp"
+                    app:intText="@{viewModel.remainingHpList[2][1].hp}"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -507,7 +536,8 @@
                     android:id="@+id/move_3_max_maxhp_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="14sp" />
+                    android:textSize="14sp"
+                    app:intText="@{viewModel.pokemon2.maxHp}"/>
             </LinearLayout>
 
             <LinearLayout
@@ -528,6 +558,7 @@
                 <ProgressBar
                     android:id="@+id/move_3_critical_min_hp_progressbar"
                     style="?android:attr/progressBarStyleHorizontal"
+                    android:progress="@{viewModel.remainingHpList[2][2].progress}"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -537,7 +568,8 @@
                     android:id="@+id/move_3_critical_min_hp_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="14sp" />
+                    android:textSize="14sp"
+                    app:intText="@{viewModel.remainingHpList[2][2].hp}"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -549,7 +581,8 @@
                     android:id="@+id/move_3_critical_min_maxhp_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="14sp" />
+                    android:textSize="14sp"
+                    app:intText="@{viewModel.pokemon2.maxHp}"/>
             </LinearLayout>
 
             <LinearLayout
@@ -570,6 +603,7 @@
                 <ProgressBar
                     android:id="@+id/move_3_critical_max_hp_progressbar"
                     style="?android:attr/progressBarStyleHorizontal"
+                    android:progress="@{viewModel.remainingHpList[2][3].progress}"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -579,7 +613,8 @@
                     android:id="@+id/move_3_critical_max_hp_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="14sp" />
+                    android:textSize="14sp"
+                    app:intText="@{viewModel.remainingHpList[2][3].hp}"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -591,7 +626,8 @@
                     android:id="@+id/move_3_critical_max_maxhp_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="14sp" />
+                    android:textSize="14sp"
+                    app:intText="@{viewModel.pokemon2.maxHp}"/>
             </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -635,6 +671,7 @@
                 <ProgressBar
                     android:id="@+id/move_4_min_hp_progressbar"
                     style="?android:attr/progressBarStyleHorizontal"
+                    android:progress="@{viewModel.remainingHpList[3][0].progress}"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -644,7 +681,8 @@
                     android:id="@+id/move_4_min_hp_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="14sp" />
+                    android:textSize="14sp"
+                    app:intText="@{viewModel.remainingHpList[3][0].hp}"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -656,7 +694,8 @@
                     android:id="@+id/move_4_min_maxhp_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="14sp" />
+                    android:textSize="14sp"
+                    app:intText="@{viewModel.pokemon2.maxHp}"/>
             </LinearLayout>
 
             <LinearLayout
@@ -677,6 +716,7 @@
                 <ProgressBar
                     android:id="@+id/move_4_max_hp_progressbar"
                     style="?android:attr/progressBarStyleHorizontal"
+                    android:progress="@{viewModel.remainingHpList[3][1].progress}"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -686,7 +726,8 @@
                     android:id="@+id/move_4_max_hp_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="14sp" />
+                    android:textSize="14sp"
+                    app:intText="@{viewModel.remainingHpList[3][1].hp}"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -698,7 +739,8 @@
                     android:id="@+id/move_4_max_maxhp_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="14sp" />
+                    android:textSize="14sp"
+                    app:intText="@{viewModel.pokemon2.maxHp}"/>
             </LinearLayout>
 
             <LinearLayout
@@ -719,6 +761,7 @@
                 <ProgressBar
                     android:id="@+id/move_4_critical_min_hp_progressbar"
                     style="?android:attr/progressBarStyleHorizontal"
+                    android:progress="@{viewModel.remainingHpList[3][2].progress}"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -728,7 +771,8 @@
                     android:id="@+id/move_4_critical_min_hp_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="14sp" />
+                    android:textSize="14sp"
+                    app:intText="@{viewModel.remainingHpList[3][2].hp}"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -740,7 +784,8 @@
                     android:id="@+id/move_4_critical_min_maxhp_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="14sp" />
+                    android:textSize="14sp"
+                    app:intText="@{viewModel.pokemon2.maxHp}"/>
             </LinearLayout>
 
             <LinearLayout
@@ -761,6 +806,7 @@
                 <ProgressBar
                     android:id="@+id/move_4_critical_max_hp_progressbar"
                     style="?android:attr/progressBarStyleHorizontal"
+                    android:progress="@{viewModel.remainingHpList[3][3].progress}"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -770,7 +816,8 @@
                     android:id="@+id/move_4_critical_max_hp_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="14sp" />
+                    android:textSize="14sp"
+                    app:intText="@{viewModel.remainingHpList[3][3].hp}"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -782,7 +829,8 @@
                     android:id="@+id/move_4_critical_max_maxhp_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="14sp" />
+                    android:textSize="14sp"
+                    app:intText="@{viewModel.pokemon2.maxHp}"/>
             </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>

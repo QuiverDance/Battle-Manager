@@ -1,13 +1,14 @@
 package com.example.battlemanager.presentation.main
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.example.battlemanager.domain.model.HpIndication
 import com.example.battlemanager.domain.model.Pokemon
 import com.example.battlemanager.presentation.PokemonMemory
 import com.example.battlemanager.presentation.global.base.BaseViewModel
 import com.example.battlemanager.presentation.global.constant.Stat
 import com.example.battlemanager.presentation.global.util.*
+import kotlin.math.ceil
 
 class MainViewModel : BaseViewModel() {
 
@@ -74,9 +75,9 @@ class MainViewModel : BaseViewModel() {
             pokemon2.pokemonInfo.name
         )
 
-        if(speed1 > speed2)
+        if (speed1 > speed2)
             _preemptivePokemon.postValue(1)
-        else if(speed2 > speed1)
+        else if (speed2 > speed1)
             _preemptivePokemon.postValue(2)
         else
             _preemptivePokemon.postValue(0)
@@ -104,5 +105,21 @@ class MainViewModel : BaseViewModel() {
     fun onShowInfo(pos: Int) {
         infoId.value = pos
         startShowInfo.call()
+    }
+
+    val remainingHpList = MutableList(4){ MutableList(4){MutableLiveData<HpIndication>()} }
+    fun setRemainingHpListByMove(col: Int, row: Int, moveIdx: Int, isCritical: Boolean, randType: Int){
+        val damage = DamageUtil.getDamage(
+            pokemon1.value!!,
+            pokemon2.value!!,
+            pokemon1.value!!.moves[moveIdx],
+            weather.value!!,
+            isCritical,
+            randType
+        )
+        val result = pokemon2.value!!.hp - damage
+        val progress = ceil(result.toDouble() / pokemon2.value!!.maxHp * 100).toInt()
+
+        remainingHpList[col][row].postValue(HpIndication(result, progress))
     }
 }
