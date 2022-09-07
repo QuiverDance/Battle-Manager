@@ -1,8 +1,6 @@
 package com.example.battlemanager.data.mapper
 
-import android.util.Log
 import com.example.battlemanager.data.model.PokemonResponse
-import com.example.battlemanager.domain.model.BaseStats
 import com.example.battlemanager.domain.model.PokemonInfo
 
 object PokemonMapper {

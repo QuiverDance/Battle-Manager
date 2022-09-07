@@ -1,7 +1,6 @@
 package com.example.battlemanager.domain.usecase.pokemon
 
 import com.example.battlemanager.data.repository.PokemonRepositoryImpl
-import com.example.battlemanager.domain.model.BaseStats
 import com.example.battlemanager.domain.model.PokemonInfo
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext

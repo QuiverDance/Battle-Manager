@@ -2,7 +2,6 @@ package com.example.battlemanager.presentation.global.util
 
 import com.example.battlemanager.domain.model.AbilityInfo
 import com.example.battlemanager.domain.model.ItemInfo
-import com.example.battlemanager.domain.model.RankStates
 import kotlin.math.floor
 
 object RealStatUtil {
