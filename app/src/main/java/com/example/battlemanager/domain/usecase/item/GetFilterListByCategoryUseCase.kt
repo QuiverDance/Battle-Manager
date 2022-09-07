@@ -22,7 +22,7 @@ class GetFilterListByCategoryUseCase @Inject constructor(private val itemReposit
     private fun getCorrectPosition(list: List<List<FilterItem>>, category: String): Int {
         var pos = list.size
         for ((idx, li) in list.withIndex()) {
-            if (li.isNotEmpty() && li[0].Type == category) {
+            if (li.isNotEmpty() && li[0].type == category) {
                 pos = idx
                 break
             }

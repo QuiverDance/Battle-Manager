@@ -4,5 +4,5 @@ data class FilterItem(
     val id : Int,
     val itemImage : String,
     val itemName : String,
-    val Type : String
+    val type : String
 )

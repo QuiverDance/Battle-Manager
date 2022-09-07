@@ -25,19 +25,9 @@ class FilterViewModel : ViewModel() {
     fun getFilterItemByCategory(list: List<FilterItem>, category: String): List<FilterItem>{
         val filterItemList = mutableListOf<FilterItem>()
         for(item in list){
-            if(item.Type == category)
+            if(item.type == category)
                 filterItemList.add(item)
         }
         return filterItemList
-    }
-
-    val startResult = SingleLiveEvent<Any>()
-    fun onStartResult() {
-        startResult.call()
-    }
-
-    val startSwap = SingleLiveEvent<Any>()
-    fun onStartSwap() {
-        startSwap.call()
     }
 }
