@@ -51,7 +51,7 @@ object DamageUtil {
     }
 
     private fun getAttackRealStat(move: MoveInfo, pokemon: Pokemon, weather: String): Int {
-        return if (move.type == "물리") RealStatUtil.getAttack(
+        return if (move.category == "물리") RealStatUtil.getAttack(
             pokemon.level,
             pokemon.pokemonInfo.baseStats[Stat.ATTACK],
             pokemon.individualValues[Stat.ATTACK],
@@ -79,7 +79,7 @@ object DamageUtil {
     }
 
     private fun getDefenseRealStat(move: MoveInfo, pokemon: Pokemon, weather: String): Int {
-        return if (move.type == "물리") RealStatUtil.getDefense(
+        return if (move.category == "물리") RealStatUtil.getDefense(
             pokemon.level,
             pokemon.pokemonInfo.baseStats[Stat.DEFENSE],
             pokemon.individualValues[Stat.DEFENSE],
