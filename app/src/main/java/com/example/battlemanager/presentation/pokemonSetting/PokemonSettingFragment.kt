@@ -1,8 +1,5 @@
 package com.example.battlemanager.presentation.pokemonSetting
 
-import android.view.View
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.battlemanager.R
@@ -50,7 +47,7 @@ class PokemonSettingFragment : BaseFragment<FragmentPokemonSettingBinding>() {
             pokemonDialog.show(childFragmentManager, "pokemon")
         }
         viewModel.startSetSpinner.observe(this) {
-            setSpinner()
+            setSpinnerItemList()
             setHp()
         }
         viewModel.selectedMove.observe(this){
@@ -74,80 +71,11 @@ class PokemonSettingFragment : BaseFragment<FragmentPokemonSettingBinding>() {
         }
     }
 
-    private fun setSpinner() {
+    private fun setSpinnerItemList() {
         viewModel.setGenderList()
-        binding.genderSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(
-                parent: AdapterView<*>?,
-                view: View?,
-                position: Int,
-                id: Long
-            ) {
-                viewModel.setGender(GenderUtil.getGenderId(viewModel.genderList.value!![position]))
-            }
-
-            override fun onNothingSelected(parent: AdapterView<*>?) {
-                viewModel.setGender(GenderUtil.getGenderId(viewModel.genderList.value!![0]))
-            }
-
-        }
-
         viewModel.setAbilityList()
-        binding.abilitySpinner.onItemSelectedListener =
-            object : AdapterView.OnItemSelectedListener {
-                override fun onItemSelected(
-                    parent: AdapterView<*>?,
-                    view: View?,
-                    position: Int,
-                    id: Long
-                ) {
-                    viewModel.setAbility(viewModel.abilityList.value!![position])
-                    return
-                }
-
-                override fun onNothingSelected(parent: AdapterView<*>?) {
-                    viewModel.setAbility(viewModel.abilityList.value!![0])
-                }
-
-            }
-
         viewModel.setStatusAbnormalityList()
-        binding.statusAbnormalitySpinner.onItemSelectedListener =
-            object : AdapterView.OnItemSelectedListener {
-                override fun onItemSelected(
-                    parent: AdapterView<*>?,
-                    view: View?,
-                    position: Int,
-                    id: Long
-                ) {
-                    viewModel.setStatusAbnormality(viewModel.statusAbnormalityList.value!![position])
-                    return
-                }
-
-                override fun onNothingSelected(parent: AdapterView<*>?) {
-                    viewModel.setStatusAbnormality(viewModel.statusAbnormalityList.value!![0])
-                }
-
-            }
-
         viewModel.setNatureList()
-        binding.natureSpinner.onItemSelectedListener =
-            object : AdapterView.OnItemSelectedListener {
-                override fun onItemSelected(
-                    parent: AdapterView<*>?,
-                    view: View?,
-                    position: Int,
-                    id: Long
-                ) {
-                    viewModel.setNature(viewModel.natureList.value!![position])
-                    return
-                }
-
-                override fun onNothingSelected(parent: AdapterView<*>?) {
-                    viewModel.setNature(viewModel.natureList.value!![0])
-                }
-
-            }
     }
 
     private fun setHp() {
@@ -159,9 +87,9 @@ class PokemonSettingFragment : BaseFragment<FragmentPokemonSettingBinding>() {
             0,
             0
         )
-        binding.hpSeekBar.max = initHp
+        viewModel.maxHp.postValue(initHp)
         viewModel.hp.value = initHp
-        viewModel.hpText.value = initHp.toString()
+        viewModel.hpText.postValue(initHp.toString())
 
         viewModel.hp.observe(this) {
             viewModel.hpText.value = it.toString()
@@ -176,7 +104,7 @@ class PokemonSettingFragment : BaseFragment<FragmentPokemonSettingBinding>() {
                     viewModel.ivList[0].value!!.toInt(),
                     viewModel.evList[0].value!!.toInt()
                 )
-                binding.hpSeekBar.max = maxHp
+                viewModel.maxHp.postValue(maxHp)
             }
             catch (e : NumberFormatException){}
         }
@@ -188,7 +116,7 @@ class PokemonSettingFragment : BaseFragment<FragmentPokemonSettingBinding>() {
                     viewModel.ivList[0].value!!.toInt(),
                     viewModel.evList[0].value!!.toInt()
                 )
-                binding.hpSeekBar.max = maxHp
+                viewModel.maxHp.postValue(maxHp)
             }
             catch (e : NumberFormatException){}
         }
@@ -201,7 +129,7 @@ class PokemonSettingFragment : BaseFragment<FragmentPokemonSettingBinding>() {
                     it.toInt(),
                     viewModel.evList[0].value!!.toInt()
                 )
-                binding.hpSeekBar.max = maxHp
+                viewModel.maxHp.postValue(maxHp)
             }
             catch (e : NumberFormatException){}
         }
@@ -214,7 +142,7 @@ class PokemonSettingFragment : BaseFragment<FragmentPokemonSettingBinding>() {
                     viewModel.ivList[0].value!!.toInt(),
                     it.toInt()
                 )
-                binding.hpSeekBar.max = maxHp
+                viewModel.maxHp.postValue(maxHp)
             }
             catch(e : NumberFormatException){}
         }

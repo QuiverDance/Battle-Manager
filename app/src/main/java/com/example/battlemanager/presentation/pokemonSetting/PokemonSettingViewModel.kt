@@ -1,5 +1,6 @@
 package com.example.battlemanager.presentation.pokemonSetting
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
@@ -106,33 +107,26 @@ class PokemonSettingViewModel @Inject constructor(
     val level = MutableLiveData("50")
     val hp = MutableLiveData(0)
     val hpText = MutableLiveData("0")
+    val maxHp = MutableLiveData(0)
 
     val ivList = MutableList(6){MutableLiveData("0")}
     val evList = MutableList(6){MutableLiveData("0")}
     val rankList = MutableList(8){MutableLiveData("0")}
 
-    private val _gender = MutableLiveData<String>()
-    val gender: LiveData<String> get() = _gender
+    val gender = MutableLiveData<String>()
     val genderList = MutableLiveData<List<String>>()
-    fun setGender(id: Int) = _gender.postValue(GenderUtil.genderToString(id))
     fun setGenderList() = genderList.postValue(GenderUtil.getGenderList(pokemonInfo.value!!.validGender))
 
-    private val _ability = MutableLiveData<String>()
-    val ability: LiveData<String> get() = _ability
+    val ability = MutableLiveData<String>()
     val abilityList = MutableLiveData<List<String>>()
-    fun setAbility(value: String) = _ability.postValue(value)
     fun setAbilityList() = abilityList.postValue(pokemonInfo.value!!.validAbilityList)
 
-    private val _statusAbnormality = MutableLiveData<String>()
-    val statusAbnormality: LiveData<String> get() = _statusAbnormality
+    val statusAbnormality = MutableLiveData<String>()
     val statusAbnormalityList = MutableLiveData<List<String>>()
-    fun setStatusAbnormality(value: String) = _statusAbnormality.postValue(value)
     fun setStatusAbnormalityList() = statusAbnormalityList.postValue(StatusAbnormalityUtil.getStatusAbnormalityList())
 
-    private val _nature = MutableLiveData<String>()
-    val nature: LiveData<String> get() = _nature
+    val nature = MutableLiveData<String>()
     val natureList = MutableLiveData<List<String>>()
-    fun setNature(value: String) = _nature.postValue(value)
     fun setNatureList() = natureList.postValue(NatureUtil.getNatureList())
 
     private val _moveList =
@@ -156,13 +150,13 @@ class PokemonSettingViewModel @Inject constructor(
             AbilityInfo(0, ability.value!!, ""),
             _itemInfo.value!!,
             _moveList.value!!,
-            NatureUtil.getNatureId(_nature.value!!),
+            NatureUtil.getNatureId(nature.value!!),
             getEffortValues(),
             getIndividualValues(),
             getRankStates(),
             StatusAbnormalityUtil.getStatusAbnormalityId(statusAbnormality.value!!),
             hp.value!!,
-            _gender.value!!
+            gender.value!!
         )
     }
 
@@ -216,13 +210,16 @@ class PokemonSettingViewModel @Inject constructor(
     }
 
     fun initPokemonInfo(pokemon: Pokemon){
-        _pokemonInfo.postValue(pokemon.pokemonInfo)
-        _ability.postValue(pokemon.ability.name)
-        _gender.postValue(pokemon.gender)
+        getPokemonInfo(pokemon.pokemonInfo.name)
+        ability.postValue(pokemon.ability.name)
+        gender.postValue(pokemon.gender)
         _itemInfo.postValue(pokemon.item)
-        _nature.postValue(NatureUtil.natureToString(pokemon.nature))
-        _statusAbnormality.postValue(StatusAbnormalityUtil.StatusAbnormalityToString(pokemon.statusAbnormality))
+        nature.postValue(NatureUtil.natureToString(pokemon.nature))
+        statusAbnormality.postValue(StatusAbnormalityUtil.StatusAbnormalityToString(pokemon.statusAbnormality))
         level.postValue(pokemon.level.toString())
+        hp.value = pokemon.hp
+        hpText.postValue(pokemon.hp.toString())
+        maxHp.postValue(pokemon.maxHp)
 
         for(i in 0..5){
             ivList[i].postValue(pokemon.individualValues[i].toString())

@@ -1,8 +1,5 @@
 package com.example.battlemanager.presentation.main
 
-import android.view.View
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
 import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -11,7 +8,6 @@ import com.example.battlemanager.databinding.FragmentMainBinding
 import com.example.battlemanager.presentation.global.base.BaseFragment
 import com.example.battlemanager.presentation.PokemonMemory
 import com.example.battlemanager.presentation.dialog.pokemonInfo.InfoDialogFragment
-import com.example.battlemanager.presentation.global.util.FieldUtil
 
 class MainFragment : BaseFragment<FragmentMainBinding>() {
     override val layoutResourceId = R.layout.fragment_main
@@ -20,7 +16,7 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
     override fun initState() {
         super.initState()
         setPokemon()
-        setSpinner()
+        setSpinnerItemList()
     }
 
     override fun initDataBinding() {
@@ -63,43 +59,8 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
             viewModel.setPreemptivePokemon()
     }
 
-    private fun setSpinner() {
+    private fun setSpinnerItemList() {
         viewModel.setWeatherList()
-        binding.weatherSpinner.onItemSelectedListener =
-            object : AdapterView.OnItemSelectedListener {
-                override fun onItemSelected(
-                    parent: AdapterView<*>?,
-                    view: View?,
-                    position: Int,
-                    id: Long
-                ) {
-                    viewModel.setWeather(viewModel.weatherList.value!![position])
-                    return
-                }
-
-                override fun onNothingSelected(parent: AdapterView<*>?) {
-                    viewModel.setWeather(viewModel.weatherList.value!![0])
-                }
-
-            }
-
         viewModel.setFieldList()
-        binding.fieldSpinner.onItemSelectedListener =
-            object : AdapterView.OnItemSelectedListener {
-                override fun onItemSelected(
-                    parent: AdapterView<*>?,
-                    view: View?,
-                    position: Int,
-                    id: Long
-                ) {
-                    viewModel.setField(viewModel.fieldList.value!![position])
-                    return
-                }
-
-                override fun onNothingSelected(parent: AdapterView<*>?) {
-                    viewModel.setField(viewModel.fieldList.value!![0])
-                }
-
-            }
     }
 }

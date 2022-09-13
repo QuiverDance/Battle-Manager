@@ -279,7 +279,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="28dp"
                 android:layout_marginStart="4dp"
-                app:items="@{viewModel.weatherList}"
+                android:entries="@{viewModel.weatherList}"
+                selectedValue="@={viewModel.weather}"
+                items="@{viewModel.weatherList}"
                 app:layout_constraintTop_toTopOf="@id/weather_text"
                 app:layout_constraintStart_toEndOf="@id/weather_text"
                 app:layout_constraintBottom_toBottomOf="@id/weather_text"/>
@@ -297,7 +299,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="28dp"
                 android:layout_marginStart="4dp"
-                app:items="@{viewModel.fieldList}"
+                android:entries="@{viewModel.fieldList}"
+                selectedValue="@={viewModel.field}"
+                items="@{viewModel.fieldList}"
                 app:layout_constraintTop_toTopOf="@id/field_text"
                 app:layout_constraintStart_toEndOf="@id/field_text"
                 app:layout_constraintBottom_toBottomOf="@id/field_text"/>

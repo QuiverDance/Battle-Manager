@@ -29,12 +29,8 @@ class MainViewModel : BaseViewModel() {
         else _pokemon2.postValue(pokemon)
     }
 
-    private val _weather = MutableLiveData<String>("없음")
-    private val _field = MutableLiveData<String>("없음")
-    val weather: LiveData<String> get() = _weather
-    val field: LiveData<String> get() = _field
-    fun setWeather(value: String) = _weather.postValue(value)
-    fun setField(value: String) = _field.postValue(value)
+    val weather = MutableLiveData<String>("없음")
+    val field = MutableLiveData<String>("없음")
 
     val weatherList = MutableLiveData<List<String>>()
     fun setWeatherList() = weatherList.postValue(FieldUtil.getWeatherList())
